@@ -34,8 +34,6 @@ namespace HHD_StartItJam
             this._Current = new Scene2D("Test");
             this._Current.Transformation.Scale =new Vertex(_GlobalScale,_GlobalScale,0);
             this._Game.Scenes.Add(this._Current);
-            DrawnSceneObject Dragon = (DrawnSceneObject)this._EFX.Load("Data/Dragon.efx");
-            this._Current.AddSceneObject(Dragon);
             this._Logic = new SceneLogic(this._Current);
         }
         public void Run()

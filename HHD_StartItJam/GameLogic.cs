@@ -28,7 +28,7 @@ namespace HHD_StartItJam
             this._Runner.WindowState = OpenTK.WindowState.Normal;
             Engineer.Engine.Settings.GraphicsQuality = Quality.High;
             this._Current = new Scene2D("Test");
-            this._Game.AddScene(this._Current);
+            this._Game.Scenes.Add(this._Current);
             DrawnSceneObject Dragon = (DrawnSceneObject)this._EFX.Load("Data/Dragon.efx");
             this._Current.AddSceneObject(Dragon);
         }

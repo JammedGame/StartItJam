@@ -32,33 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Engineer.Data">
-      <HintPath>..\DLL\Engineer.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Draw">
-      <HintPath>..\DLL\Engineer.Draw.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Draw.OpenGL">
-      <HintPath>..\DLL\Engineer.Draw.OpenGL.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Engine">
-      <HintPath>..\DLL\Engineer.Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Engine.IO">
-      <HintPath>..\DLL\Engineer.Engine.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Engine.Physics">
-      <HintPath>..\DLL\Engineer.Engine.Physics.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.IO">
-      <HintPath>..\DLL\Engineer.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Mathematics">
-      <HintPath>..\DLL\Engineer.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Engineer.Runner">
-      <HintPath>..\DLL\Engineer.Runner.dll</HintPath>
-    </Reference>
     <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
@@ -107,6 +80,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleApplication1\Engineer.Runner.csproj">
+      <Project>{938502d1-1b08-480a-b631-bcab1e67a298}</Project>
+      <Name>Engineer.Runner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.Data\Engineer.Data.csproj">
+      <Project>{27001881-9739-4d9f-8bbe-57afd825996a}</Project>
+      <Name>Engineer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.Draw\Engineer.Draw.csproj">
+      <Project>{cb524cc3-ddad-4e7f-8112-253896a2857c}</Project>
+      <Name>Engineer.Draw</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.Engine.IO\Engineer.Engine.IO.csproj">
+      <Project>{f07efd68-8268-436a-8917-95284792bad5}</Project>
+      <Name>Engineer.Engine.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.Engine\Engineer.Engine.csproj">
+      <Project>{efb51f33-46a8-4367-a8a3-9e647ca6bbe7}</Project>
+      <Name>Engineer.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.IO\Engineer.IO.csproj">
+      <Project>{e609ebc6-3b93-4386-a4a2-f96c00b376e7}</Project>
+      <Name>Engineer.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.Mathematics\Engineer.Mathematics.csproj">
+      <Project>{c808fad5-1905-4463-8f73-d8f3bb19eeb6}</Project>
+      <Name>Engineer.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engineer.OpenGL\Engineer.Draw.OpenGL.csproj">
+      <Project>{71f8aad9-38bc-4115-aefb-350ccbf9d06f}</Project>
+      <Name>Engineer.Draw.OpenGL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

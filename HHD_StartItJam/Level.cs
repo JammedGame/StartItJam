@@ -16,13 +16,15 @@ namespace HHD_StartItJam
 
         public static void Create(Scene2D CScene)
         {
+
+
             DrawnSceneObject Back = CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(1920, 900, 0));
             CScene.AddSceneObject(Back);
-            DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 300, 0));
+            DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 300, 0), true);
             CScene.AddSceneObject(Surface);
-            DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(300, 850, 0), new Vertex(1200, 50, 0));
+            DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(300, 850, 0), new Vertex(1200, 50, 0), true);
             CScene.AddSceneObject(Floor);
-            DrawnSceneObject Ceiling = CreateStaticSprite("Ceiling", ResourceManager.Images["Floor"], new Vertex(300, 250, 0), new Vertex(1200, 50, 0));
+            DrawnSceneObject Ceiling = CreateStaticSprite("Ceiling", ResourceManager.Images["Floor"], new Vertex(300, 250, 0), new Vertex(1200, 50, 0), true);
             CScene.AddSceneObject(Ceiling);
             DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(300, 300, 0), new Vertex(300, 550, 0));
             CScene.AddSceneObject(BackWall);
@@ -38,16 +40,21 @@ namespace HHD_StartItJam
             CScene.AddSceneObject(RightWall);
         }
 
-        public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size)
+        public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size, bool Colidable = false)
         {
             Positon = new Vertex(Positon.X , Positon.Y  , 0);
             Size = new Vertex(Size.X , Size.Y , 0);
-            SpriteSet StaticSet = new SpriteSet("Static", Image);
-            Sprite StaticSprite = new Sprite();
-            StaticSprite.SpriteSets.Add(StaticSet);
-            StaticSprite.Translation = Positon;
-            StaticSprite.Scale = Size;
-            DrawnSceneObject Static = new DrawnSceneObject(Name, StaticSprite);
+
+            TileCollection BItmaps = new TileCollection(Image);
+
+            Tile SomethingOnScene = new Tile();
+
+            SomethingOnScene.Collection = BItmaps;
+
+            SomethingOnScene.Translation = Positon;
+            SomethingOnScene.Scale = Size;
+            DrawnSceneObject Static = new DrawnSceneObject(Name, SomethingOnScene);
+            Static.Data["Colision"] = Colidable;
             return Static;
         }
     }

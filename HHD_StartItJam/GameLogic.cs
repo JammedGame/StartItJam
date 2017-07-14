@@ -20,14 +20,15 @@ namespace HHD_StartItJam
         private Game _Game;
         private Scene _Menu;
         private Scene2D _Current;
+        private SceneLogic _Logic;
         public GameLogic()
         {
-            GameLogic._GlobalScale = _Runner.Height / 1080.0f;
             ResourceManager _ResMan = new ResourceManager();
             _ResMan.Init();
             this._EFX = new EFXInterface();
             this._Game = new Game();
             this._Runner = new ExternRunner(1024, 600, new GraphicsMode(32, 24, 0, 8), "Death de sombre!");
+            GameLogic._GlobalScale = _Runner.Height / 1080.0f;
             this._Runner.WindowState = OpenTK.WindowState.Normal;
             Engineer.Engine.Settings.GraphicsQuality = Quality.High;
             this._Current = new Scene2D("Test");
@@ -35,6 +36,7 @@ namespace HHD_StartItJam
             this._Game.Scenes.Add(this._Current);
             DrawnSceneObject Dragon = (DrawnSceneObject)this._EFX.Load("Data/Dragon.efx");
             this._Current.AddSceneObject(Dragon);
+            this._Logic = new SceneLogic(this._Current);
         }
         public void Run()
         {

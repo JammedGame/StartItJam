@@ -13,6 +13,7 @@ namespace HHD_StartItJam
         public SceneLogic(Scene2D CScene)
         {
             this._Scene = CScene;
+            Level.Create(this._Scene);
         }
     }
 }

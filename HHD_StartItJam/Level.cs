@@ -14,26 +14,20 @@ namespace HHD_StartItJam
     class Level
     {      
 
-        public static void Create(Scene2D CScene, ExternRunner Runner)
+        public static void Create(Scene2D CScene)
         {
-
             DrawnSceneObject Back = CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(1920, 850, 0));
             CScene.Data["Back"] = Back;
             CScene.AddSceneObject(Back);
-
-            
-            DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 825, 0), new Vertex(1920, 50, 0));
+            DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 825, 0), new Vertex(1920, 300, 0));
             CScene.Data["Surface"] = Surface;
             CScene.AddSceneObject(Surface);          
         }
 
-        public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size, bool ApplyGlobalScale = true)
+        public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size)
         {
-           
-            
-                Positon = new Vertex(Positon.X , Positon.Y  , 0);
-                Size = new Vertex(Size.X , Size.Y , 0);
-            
+            Positon = new Vertex(Positon.X , Positon.Y  , 0);
+            Size = new Vertex(Size.X , Size.Y , 0);
             SpriteSet StaticSet = new SpriteSet("Static", Image);
             Sprite StaticSprite = new Sprite();
             StaticSprite.SpriteSets.Add(StaticSet);

@@ -8,18 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Engineer.Engine.IO;
+using Engineer.Mathematics;
 
 namespace HHD_StartItJam
 {
     public class GameLogic
     {
+        public static float _GlobalScale;
         private EFXInterface _EFX;
         private ExternRunner _Runner;
         private Game _Game;
         private Scene _Menu;
-        private Scene _Current;
+        private Scene2D _Current;
         public GameLogic()
         {
+            GameLogic._GlobalScale = _Runner.Height / 1080.0f;
             ResourceManager _ResMan = new ResourceManager();
             _ResMan.Init();
             this._EFX = new EFXInterface();
@@ -28,6 +31,7 @@ namespace HHD_StartItJam
             this._Runner.WindowState = OpenTK.WindowState.Normal;
             Engineer.Engine.Settings.GraphicsQuality = Quality.High;
             this._Current = new Scene2D("Test");
+            this._Current.Transformation.Scale =new Vertex(_GlobalScale,_GlobalScale,0);
             this._Game.Scenes.Add(this._Current);
             DrawnSceneObject Dragon = (DrawnSceneObject)this._EFX.Load("Data/Dragon.efx");
             this._Current.AddSceneObject(Dragon);

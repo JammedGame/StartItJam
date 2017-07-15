@@ -12,26 +12,32 @@ using System.Threading.Tasks;
 namespace HHD_StartItJam
 {
     class Level
-    {      
-
+    {
+        public static bool[,] FloorTaken = new bool[5, 100];
         public static void Create(Scene2D CScene)
         {
             //DrawnSceneObject Back = CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(1920, 900, 0));
             //CScene.AddSceneObject(Back);
             DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 1000, 0), true);
             CScene.AddSceneObject(Surface);
-            CreateRoom(CScene, 300, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false});
-            CreateRoom(CScene, 1800, 3, 0, new int[] { 0, 1 }, new bool[] {true, false, false});
-            CreateRoom(CScene, 300, 3, 1, new int[] { 0, 2 }, null);
-            CreateRoom(CScene, 1200, 5, 1, new int[] { 2, 0 }, null);
+            CreateRoom(CScene, 1, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false});
+            CreateRoom(CScene, 6, 3, 0, new int[] { 0, 1 }, new bool[] {true, false, false});
+            CreateRoom(CScene, 1, 3, 1, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 4, 5, 1, new int[] { 2, 0 }, null);
         }
-        public static void CreateRoom(Scene2D CScene, int Location, int Length, int Level, int[] Enterances, bool[] Stairs)
+        public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {
+            for(int i = 0; i < Length; i++)
+            {
+                FloorTaken[Level, XLocation + i] = true;
+            }
+            int Location = XLocation * 300;
             if (Enterances == null) Enterances = new int[]{0, 0};
             if (Stairs == null) Stairs = new bool[Length];
             for (int i = 0; i < Length; i++)
             {
-                CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level, Stairs[i]);
+                if(Level != 0 && !FloorTaken[Level-1, XLocation + i]) CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), -1, Stairs[i]);
+                else CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level, Stairs[i]);
             }
             if(Enterances[0] == 1)
             {
@@ -57,6 +63,11 @@ namespace HHD_StartItJam
             if (Level == 0)
             {
                 DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true, Collision2DType.Rectangular);
+                CScene.AddSceneObject(Floor);
+            }
+            else if (Level == -1)
+            {
+                DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true, Collision2DType.Rectangular);
                 CScene.AddSceneObject(Floor);
             }
             DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));

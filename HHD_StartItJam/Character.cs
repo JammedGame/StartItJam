@@ -3,6 +3,7 @@ using Engineer.Engine.IO;
 using Engineer.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace HHD_StartItJam
             EFXInterface EFX = new EFXInterface();
             DrawnSceneObject Char = (DrawnSceneObject)EFX.Load("Data/knight.efx");
             ((Sprite)Char.Visual).SetSpriteSet("Idle");
-
+            ((Sprite)Char.Visual).Paint = Color.White;
             Char.Visual.Scale = new Vertex(250 , 250 , 0);
             Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);           
 

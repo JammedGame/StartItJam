@@ -66,6 +66,7 @@ namespace Engineer.Engine
             this._SpriteSets = new List<SpriteSet>();
             this.Scale = new Mathematics.Vertex(100,100,1);
             this._SubSprites = new List<Sprite>();
+            this._Paint = Color.White;
         }
         public Sprite(Sprite S) : base(S)
         {
@@ -74,7 +75,8 @@ namespace Engineer.Engine
             this._SpriteSets = new List<SpriteSet>();
             for (int i = 0; i < S._SpriteSets.Count; i++) this._SpriteSets.Add(new SpriteSet(S._SpriteSets[i]));
             this._SubSprites = new List<Sprite>();
-            for(int i = 0; i <S.SubSprites.Count; i++)
+            this._Paint = Color.White;
+            for (int i = 0; i <S.SubSprites.Count; i++)
             {
                 _SubSprites.Add(new Sprite(S.SubSprites[i]));
             }

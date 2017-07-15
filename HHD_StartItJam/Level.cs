@@ -37,10 +37,10 @@ namespace HHD_StartItJam
             {
                 CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level);
             }
-            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Vertical);
+            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Rectangular);
             LeftWall.Data["XCollision"] = true;
             CScene.AddSceneObject(LeftWall);
-            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Vertical);
+            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Rectangular);
             RightWall.Data["XCollision"] = true;
             CScene.AddSceneObject(RightWall);
         }
@@ -50,7 +50,7 @@ namespace HHD_StartItJam
             CScene.AddSceneObject(Ceiling);
             if (Level == 0)
             {
-                DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true);
+                DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true, Collision2DType.Rectangular);
                 CScene.AddSceneObject(Floor);
             }
             DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));

@@ -24,6 +24,14 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 6, 3, 0, new int[] { 0, 1 }, new bool[] {true, false, false});
             CreateRoom(CScene, 1, 3, 1, new int[] { 0, 2 }, null);
             CreateRoom(CScene, 4, 5, 1, new int[] { 2, 0 }, null);
+
+            CreateRoom(CScene, 12, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true});
+            CreateRoom(CScene, 15, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
+            CreateRoom(CScene, 18, 2, 0, new int[] { 0, 1 }, null);
+            CreateRoom(CScene, 12, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
+            CreateRoom(CScene, 15, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
+            CreateRoom(CScene, 11, 5, 2, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 16, 3, 2, new int[] { 2, 0 }, null);
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {

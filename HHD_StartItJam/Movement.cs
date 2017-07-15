@@ -104,6 +104,7 @@ namespace HHD_StartItJam
         {
             if (_BlockEvents) return;
             this._BlockEvents = true;
+            Runner.BlockDraw = true;
             Trans = new Vertex();
             if ((int)_Player.Data["skokBrojac"] > 0)
             {
@@ -143,6 +144,7 @@ namespace HHD_StartItJam
                 if (CScene.Objects[i].Name == "Surface") CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y, 0);
                 CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
             }
+            Runner.BlockDraw = false;
             this._BlockEvents = false;
         }
 

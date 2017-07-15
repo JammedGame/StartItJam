@@ -21,6 +21,8 @@ namespace Engineer.Runner
 {
     public class Runner : OpenTK.GameWindow
     {
+        public static bool BlockDraw = false;
+
         private int _Seed;
         private int _FrameUpdateRate;
         protected bool _GameInit;
@@ -84,6 +86,7 @@ namespace Engineer.Runner
         }
         protected override void OnRenderFrame(FrameEventArgs e)
         {
+            if (BlockDraw) return;
             if (!_GameInit || !_EngineInit) return;
             this.MakeCurrent();
             if (_CurrentScene.Type == SceneType.Scene2D)

@@ -22,6 +22,7 @@ namespace Engineer.Engine
     public class DrawObject
     {
         private bool _Active;
+        private bool _Fixed;
         private string _Name;
         private string _ID;
         private DrawObjectType _Type;
@@ -112,9 +113,11 @@ namespace Engineer.Engine
                 _Rotation = value;
             }
         }
+        public bool Fixed { get => _Fixed; set => _Fixed = value; }
         public DrawObject()
         {
             this._Active = true;
+            this._Fixed = false;
             this._Name = this._ID = Guid.NewGuid().ToString();
             this._Type = DrawObjectType.Undefined;
             this._Translation = new Vertex();
@@ -124,6 +127,7 @@ namespace Engineer.Engine
         public DrawObject(DrawObject Object)
         {
             this._Active = Object.Active;
+            this._Fixed = Object.Fixed;
             this._ID = Guid.NewGuid().ToString();
             this._Name = Object.Name;
             this._Type = Object.Type;

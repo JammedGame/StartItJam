@@ -216,7 +216,7 @@ namespace HHD_StartItJam
                     HB.subHealth(1);
                     if (HB.empty())
                     {
-                        // End of game
+                        GameLogic.Create().RunMenu();
                     }
                 }
             }

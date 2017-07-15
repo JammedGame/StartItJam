@@ -53,7 +53,7 @@ namespace HHD_StartItJam
             Menu M = new Menu();
             //this._Runner.Init(this._Game, this._Current);
             this._Runner.Init(this._Game, M.CreateMenuScene(this._Runner));
-            this._Runner.Run();
+           // this._Runner.Run();
         }
         public void RunGame()
         {

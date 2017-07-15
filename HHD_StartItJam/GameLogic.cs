@@ -42,7 +42,7 @@ namespace HHD_StartItJam
             this._Logic = new SceneLogic(this._Current);
             _Player = Character.Create(this._Current);
             CreateCharacter();
-            this._Movement = new Movement(_Runner, _Player);
+            this._Movement = new Movement(_Runner, _Player, _Current);
             _Current.Events.Extern.TimerTick += new GameEventHandler(GameUpdateEvent);
             _Current.Events.Extern.KeyDown += new GameEventHandler(_Movement.KeyDownEvent);
             _Current.Events.Extern.KeyUp += new GameEventHandler(_Movement.KeyUpEvent);
@@ -55,7 +55,9 @@ namespace HHD_StartItJam
         }
         public void GameUpdateEvent(Game G, EventArguments E)
         {
+            _Movement.Gravity();
             _Movement.WalkLeftRight();
+            _Movement.CheckCollision();
         }
         private void CreateCharacter()
         {

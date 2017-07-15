@@ -20,11 +20,9 @@ namespace HHD_StartItJam
             EFXInterface EFX = new EFXInterface();
             DrawnSceneObject Char = (DrawnSceneObject)EFX.Load("Data/knight.efx");
             ((Sprite)Char.Visual).SetSpriteSet("Idle");
-            ((Sprite)Char.Visual).SetSpriteSet("Walk");
-            ((Sprite)Char.Visual).SetSpriteSet("Attack");
 
             Char.Visual.Scale = new Vertex(250 , 250 , 0);
-            Char.Visual.Translation = new Vertex(100,900-Char.Visual.Scale.Y, 0);           
+            Char.Visual.Translation = new Vertex(20,300-Char.Visual.Scale.Y, 0);           
 
             CScene.AddSceneObject(Char);
                         

@@ -13,7 +13,8 @@ namespace HHD_StartItJam
         {
             for(int i = 0; i < CurrentScene.Objects.Count; i++)
             {
-                if(CurrentScene.Objects[i].Data.ContainsKey("Collision") && (bool)CurrentScene.Objects[i].Data["Collision"] == true)
+                if (CurrentScene.Objects[i].ID == CurrentObject.ID) continue;
+                if (CurrentScene.Objects[i].Data.ContainsKey("Collision") && (bool)CurrentScene.Objects[i].Data["Collision"] == true)
                 {
                     if (((Sprite)CurrentObject.Visual).InCollision(CurrentScene.Objects[i].Visual, Engineer.Mathematics.Collision2DType.Rectangular))
                     {

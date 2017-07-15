@@ -15,13 +15,21 @@ namespace HHD_StartItJam
         public bool _DDown;
         public bool _WDown;
         public bool _SDown;
+        private bool CollisionX=false;
+        private bool CollisionY=false;
+        private bool GravityOn = true;
+
         private Runner _Runner;
         private DrawnSceneObject _Player;
+        private Scene2D CScene;
+
         //private List<DrawnSceneObject> _Colliders = new List<DrawnSceneObject>();        
-        public Movement(Runner NewRunner, DrawnSceneObject Player)
+        public Movement(Runner NewRunner, DrawnSceneObject Player, Scene2D CScene)
         {
             this._Runner = NewRunner;
             this._Player = Player;
+            this.CScene = CScene;
+
             //this._Colliders = Colliders;           
         }
 
@@ -29,9 +37,23 @@ namespace HHD_StartItJam
         {
             //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.W) _WDown = true;
-            if (E.KeyDown == KeyType.A) _ADown = true;
+            if (E.KeyDown == KeyType.A)
+            {
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
+                _ADown = true;
+            }
             if (E.KeyDown == KeyType.S) _SDown = true;
-            if (E.KeyDown == KeyType.D) _DDown = true;
+            if (E.KeyDown == KeyType.D)
+            {
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
+                _DDown = true;
+            }
+
+            if (E.KeyDown == KeyType.K)
+            {
+                ((Sprite)_Player.Visual).BackUpSpriteSet = 0;
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
+            }
         }
         public void KeyUpEvent(Game G, EventArguments E)
         {
@@ -39,10 +61,25 @@ namespace HHD_StartItJam
             {
                 return;
             }*/
-            if (E.KeyDown == KeyType.W) _WDown = false;
-            if (E.KeyDown == KeyType.A) _ADown = false;
-            if (E.KeyDown == KeyType.S) _SDown = false;
-            if (E.KeyDown == KeyType.D) _DDown = false;
+            if (E.KeyDown == KeyType.W)
+            {
+                _WDown = false;
+            }
+            if (E.KeyDown == KeyType.A)
+            {
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                _ADown = false;
+            }
+            if (E.KeyDown == KeyType.S)
+            {
+                _SDown = false;
+            }
+            if (E.KeyDown == KeyType.D)
+            {
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                _DDown = false;
+            }
+
         }
         public void KeyDownEvent(Game G, EventArguments E)
         {
@@ -71,6 +108,26 @@ namespace HHD_StartItJam
             if (_DDown)
             {
                 _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + (10 * GameLogic._GlobalScale), _Player.Visual.Translation.Y, 0);
+            }
+
+        }
+
+        public void Gravity()
+        {
+            if (GravityOn)
+            {
+                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 10, 0);
+            }
+        }
+
+        public void CheckCollision()
+        {
+            DrawnSceneObject DSO = (DrawnSceneObject)CollisionChecker.CheckSceneCollision(CScene, (DrawnSceneObject)_Player);
+            if (DSO != null)
+            {
+                CollisionX = true;
+                CollisionY = true;
+                GravityOn = false;
             }
         }
     }

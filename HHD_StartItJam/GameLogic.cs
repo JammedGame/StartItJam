@@ -22,6 +22,17 @@ namespace HHD_StartItJam
         private Scene _Menu;
         private Scene2D _Current;
         private SceneLogic _Logic;
+        private static GameLogic Instance;
+
+        public static GameLogic Create()
+        {
+            if (Instance == null)
+            {
+                Instance = new GameLogic();
+            }
+            return Instance;
+        }
+
         public GameLogic()
         {
             ResourceManager _ResMan = new ResourceManager();
@@ -37,10 +48,23 @@ namespace HHD_StartItJam
             this._Game.Scenes.Add(this._Current);
             this._Logic = new SceneLogic(this._Current);
         }
-        public void Run()
+        public void RunMenu()
         {
-            this._Runner.Init(this._Game, this._Current);
+            Menu M = new Menu();
+            //this._Runner.Init(this._Game, this._Current);
+            this._Runner.Init(this._Game, M.CreateMenuScene(this._Runner));
             this._Runner.Run();
+        }
+        public void RunGame()
+        {
+            Menu M = new Menu();
+            this._Runner.Init(this._Game, _Current);
+            this._Runner.Run();
+        }
+
+        public void Stop()
+        {
+            _Runner.Close();
         }
     }
 }

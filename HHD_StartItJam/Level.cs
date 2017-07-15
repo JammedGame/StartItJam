@@ -65,6 +65,11 @@ namespace HHD_StartItJam
             }
             if(Enterances[0] == 1)
             {
+                if (Level == 0)
+                {
+                    DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location - 250, 850, 0), new Vertex(250, 50, 0), true, Collision2DType.Focus);
+                    CScene.AddSceneObject(Floor);
+                }
                 DrawnSceneObject LeftDoor = CreateStaticSprite("LeftDoor", ResourceManager.Images["Door0L"], new Vertex(Location - 250, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
                 CScene.AddSceneObject(LeftDoor);
             }
@@ -73,6 +78,11 @@ namespace HHD_StartItJam
             CScene.AddSceneObject(LeftWall);
             if (Enterances[1] == 1)
             {
+                if (Level == 0)
+                {
+                    DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location + Length * 300, 850, 0), new Vertex(250, 50, 0), true, Collision2DType.Focus);
+                    CScene.AddSceneObject(Floor);
+                }
                 DrawnSceneObject RightDoor = CreateStaticSprite("RightDoor", ResourceManager.Images["Door0R"], new Vertex(Location + Length * 300, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
                 CScene.AddSceneObject(RightDoor);
             }

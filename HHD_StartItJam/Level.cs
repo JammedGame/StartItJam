@@ -24,9 +24,9 @@ namespace HHD_StartItJam
             CreateWallPart(CScene, new Vertex(600, 250, 0), 0);
             CreateWallPart(CScene, new Vertex(900, 250, 0), 0);
             CreateWallPart(CScene, new Vertex(1200, 250, 0), 0);
-            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(300, 300, 0), new Vertex(50, 550, 0));
+            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(300, 300, 0), new Vertex(30, 550, 0));
             CScene.AddSceneObject(LeftWall);
-            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(1450, 300, 0), new Vertex(50, 550, 0));
+            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(1470, 300, 0), new Vertex(30, 550, 0));
             CScene.AddSceneObject(RightWall);
         }
         public static void CreateWallPart(Scene CScene, Vertex Location, int Level)

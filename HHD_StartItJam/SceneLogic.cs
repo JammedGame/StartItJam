@@ -35,9 +35,7 @@ namespace HHD_StartItJam
         }
         public void GameUpdateEvent(Game G, EventArguments E)
         {
-            _Movement.Gravity();
-            _Movement.WalkLeftRight();
-            _Movement.CheckCollision();
+            
         }
     }
 }

@@ -16,7 +16,7 @@ namespace HHD_StartItJam
                 if (CurrentScene.Objects[i].ID == CurrentObject.ID) continue;
                 if (CurrentScene.Objects[i].Data.ContainsKey("Collision") && (bool)CurrentScene.Objects[i].Data["Collision"] == true)
                 {
-                    if (((Sprite)CurrentObject.Visual).InCollision(CurrentScene.Objects[i].Visual, Engineer.Mathematics.Collision2DType.Rectangular))
+                    if (((Sprite)CurrentObject.Visual).InCollision(CurrentScene.Objects[i].Visual, Engineer.Mathematics.Collision2DType.Vertical))
                     {
                         return CurrentScene.Objects[i];
                     }

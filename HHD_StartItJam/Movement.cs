@@ -27,7 +27,7 @@ namespace HHD_StartItJam
         {
             this._Player = Player;
             this.CScene = CScene;
-
+            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
             //this._Colliders = Colliders;           
         }
 
@@ -91,12 +91,25 @@ namespace HHD_StartItJam
                 if ((bool)(_Player.Data["flying"]) == false)
                 {
                     _Player.Data["flying"] = true;
-                    _Player.Data["skokBrojac"] = 20;
+                    _Player.Data["skokBrojac"] = 40;
                     ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
                     //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
                 }
             }
         }
+
+        public void GameUpdate(Game G, EventArguments E)
+        {
+            if ((int)_Player.Data["skokBrojac"] > 0)
+            {
+                this._Player.Visual.Translation = new Vertex(this._Player.Visual.Translation.X, this._Player.Visual.Translation.Y - (int)_Player.Data["skokBrojac"], 0);
+                _Player.Data["skokBrojac"] = (int)_Player.Data["skokBrojac"] - 1;
+            }
+            Gravity();
+            WalkLeftRight();
+            CheckCollision();
+        }
+
         public void WalkLeftRight()
         {
             if (_ADown)
@@ -126,7 +139,9 @@ namespace HHD_StartItJam
                 CollisionX = true;
                 CollisionY = true;
                 GravityOn = false;
+                _Player.Data["flying"] = false;
             }
+            else GravityOn = true;
         }
     }
 }

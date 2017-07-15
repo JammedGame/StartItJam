@@ -125,6 +125,7 @@ namespace Engineer.Draw
                     DrawSprite(CurrentSprite.SubSprites[i]);
                 }
                 this._Matrix.PopMatrix();
+                this._CurrentRenderer.SetSurface(new float[4] {1f,1f,1f,1f});
             }
         }
         public virtual void DrawTile(Tile CurrentTile)
@@ -142,6 +143,7 @@ namespace Engineer.Draw
                 this._CurrentRenderer.RenderImage(CurrentTile.ID, CurrentTile.Collection.TileImages, (CurrentTile.Collection.TileImages.Count > 0) ? CurrentTile.Index() : -1, CurrentTile.Modified);
                 CurrentTile.Modified = false;
                 this._Matrix.PopMatrix();
+                this._CurrentRenderer.SetSurface(new float[4] { 1f, 1f, 1f, 1f });
             }
         }
         public virtual void Draw3DScene(Scene3D CurrentScene, int Width, int Height)

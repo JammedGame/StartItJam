@@ -3,6 +3,7 @@ using Engineer.Engine.IO;
 using Engineer.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,7 @@ namespace HHD_StartItJam
             DrawnSceneObject _Enemy = (DrawnSceneObject)EFX.Load("Data/knight.efx");
             _Enemy.Name = "Cowboy";
             ((Sprite)_Enemy.Visual).SetSpriteSet("Walk");
+            ((Sprite)_Enemy.Visual).Paint = Color.Red;
 
             _Enemy.Visual.Scale = new Vertex(250, 250, 0);
             _Enemy.Visual.Translation = new Vertex(960 - 125, 600, 0);

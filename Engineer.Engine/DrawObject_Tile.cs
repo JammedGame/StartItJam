@@ -41,12 +41,14 @@ namespace Engineer.Engine
             this.Scale = new Mathematics.Vertex(100, 100, 1);
             this._SubTiles = new List<Tile>();
             this.Collection = new TileCollection();
+            this._Paint = Color.White;
         }
         public Tile(Tile T) : base(T)
         {
             this._CurrentIndex = 0;
             this._SubTiles = new List<Tile>();
-            this.Collection = new TileCollection(T.Collection);   
+            this.Collection = new TileCollection(T.Collection);
+            this._Paint = T._Paint;
         }
         public void SetIndex(int Index)
         {

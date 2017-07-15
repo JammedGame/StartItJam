@@ -49,7 +49,7 @@ namespace HHD_StartItJam
             Cowboy Cowboy3 = new Cowboy(this.CScene, this._Player, 2000, 0);
             this.Cowboys.Add(Cowboy3);
 
-            Cowboy Cowboy4 = new Cowboy(this.CScene, this._Player, 3000, 600);
+            Cowboy Cowboy4 = new Cowboy(this.CScene, this._Player, 3800, 600);
             this.Cowboys.Add(Cowboy4);
 
 
@@ -79,6 +79,14 @@ namespace HHD_StartItJam
             {
                 ((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
+                for(int i = 0; i < Cowboys.Count; i++)
+                {
+                    if (Cowboys[i].PlayerHit() != -1)
+                    {
+                        //CScene.Objects.Remove(Cowboys[i].Enemy);
+                        Cowboys[i].Enemy.Visual.Active = false;
+                    }
+                }              
             }
         }
         public void KeyUpEvent(Game G, EventArguments E)
@@ -196,7 +204,7 @@ namespace HHD_StartItJam
             for (int i = 0; i < Cowboys.Count; i++)
             {
                 Cowboys[i].Behavior();
-                if (Cowboys[i].Hit())
+                if (Cowboys[i].EnemyHit())
                 {
                     HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
                     HB.subHealth(1);

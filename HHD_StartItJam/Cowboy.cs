@@ -12,13 +12,25 @@ namespace HHD_StartItJam
 {
     class Cowboy : Enemy
     {
+        private static int Sid = 0;
+        private int id;
         private int MoveSpeed;
         private DrawnSceneObject _Enemy;
+
+        
+
+        public DrawnSceneObject Enemy
+        {
+            get { return _Enemy; }
+            set { _Enemy = value; }
+        }
+
 
         public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y,int MS=1) : base(CScene, _Player)
         {
             _Enemy=CreateEnemy(CScene,x,y);
             this.MoveSpeed = MS;
+            this.id = Sid;
         }
 
         public override void Behavior()
@@ -31,17 +43,17 @@ namespace HHD_StartItJam
             else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 700)
             {
                 ((Sprite)_Enemy.Visual).UpdateSpriteSet("Walk");
-                if (Movement.AImoveLeft < 700)
+                if (Movement.AImoveLeft < 600)
                 {
                     MoveLeft();
                     Movement.AImoveLeft++;
-                    if(Movement.AImoveLeft==700) Movement.AImovRight = 0;
+                    if(Movement.AImoveLeft==600) Movement.AImovRight = 0;
                 }
-                else if (Movement.AImovRight <1000)
+                else if (Movement.AImovRight <800)
                 {
                     MoveRight();
                     Movement.AImovRight++;
-                     if (Movement.AImovRight == 1000) Movement.AImoveLeft = 0;
+                     if (Movement.AImovRight == 800) Movement.AImoveLeft = 0;
                  }
             }
             else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > 700)
@@ -65,13 +77,22 @@ namespace HHD_StartItJam
         {
             ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttackRight");
         }
-        public bool Hit()
+        public bool EnemyHit()
         {
-            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 60 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 60)
+            if (!this._Enemy.Active) return false;
+            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 75 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 75)
             {
                 return true;
             }
             else return false;
+        }
+        public int  PlayerHit()
+        {
+            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
+            {
+                return id;
+            }
+            else return -1;
         }
 
 
@@ -85,7 +106,7 @@ namespace HHD_StartItJam
 
             _Enemy.Visual.Scale = new Vertex(250, 250, 0);
             _Enemy.Visual.Translation = new Vertex(x, y, 0);
-            _Enemy.ID = "djape";
+            _Enemy.ID = "djape"+ Sid++;
             Scene.AddSceneObject(_Enemy);
 
             return _Enemy;

@@ -10,8 +10,9 @@ namespace HHD_StartItJam
 {
     public class CollisionChecker
     {
-        public static SceneObject CheckSceneCollision(Scene CurrentScene, SceneObject CurrentObject)
+        public static List<DrawnSceneObject> CheckSceneCollision(Scene CurrentScene, SceneObject CurrentObject)
         {
+            List<DrawnSceneObject> Collides = new List<DrawnSceneObject>();
             for(int i = 0; i < CurrentScene.Objects.Count; i++)
             {
                 if (CurrentScene.Objects[i].ID == CurrentObject.ID) continue;
@@ -19,11 +20,11 @@ namespace HHD_StartItJam
                 {
                     if (((Sprite)CurrentObject.Visual).InCollision(CurrentScene.Objects[i].Visual, (Collision2DType)CurrentScene.Objects[i].Data["Collision"]))
                     {
-                        return CurrentScene.Objects[i];
+                        Collides.Add((DrawnSceneObject)CurrentScene.Objects[i]);
                     }
                 }
             }
-            return null;
+            return Collides;
         }
     }
 }

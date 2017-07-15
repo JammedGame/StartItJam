@@ -100,7 +100,7 @@ namespace HHD_StartItJam
                     if ((bool)(_Player.Data["flying"]) == false)
                     {
                         _Player.Data["flying"] = true;
-                        _Player.Data["skokBrojac"] = 40;
+                        _Player.Data["skokBrojac"] = 30;
                         ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
                         //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
                     }
@@ -182,27 +182,35 @@ namespace HHD_StartItJam
 
         public void CheckCollision()
         {
-            DrawnSceneObject DSO = (DrawnSceneObject)CollisionChecker.CheckSceneCollision(CScene, (DrawnSceneObject)_Player);
-            if (DSO != null)
+            List<DrawnSceneObject> DSOS = (List<DrawnSceneObject>)CollisionChecker.CheckSceneCollision(CScene, (DrawnSceneObject)_Player);
+            if (DSOS.Count > 0)
             {
-                if(DSO.Data.ContainsKey("XCollision"))
+                CollisionXLeft = false;
+                CollisionXRight = false;
+
+                bool XFound = false;
+                bool XOnly = true;
+                for (int i = 0; i < DSOS.Count; i++)
                 {
-                    if(DSO.Visual.Translation.X < _Player.Visual.Translation.X)
+                    if (DSOS[i].Data.ContainsKey("XCollision"))
                     {
-                        CollisionXLeft = true;
-                        CollisionXRight = false;
+                        XFound = true;
+                        if (DSOS[i].Visual.Translation.X + DSOS[i].Visual.Scale.X/2 < _Player.Visual.Translation.X + _Player.Visual.Scale.X/2)
+                        {
+                            CollisionXLeft = true;
+                            CollisionXRight = false;
+                        }
+                        else
+                        {
+                            CollisionXLeft = false;
+                            CollisionXRight = true;
+                        }
+                        CollisionY = false;
                     }
-                    else
-                    {
-                        CollisionXLeft = false;
-                        CollisionXRight = true;
-                    }
-                    CollisionY = false;
+                    else XOnly = false;
                 }
-                else
+                if (!XFound || !XOnly)
                 {
-                    CollisionXLeft = false;
-                    CollisionXRight = false;
                     CollisionY = true;
                     GravityOn = false;
                     _Player.Data["flying"] = false;

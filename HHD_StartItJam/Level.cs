@@ -20,9 +20,6 @@ namespace HHD_StartItJam
             //CScene.AddSceneObject(Back);
             DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 1000, 0), true);
             CScene.AddSceneObject(Surface);
-
-
-
             CreateRoom(CScene, 300, 4, 0);
             CreateRoom(CScene, 300, 3, 1);
 

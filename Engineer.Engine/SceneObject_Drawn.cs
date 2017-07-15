@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Engineer.Mathematics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -81,6 +82,18 @@ namespace Engineer.Engine
             DrawnSceneObject CurrentDrawnSceneObject = (DrawnSceneObject)Deserializer.Deserialize(Reader);
             Reader.Close();
             return CurrentDrawnSceneObject;
+        }
+
+        public bool InCollisionWithAny(List<DrawnSceneObject> OtherItems, Collision2DType Type)
+        {
+            for (int i = 0; i < OtherItems.Count; i++)
+            {
+                if (((Sprite)Visual).InCollision(OtherItems[i].Visual, Type)){
+                    return true;
+                }
+
+            }
+            return false;
         }
     }
 }

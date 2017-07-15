@@ -34,14 +34,17 @@ namespace HHD_StartItJam
 
         public void KeyPressEvent(Game G, EventArguments E)
         {
-            if (_BlockEvents) return;
+            //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.W) _WDown = true;
             if (E.KeyDown == KeyType.A)
             {
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
                 _ADown = true;
             }
-            if (E.KeyDown == KeyType.S) _SDown = true;
+            if (E.KeyDown == KeyType.S)
+            {
+                _SDown = true;
+            }
             if (E.KeyDown == KeyType.D)
             {
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
@@ -103,11 +106,36 @@ namespace HHD_StartItJam
             Trans = new Vertex();
             if ((int)_Player.Data["skokBrojac"] > 0)
             {
-                Trans = new Vertex(Trans.X, Trans.Y - (int)_Player.Data["skokBrojac"], 0);
+                this._Player.Visual.Translation = new Vertex(this._Player.Visual.Translation.X, this._Player.Visual.Translation.Y - (int)_Player.Data["skokBrojac"], 0);
                 _Player.Data["skokBrojac"] = (int)_Player.Data["skokBrojac"] - 1;
+                if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+                {
+                    // Ako pipne merdevine
+                    _Player.Data["skokBrojac"] = 0;
+                }
+
             }
-            Gravity();
             WalkLeftRight();
+
+            if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+            {
+                if (_WDown)
+                {
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y - 10, 0);
+
+                }
+                if (_SDown)
+                {
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 10, 0);
+
+                }
+
+            }
+            else
+            {
+                Gravity();
+            }
+
             CheckCollision();
             for(int i = 0; i < CScene.Objects.Count; i++)
             {
@@ -165,3 +193,7 @@ namespace HHD_StartItJam
         }
     }
 }
+
+            if (_BlockEvents) return;
+            if (E.KeyDown == KeyType.W) _WDown = true;
+                Trans = new Vertex(Trans.X, Trans.Y - (int)_Player.Data["skokBrojac"], 0);

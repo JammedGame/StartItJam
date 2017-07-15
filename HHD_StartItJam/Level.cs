@@ -137,7 +137,7 @@ namespace HHD_StartItJam
                 DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true, Collision2DType.Rectangular);
                 CScene.AddSceneObject(Floor);
             }
-            DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));
+            DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall" + RandomNumber(0, 3)], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));
             CScene.AddSceneObject(BackWall);
 
             if(Stairs)

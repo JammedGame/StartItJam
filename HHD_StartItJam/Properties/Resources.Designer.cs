@@ -73,9 +73,29 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BackWall {
+        internal static System.Drawing.Bitmap BackWall0 {
             get {
-                object obj = ResourceManager.GetObject("BackWall", resourceCulture);
+                object obj = ResourceManager.GetObject("BackWall0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackWall1 {
+            get {
+                object obj = ResourceManager.GetObject("BackWall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackWall2 {
+            get {
+                object obj = ResourceManager.GetObject("BackWall2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

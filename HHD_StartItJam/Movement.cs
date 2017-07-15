@@ -11,6 +11,7 @@ namespace HHD_StartItJam
 {
     class Movement
     {
+        private bool _BlockEvents = false;
         public bool _ADown;
         public bool _DDown;
         public bool _WDown;
@@ -33,6 +34,7 @@ namespace HHD_StartItJam
 
         public void KeyPressEvent(Game G, EventArguments E)
         {
+            if (_BlockEvents) return;
             if (E.KeyDown == KeyType.W) _WDown = true;
             if (E.KeyDown == KeyType.A)
             {
@@ -54,6 +56,7 @@ namespace HHD_StartItJam
         }
         public void KeyUpEvent(Game G, EventArguments E)
         {
+            if (_BlockEvents) return;
             if (E.KeyDown == KeyType.W)
             {
                 _WDown = false;
@@ -76,6 +79,7 @@ namespace HHD_StartItJam
         }
         public void KeyDownEvent(Game G, EventArguments E)
         {
+            if (_BlockEvents) return;
             if (E.KeyDown == KeyType.Escape)
             {
                 
@@ -94,6 +98,8 @@ namespace HHD_StartItJam
 
         public void GameUpdate(Game G, EventArguments E)
         {
+            if (_BlockEvents) return;
+            this._BlockEvents = true;
             Trans = new Vertex();
             if ((int)_Player.Data["skokBrojac"] > 0)
             {
@@ -116,6 +122,7 @@ namespace HHD_StartItJam
             //Back.Translation = new Vertex(Back.Translation.X + Trans.X, Back.Translation.Y + Trans.Y, 0);
             //Tile Surface = (Tile)((DrawnSceneObject)CScene.Data["Surface"]).Visual;
             //Surface.Translation = new Vertex(Surface.Translation.X + Trans.X, Surface.Translation.Y, 0);
+            this._BlockEvents = false;
         }
 
         public void WalkLeftRight()

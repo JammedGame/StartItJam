@@ -20,21 +20,29 @@ namespace HHD_StartItJam
             CScene.AddSceneObject(Back);
             DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 300, 0), true);
             CScene.AddSceneObject(Surface);
-            CreateWallPart(CScene, new Vertex(300, 250, 0), 0);
-            CreateWallPart(CScene, new Vertex(600, 250, 0), 0);
-            CreateWallPart(CScene, new Vertex(900, 250, 0), 0);
-            CreateWallPart(CScene, new Vertex(1200, 250, 0), 0);
-            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(300, 300, 0), new Vertex(30, 550, 0));
+            CreateRoom(CScene, 300, 4, 0);
+            CreateRoom(CScene, 300, 3, 1);
+        }
+        public static void CreateRoom(Scene2D CScene, int Location, int Length, int Level)
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level);
+            }
+            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
             CScene.AddSceneObject(LeftWall);
-            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(1470, 300, 0), new Vertex(30, 550, 0));
+            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
             CScene.AddSceneObject(RightWall);
         }
         public static void CreateWallPart(Scene CScene, Vertex Location, int Level)
         {
             DrawnSceneObject Ceiling = CreateStaticSprite("Ceiling", ResourceManager.Images["Ceiling"], Location, new Vertex(300, 50, 0), true);
             CScene.AddSceneObject(Ceiling);
-            DrawnSceneObject Floor = CreateStaticSprite("Floor", (Level == 0)?ResourceManager.Images["Floor"]: ResourceManager.Images["Ceiling"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true);
-            CScene.AddSceneObject(Floor);
+            if (Level == 0)
+            {
+                DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true);
+                CScene.AddSceneObject(Floor);
+            }
             DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));
             CScene.AddSceneObject(BackWall);
         }

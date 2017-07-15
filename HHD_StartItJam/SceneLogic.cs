@@ -1,7 +1,6 @@
 ﻿using Engineer.Engine;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +15,6 @@ namespace HHD_StartItJam
         public SceneLogic(Scene2D CScene)
         {
             this._Scene = CScene;
-            this._Scene.BackColor = Color.FromArgb(255, 231, 147);
             Level.Create(this._Scene);
             _Player = Character.Create(CScene);
             CreateCharacter();

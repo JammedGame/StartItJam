@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="CollisionChecker.cs" />
+    <Compile Include="Cowboy.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="GameLogic.cs" />

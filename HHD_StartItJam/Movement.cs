@@ -11,6 +11,8 @@ namespace HHD_StartItJam
 {
     class Movement
     {
+        public static int AImoveLeft = 0;
+        public static int AImovRight = -1;
         private bool _BlockEvents = false;
         public bool _ADown;
         public bool _DDown;
@@ -26,13 +28,15 @@ namespace HHD_StartItJam
         private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
+        private Cowboy _Cowboy;        
      
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
             this._Player = Player;
             this.Trans = Player.Visual.Translation;
             this.CScene = CScene;
-            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);         
+            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
+            this._Cowboy=new Cowboy(this.CScene,this._Player);
         }
 
         public void KeyPressEvent(Game G, EventArguments E)
@@ -164,6 +168,10 @@ namespace HHD_StartItJam
             CheckCollision();
             for(int i = 0; i < CScene.Objects.Count; i++)
             {
+                if (CScene.Objects[i].Name == "Cowboy")
+                {
+                    int d = 2;
+                }
                 if (CScene.Objects[i].ID == _Player.ID) continue;
                 if (CScene.Objects[i].Name == "Back") continue;
                 if (CScene.Objects[i].Name == "Surface") CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y, 0);
@@ -171,6 +179,8 @@ namespace HHD_StartItJam
             }
             Runner.BlockDraw = false;
             this._BlockEvents = false;
+
+            _Cowboy.Behavior();
         }
 
         public void WalkLeftRight()

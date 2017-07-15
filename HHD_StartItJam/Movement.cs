@@ -48,7 +48,7 @@ namespace HHD_StartItJam
 
             if (E.KeyDown == KeyType.K)
             {
-                ((Sprite)_Player.Visual).BackUpSpriteSet = 0;
+                ((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
             }
         }

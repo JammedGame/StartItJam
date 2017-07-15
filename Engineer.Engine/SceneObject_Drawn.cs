@@ -14,6 +14,7 @@ namespace Engineer.Engine
     [XmlInclude(typeof(Camera))]
     [XmlInclude(typeof(Light))]
     [XmlInclude(typeof(Sprite))]
+    [XmlInclude(typeof(Tile))]
     public class DrawnSceneObject : SceneObject
     {
         private DrawObject _Visual;

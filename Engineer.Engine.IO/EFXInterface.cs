@@ -48,6 +48,16 @@ namespace Engineer.Engine.IO
                 for (int i = 0; i < Current.SpriteSets.Count; i++) SaveObject(Current.SpriteSets[i], DirPath + "SpriteSets_" + i + ".efx", false);
                 for (int i = 0; i < Current.SubSprites.Count; i++) SaveObject(Current.SubSprites[i], DirPath + "SubSprites_" + i + ".efx", false);
             }
+            if (ObjectToSave.GetType() == typeof(TileCollection))
+            {
+                TileCollection Current = ObjectToSave as TileCollection;
+                for (int i = 0; i < Current.TileImages.Count; i++) Current.TileImages[i].Save(DirPath + "TileImage_" + i + ".png", System.Drawing.Imaging.ImageFormat.Png);
+            }
+            if (ObjectToSave.GetType() == typeof(Tile))
+            {
+                Tile Current = ObjectToSave as Tile;
+                SaveObject(Current.Collection, DirPath + "TileCollection.efx", false);
+            }
             if (ObjectToSave.GetType() == typeof(DrawnSceneObject))
             {
                 DrawnSceneObject Current = ObjectToSave as DrawnSceneObject;
@@ -115,6 +125,25 @@ namespace Engineer.Engine.IO
                     Sprite Child = (Sprite)LoadObject(DirPath + "SubSprites_" + i + "/", typeof(Sprite));
                     Current.SubSprites.Add(Child);
                 }
+            }
+            if (FileType == typeof(TileCollection))
+            {
+                TileCollection Current = CurrentObject as TileCollection;
+                for (int i = 0; Files.Contains(DirPath + "Sprite_" + i + ".png"); i++)
+                {
+                    Bitmap TileImage = null;
+                    using (Image Img = Image.FromFile(DirPath + "Sprite_" + i + ".png"))
+                    {
+                        TileImage = new Bitmap(Img);
+                    }
+                    Current.TileImages.Add(TileImage);
+                }
+            }
+            if (FileType == typeof(Tile))
+            {
+                Tile Current = CurrentObject as Tile;
+                TileCollection Child = (TileCollection)LoadObject(DirPath + "TileCollection/", typeof(SpriteSet));
+                Current.Collection = Child;
             }
             if (FileType == typeof(DrawnSceneObject))
             {

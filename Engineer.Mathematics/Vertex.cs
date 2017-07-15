@@ -90,14 +90,6 @@ namespace Engineer.Mathematics
             Y = (float)(Math.Cos((A / 180) * Math.PI) * OY + Math.Sin((A / 180) * Math.PI) * OX);
             return this;
         }
-        public static Vertex RotateZ(Vertex Rot, float A)
-        {
-            float OX = Rot.X;
-            float OY = Rot.Y;
-            Rot.X = (float)(Math.Cos((A / 180) * Math.PI) * OX - Math.Sin((A / 180) * Math.PI) * OY);
-            Rot.Y = (float)(Math.Cos((A / 180) * Math.PI) * OY + Math.Sin((A / 180) * Math.PI) * OX);
-            return Rot;
-        }
         public static VertexBuilder operator +(VertexBuilder a, VertexBuilder b)
         {
             return new VertexBuilder(a.X + b.X, a.Y + b.Y, a.Z + b.Z);

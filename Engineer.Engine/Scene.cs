@@ -181,6 +181,7 @@ namespace Engineer.Engine
             {
                 if (S._Objects[i].Type == SceneObjectType.DrawnSceneObject) this._Objects.Add(new DrawnSceneObject((DrawnSceneObject)S._Objects[i], this));
                 else if (S._Objects[i].Type == SceneObjectType.ScriptSceneObject) this._Objects.Add(new ScriptSceneObject((ScriptSceneObject)S._Objects[i], this));
+                else if (S._Objects[i].Type == SceneObjectType.SoundSceneObject) this._Objects.Add(new SoundSceneObject((SoundSceneObject)S._Objects[i], this));
             }
             this._Data = new Dictionary<string, object>(S.Data);
         }

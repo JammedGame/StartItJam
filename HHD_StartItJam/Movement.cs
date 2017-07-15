@@ -177,6 +177,10 @@ namespace HHD_StartItJam
                 GravityOn = false;
                 _Player.Data["flying"] = false;
             }
+            else if(_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+            {
+
+            }
             else
             {
                 if(!GravityOn) GravityAmount = 0;

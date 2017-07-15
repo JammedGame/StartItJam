@@ -15,6 +15,7 @@ namespace Engineer.Engine
         private bool _Modified;
         private int _CurrentIndex;
         private TileCollection _Collection;
+        private List<Tile> _SubTiles;
         public bool Modified
         {
             get
@@ -28,16 +29,19 @@ namespace Engineer.Engine
             }
         }
         public TileCollection Collection { get => _Collection; set => _Collection = value; }
+        public List<Tile> SubTiles { get => _SubTiles; set => _SubTiles = value; }
         public Tile() : base()
         {
             this._CurrentIndex = 0;
             this.Type = DrawObjectType.Tile;
             this.Scale = new Mathematics.Vertex(100, 100, 1);
+            this._SubTiles = new List<Tile>();
         }
         public Tile(Tile T) : base(T)
         {
             this._CurrentIndex = 0;
-            this.Collection = new TileCollection(T.Collection);   
+            this.Collection = new TileCollection(T.Collection);
+            this._SubTiles = new List<Tile>();
         }
         public void SetIndex(int Index)
         {

@@ -127,6 +127,10 @@ namespace Engineer.Draw
                 this._CurrentRenderer.SetModelViewMatrix(_Matrix.ModelViewMatrix);
                 this._CurrentRenderer.RenderImage(CurrentTile.ID, CurrentTile.Collection.TileImages, (CurrentTile.Collection.TileImages.Count > 0) ? CurrentTile.Index() : -1, CurrentTile.Modified);
                 CurrentTile.Modified = false;
+                for (int i = 0; i < CurrentTile.SubTiles.Count; i++)
+                {
+                    DrawTile(CurrentTile.SubTiles[i]);
+                }
                 this._Matrix.PopMatrix();
             }
         }

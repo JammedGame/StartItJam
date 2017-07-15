@@ -23,7 +23,7 @@ namespace HHD_StartItJam
                 return random.Next(min, max);
             }
         }
-        public static bool[,] FloorTaken = new bool[5, 100];
+        public static bool[,] FloorTaken = new bool[10, 100];
         public static void Create(Scene2D CScene)
         {
             //DrawnSceneObject Back = CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(1920, 900, 0));
@@ -40,24 +40,27 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 18, 2, 0, new int[] { 0, 1 }, new bool[] { true, false });
             CreateRoom(CScene, 12, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
             CreateRoom(CScene, 15, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
-            CreateRoom(CScene, 11, 5, 2, new int[] { 0, 2 }, null);
-            CreateRoom(CScene, 16, 3, 2, new int[] { 2, 0 }, null);
+            CreateRoom(CScene, 11, 5, 2, new int[] { 2, 2 }, null);
+            CreateRoom(CScene, 16, 3, 2, new int[] { 2, 2 }, null);
 
-            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(450, 720, 0), new Vertex(58, 100, 0));
-            Coin.Data["Coin"] = true;
-            CScene.AddSceneObject(Coin);
+            CreateRoom(CScene, 22, 1, 2, new int[] { 2, 0 }, new bool[] { true});
+            CreateRoom(CScene, 22, 1, 3, new int[] { 0, 0 }, new bool[] { true });
+            CreateRoom(CScene, 16, 4, 4, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 22, 1, 4, new int[] { 2, 0 }, null);
 
-            DrawnSceneObject Coin2 = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(510, 720, 0), new Vertex(58, 100, 0));
-            Coin2.Data["Coin"] = true;
-            CScene.AddSceneObject(Coin2);
-
-            DrawnSceneObject Coin3 = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(570, 720, 0), new Vertex(58, 100, 0));
-            Coin3.Data["Coin"] = true;
-            CScene.AddSceneObject(Coin3);
+            CreateTequila(CScene, 1, 2);
+            CreateTequila(CScene, 17, 0);
+            CreateTequila(CScene, 16, 4);
 
             HealthBar HB = HealthBar.Create();
             CScene.Data["HealthBar"] = HB;
             CScene.AddSceneObject(HB);
+        }
+        public static void CreateTequila(Scene2D CScene, int XLocation, int Level)
+        {
+            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(XLocation * 300 + 100, (Level-1) * (-600) + 80, 0), new Vertex(100, 200, 0));
+            Coin.Data["Coin"] = true;
+            CScene.AddSceneObject(Coin);
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {

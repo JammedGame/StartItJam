@@ -93,6 +93,16 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Floor1 {
+            get {
+                object obj = ResourceManager.GetObject("Floor1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap idle0 {
             get {
                 object obj = ResourceManager.GetObject("idle0", resourceCulture);

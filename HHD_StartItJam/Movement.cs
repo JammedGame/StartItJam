@@ -152,10 +152,15 @@ namespace HHD_StartItJam
 
                 }
             }
-            else
-            {
+
+            List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);
+            
+            
+            foreach(DrawnSceneObject coin in coins){
+                coin.Active = false;
             }
-            Gravity();
+
+             Gravity();
             CheckCollision();
             for(int i = 0; i < CScene.Objects.Count; i++)
             {

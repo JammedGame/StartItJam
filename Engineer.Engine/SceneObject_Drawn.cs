@@ -84,8 +84,9 @@ namespace Engineer.Engine
             return CurrentDrawnSceneObject;
         }
 
-        public bool InCollisionWithAny(List<DrawnSceneObject> OtherItems, Collision2DType Type)
+        public List<DrawnSceneObject> GetCollisionWithAny(List<DrawnSceneObject> OtherItems, Collision2DType Type)
         {
+            List<DrawnSceneObject> list = new List<DrawnSceneObject>();
             for (int i = 0; i < OtherItems.Count; i++)
             {
                 if (OtherItems[i].Visual == this.Visual)
@@ -93,11 +94,15 @@ namespace Engineer.Engine
                     continue;
                 }
                 if (((Sprite)Visual).InCollision(OtherItems[i].Visual, Type)){
-                    return true;
+                    list.Add(OtherItems[i]);
                 }
 
             }
-            return false;
+            return list;
+        }
+        public bool InCollisionWithAny(List<DrawnSceneObject> OtherItems, Collision2DType Type)
+        {
+            return GetCollisionWithAny(OtherItems, Type).Count > 0;
         }
     }
 }

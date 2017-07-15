@@ -32,6 +32,18 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 15, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
             CreateRoom(CScene, 11, 5, 2, new int[] { 0, 2 }, null);
             CreateRoom(CScene, 16, 3, 2, new int[] { 2, 0 }, null);
+
+            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(450, 720, 0), new Vertex(50, 50, 0));
+            Coin.Data["Coin"] = true;
+            CScene.AddSceneObject(Coin);
+
+            DrawnSceneObject Coin2 = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(510, 720, 0), new Vertex(50, 50, 0));
+            Coin2.Data["Coin"] = true;
+            CScene.AddSceneObject(Coin2);
+
+            DrawnSceneObject Coin3 = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(570, 720, 0), new Vertex(50, 50, 0));
+            Coin3.Data["Coin"] = true;
+            CScene.AddSceneObject(Coin3);
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {

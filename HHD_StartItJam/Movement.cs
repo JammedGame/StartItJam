@@ -20,24 +20,24 @@ namespace HHD_StartItJam
         public bool _SDown;
         public bool _SpaceDown;
         private bool CollisionY = false;
-        private bool CollisionXLeft=false;
-        private bool CollisionXRight=false;
+        private bool CollisionXLeft = false;
+        private bool CollisionXRight = false;
         private bool GravityOn = true;
         private int GravityAmount = 0;
         public bool Grab;
         private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
-        private List<Cowboy> Cowboys=new List<Cowboy>();        
-     
+        private List<Cowboy> Cowboys = new List<Cowboy>();
+
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
             this._Player = Player;
             this.Trans = Player.Visual.Translation;
             this.CScene = CScene;
             this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
-            
-            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player,600,600);
+
+            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player, 600, 600);
             this.Cowboys.Add(Cowboy0);
 
             Cowboy Cowboy1 = new Cowboy(this.CScene, this._Player, 2000, 600);
@@ -49,7 +49,7 @@ namespace HHD_StartItJam
             Cowboy Cowboy3 = new Cowboy(this.CScene, this._Player, 2000, 0);
             this.Cowboys.Add(Cowboy3);
 
-            Cowboy Cowboy4 = new Cowboy(this.CScene, this._Player, 3000, 600);
+            Cowboy Cowboy4 = new Cowboy(this.CScene, this._Player, 3800, 600);
             this.Cowboys.Add(Cowboy4);
 
 
@@ -79,6 +79,14 @@ namespace HHD_StartItJam
             {
                 ((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
+                for (int i = 0; i < Cowboys.Count; i++)
+                {
+                    if (Cowboys[i].PlayerHit() != -1)
+                    {
+                        //CScene.Objects.Remove(Cowboys[i].Enemy);
+                        Cowboys[i].Enemy.Visual.Active = false;
+                    }
+                }
             }
         }
         public void KeyUpEvent(Game G, EventArguments E)
@@ -111,12 +119,12 @@ namespace HHD_StartItJam
             if (_BlockEvents) return;
             if (E.KeyDown == KeyType.Escape)
             {
-                
+
             }
             if (E.KeyDown == KeyType.Space)
             {
                 _SpaceDown = true;
-               
+
 
             }
         }
@@ -147,7 +155,7 @@ namespace HHD_StartItJam
                 Grab = false;
                 GravityOn = true;
 
-                
+
                 _Player.Data["flying"] = true;
                 _Player.Data["skokBrojac"] = 30;
                 ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
@@ -173,12 +181,19 @@ namespace HHD_StartItJam
                     }
                 }
             }
-
-                       
-              
-                Gravity();
+            Gravity();
             CheckCollision();
-            for(int i = 0; i < CScene.Objects.Count; i++)
+            for (int i = 0; i < CScene.Objects.Count; i++)
+            {
+                if (CScene.Objects[i].Name == "Floor")
+                {
+                    if (((Sprite)_Player.Visual).InCollision(CScene.Objects[i].Visual, Collision2DType.Rectangular))
+                    {
+                        Trans = new Vertex(Trans.X, Trans.Y - ((_Player.Visual.Translation.Y + _Player.Visual.Scale.Y) - CScene.Objects[i].Visual.Translation.Y), 0);
+                    }
+                }
+            }
+            for (int i = 0; i < CScene.Objects.Count; i++)
             {
                 if (CScene.Objects[i].Name == "Cowboy")
                 {
@@ -195,7 +210,7 @@ namespace HHD_StartItJam
             for (int i = 0; i < Cowboys.Count; i++)
             {
                 Cowboys[i].Behavior();
-                if (Cowboys[i].Hit())
+                if (Cowboys[i].EnemyHit())
                 {
                     HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
                     HB.subHealth(1);
@@ -216,7 +231,7 @@ namespace HHD_StartItJam
                 coin.Active = false;
                 PowerUps PU = ((PowerUps)CScene.Data["PowerUps"]);
                 PU.increasePotionCount();
-               
+
             }
 
             Runner.BlockDraw = false;
@@ -264,7 +279,7 @@ namespace HHD_StartItJam
                     if (DSOS[i].Data.ContainsKey("XCollision"))
                     {
                         XFound = true;
-                        if (DSOS[i].Visual.Translation.X + DSOS[i].Visual.Scale.X/2 < _Player.Visual.Translation.X + _Player.Visual.Scale.X/2)
+                        if (DSOS[i].Visual.Translation.X + DSOS[i].Visual.Scale.X / 2 < _Player.Visual.Translation.X + _Player.Visual.Scale.X / 2)
                         {
                             CollisionXLeft = true;
                             CollisionXRight = false;
@@ -285,13 +300,13 @@ namespace HHD_StartItJam
                     _Player.Data["flying"] = false;
                 }
             }
-            else if(_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical) && Grab)
+            else if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical) && Grab)
             {
                 GravityOn = false;
             }
             else
             {
-                if(!GravityOn) GravityAmount = 0;
+                if (!GravityOn) GravityAmount = 0;
                 GravityOn = true;
                 CollisionXLeft = false;
                 CollisionXRight = false;

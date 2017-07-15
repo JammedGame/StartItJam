@@ -19,7 +19,6 @@ namespace HHD_StartItJam
         public bool _WDown;
         public bool _SDown;
         public bool _SpaceDown;
-        private bool left=true;
         private bool CollisionY = false;
         private bool CollisionXLeft = false;
         private bool CollisionXRight = false;
@@ -34,6 +33,7 @@ namespace HHD_StartItJam
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
             this._Player = Player;
+            _Player.Data["Orient"] = 1;
             this.Trans = Player.Visual.Translation;
             this.CScene = CScene;
             this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
@@ -63,9 +63,9 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.W) _WDown = true;
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).SetSpriteSet("WalkL");
+                ((Sprite)_Player.Visual).SetSpriteSet(1);
                 _ADown = true;
-                left = true;
+                _Player.Data["Orient"] = 1;
             }
             if (E.KeyDown == KeyType.S)
             {
@@ -73,9 +73,9 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.D)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("WalkR");
+                ((Sprite)_Player.Visual).UpdateSpriteSet(0);
                 _DDown = true;
-                left = false;
+                _Player.Data["Orient"] = 0;
             }
 
             if (E.KeyDown == KeyType.K)
@@ -127,8 +127,7 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.Space)
             {
                 _SpaceDown = true;
-                if(left)((Sprite)_Player.Visual).UpdateSpriteSet("JumpL");
-                if(!left)((Sprite)_Player.Visual).UpdateSpriteSet("JumpR");
+                ((Sprite)_Player.Visual).UpdateSpriteSet(2+(int)_Player.Data["Orient"]);
 
             }
         }
@@ -162,7 +161,7 @@ namespace HHD_StartItJam
 
                 _Player.Data["flying"] = true;
                 _Player.Data["skokBrojac"] = 30;
-                ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
+                ((Sprite)(_Player.Visual)).UpdateSpriteSet(2 + (int)_Player.Data["Orient"]);
                 //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
             }
 
@@ -297,6 +296,8 @@ namespace HHD_StartItJam
             List<DrawnSceneObject> DSOS = (List<DrawnSceneObject>)CollisionChecker.CheckSceneCollision(CScene, (DrawnSceneObject)_Player);
             if (DSOS.Count > 0)
             {
+                ((Sprite)(_Player.Visual)).UpdateSpriteSet((int)_Player.Data["Orient"]);
+
                 CollisionXLeft = false;
                 CollisionXRight = false;
 

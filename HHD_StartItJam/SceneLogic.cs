@@ -34,6 +34,8 @@ namespace HHD_StartItJam
             _Player.Data["padBrojac"] = 0;
             _Player.Data["colliding"] = true;
             _Player.Data["flying"] = false;
+            _Player.Data["Tequilas"] = 0;
+
         }
         public void GameUpdateEvent(Game G, EventArguments E)
         {

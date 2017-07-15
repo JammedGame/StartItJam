@@ -191,8 +191,7 @@ namespace HHD_StartItJam
                 if (CScene.Objects[i].Name == "Surface") CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y, 0);
                 CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
             }
-            Runner.BlockDraw = false;
-            this._BlockEvents = false;
+
             for (int i = 0; i < Cowboys.Count; i++)
             {
                 Cowboys[i].Behavior();
@@ -206,21 +205,26 @@ namespace HHD_StartItJam
                     }
                 }
             }
+
+
+            List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);
+
+
+            foreach (DrawnSceneObject coin in coins)
+            {
+                if (!coin.Active) continue;
+                coin.Active = false;
+                PowerUps PU = ((PowerUps)CScene.Data["PowerUps"]);
+                PU.increasePotionCount();
+               
+            }
+
+            Runner.BlockDraw = false;
+            this._BlockEvents = false;
+
         }
 
-        /*List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);
 
-
-                foreach(DrawnSceneObject coin in coins){
-                    if (!coin.Active) continue;
-                    coin.Active = false;
-                    HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
-                    HB.subHealth(20);
-                    if (HB.empty())
-                    {
-                        // End of game
-                    }
-                }*/
 
         public void WalkLeftRight()
         {

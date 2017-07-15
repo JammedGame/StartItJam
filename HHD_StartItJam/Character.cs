@@ -22,7 +22,7 @@ namespace HHD_StartItJam
             ((Sprite)Char.Visual).SetSpriteSet("Idle");
 
             Char.Visual.Scale = new Vertex(250 , 250 , 0);
-            Char.Visual.Translation = new Vertex(20,300-Char.Visual.Scale.Y, 0);           
+            Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);           
 
             CScene.AddSceneObject(Char);
                         

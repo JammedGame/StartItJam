@@ -18,22 +18,20 @@ namespace HHD_StartItJam
         private bool CollisionX=false;
         private bool CollisionY=false;
         private bool GravityOn = true;
-
+        private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
-
-        //private List<DrawnSceneObject> _Colliders = new List<DrawnSceneObject>();        
+     
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
             this._Player = Player;
+            this.Trans = Player.Visual.Translation;
             this.CScene = CScene;
-            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
-            //this._Colliders = Colliders;           
+            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);         
         }
 
         public void KeyPressEvent(Game G, EventArguments E)
         {
-            //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.W) _WDown = true;
             if (E.KeyDown == KeyType.A)
             {
@@ -55,10 +53,6 @@ namespace HHD_StartItJam
         }
         public void KeyUpEvent(Game G, EventArguments E)
         {
-            /*if (GameLogic.GameOver)
-            {
-                return;
-            }*/
             if (E.KeyDown == KeyType.W)
             {
                 _WDown = false;
@@ -85,7 +79,6 @@ namespace HHD_StartItJam
             {
                 
             }
-            //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.Space)
             {
                 if ((bool)(_Player.Data["flying"]) == false)
@@ -100,34 +93,47 @@ namespace HHD_StartItJam
 
         public void GameUpdate(Game G, EventArguments E)
         {
+            Trans = new Vertex();
             if ((int)_Player.Data["skokBrojac"] > 0)
             {
-                this._Player.Visual.Translation = new Vertex(this._Player.Visual.Translation.X, this._Player.Visual.Translation.Y - (int)_Player.Data["skokBrojac"], 0);
+                Trans = new Vertex(Trans.X, Trans.Y - (int)_Player.Data["skokBrojac"], 0);
                 _Player.Data["skokBrojac"] = (int)_Player.Data["skokBrojac"] - 1;
             }
             Gravity();
             WalkLeftRight();
             CheckCollision();
+            for(int i = 0; i < CScene.Objects.Count; i++)
+            {
+                if (CScene.Objects[i].ID == _Player.ID) continue;
+                if (CScene.Objects[i].Name == "Back") continue;
+                //CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
+                
+            }
+            _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + Trans.X, _Player.Visual.Translation.Y + Trans.Y, 0);
+            CScene.Transformation.Translation = new Vertex(CScene.Transformation.Translation.X - Trans.X/2, CScene.Transformation.Translation.Y - Trans.Y/2, 0);
+            //Tile Back = (Tile)((DrawnSceneObject)CScene.Data["Back"]).Visual;
+            //Back.Translation = new Vertex(Back.Translation.X + Trans.X, Back.Translation.Y + Trans.Y, 0);
+            Tile Surface = (Tile)((DrawnSceneObject)CScene.Data["Surface"]).Visual;
+            Surface.Translation = new Vertex(Surface.Translation.X + Trans.X, Surface.Translation.Y, 0);
         }
 
         public void WalkLeftRight()
         {
             if (_ADown)
             {
-                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X - (10 * GameLogic._GlobalScale), _Player.Visual.Translation.Y, 0);
+                Trans = new Vertex(Trans.X - 10, Trans.Y, 0);
             }
             if (_DDown)
             {
-                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + (10 * GameLogic._GlobalScale), _Player.Visual.Translation.Y, 0);
+                Trans = new Vertex(Trans.X + 10, Trans.Y, 0);
             }
-
         }
 
         public void Gravity()
         {
             if (GravityOn)
             {
-                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 10, 0);
+                Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
             }
         }
 

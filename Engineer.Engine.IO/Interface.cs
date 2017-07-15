@@ -67,25 +67,21 @@ namespace Engineer.Engine.IO
                 else Log = ex.Message;
                 return false;
             }
-
         }
         public virtual bool LoadData(ref object LoadedObject, string FilePath, ref string Log)
         {
-
-            string DirPath = Path.GetDirectoryName(FilePath) + "/" + Path.GetFileNameWithoutExtension(FilePath) + "/";
-            if (Directory.Exists(DirPath)) Directory.Delete(DirPath, true);
-            ZipFile.ExtractToDirectory(FilePath, DirPath);
-            object[] Config = ReadConfig(DirPath + "data.conf");
-            string FileType = Config[1] as string;
-            Assembly ASM = typeof(Game).Assembly;
-            LoadedObject = LoadObject(DirPath, ASM.GetType(FileType));
-            Directory.Delete(DirPath, true);
-            Log = "Success";
-            return true;
-
             try
             {
-                
+                string DirPath = Path.GetDirectoryName(FilePath) + "/" + Path.GetFileNameWithoutExtension(FilePath) + "/";
+                if (Directory.Exists(DirPath)) Directory.Delete(DirPath, true);
+                ZipFile.ExtractToDirectory(FilePath, DirPath);
+                object[] Config = ReadConfig(DirPath + "data.conf");
+                string FileType = Config[1] as string;
+                Assembly ASM = typeof(Game).Assembly;
+                LoadedObject = LoadObject(DirPath, ASM.GetType(FileType));
+                Directory.Delete(DirPath, true);
+                Log = "Success";
+                return true;
             }
             catch (Exception ex)
             {

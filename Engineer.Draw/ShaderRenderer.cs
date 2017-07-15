@@ -248,13 +248,16 @@ namespace Engineer.Draw
                     this.SetMaterial(new object[3] { new string[6] { ID, this._Manager.Active.VertexShader_Code, this._Manager.Active.FragmentShader_Code, null, null, null }, Textures.Count, PackTextures(Textures, new Vertex(MaxResolution, MaxResolution, 0)) }, true);
                     this._Manager.Active.Textures.Resolution = new Vertex(MaxResolution, MaxResolution, 0);
                 }
-                else
+                else if (Textures.Count > 0)
                 {
-                    Vertex Resolution = new Vertex((Textures[0].Width / 4) * (int)Engine.Settings.GraphicsQuality, (Textures[0].Height / 4)*(int)Engine.Settings.GraphicsQuality, 0);
+                    Vertex Resolution = new Vertex((Textures[0].Width / 4) * (int)Engine.Settings.GraphicsQuality, (Textures[0].Height / 4) * (int)Engine.Settings.GraphicsQuality, 0);
                     this.SetMaterial(new object[3] { new string[6] { ID, this._Manager.Active.VertexShader_Code, this._Manager.Active.FragmentShader_Code, null, null, null }, Textures.Count, PackTextures(Textures, Resolution) }, true);
                     this._Manager.Active.Textures.Resolution = Resolution;
                 }
-                
+                else
+                {
+                    this.SetMaterial(new object[3] { new string[6] { ID, this._Manager.Active.VertexShader_Code, this._Manager.Active.FragmentShader_Code, null, null, null }, 0, null }, true);
+                }
             }
             else this.SetMaterial(new object[3] { new string[6] { ID, null, null, null, null, null }, null, null }, false);
 

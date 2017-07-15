@@ -13,7 +13,7 @@ namespace Engineer.Runner
         [STAThread]
         static void Main()
         {
-            using (var MainWindow = new ExternRunner(800, 600, new GraphicsMode(32, 24, 0, 8), "Engineer Runner"))
+            using (var MainWindow = new ScriptedRunner(800, 600, new GraphicsMode(32, 24, 0, 8), "Engineer Runner"))
             {
                 MainWindow.Run();
             }

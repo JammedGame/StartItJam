@@ -61,5 +61,18 @@ namespace Engineer.Engine
         {
             this._Transformation = new Scene2DTransformation(S2D._Transformation);
         }
+        public List<DrawnSceneObject> getHavingData(string Name)
+        {
+            List<DrawnSceneObject> list = new List<DrawnSceneObject>();
+            for (int i = 0; i < Objects.Count; i++)
+            {
+                if (Objects[i].Data.ContainsKey(Name))
+                {
+                    list.Add((DrawnSceneObject)Objects[i]);
+                }
+
+            }
+            return list;
+        }
     }
 }

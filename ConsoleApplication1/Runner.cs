@@ -1,4 +1,4 @@
-﻿//#define FixedPipelineTimerEvent_TimerTick
+﻿//#define FixedPipeline
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,6 @@ using Engineer.Draw.OpenGL.FixedGL;
 using Engineer.Draw.OpenGL.GLSL;
 using Engineer.Engine;
 using OpenTK.Input;
-using System.ComponentModel;
 
 namespace Engineer.Runner
 {
@@ -26,13 +25,10 @@ namespace Engineer.Runner
         private int _FrameUpdateRate;
         protected bool _GameInit;
         protected bool _EngineInit;
-        private Timer _Time;
+        protected Timer _Time;
         protected Scene _CurrentScene;
         protected Game _CurrentGame;
         protected DrawEngine _Engine;
-
-        protected Timer Time { get => _Time; set => _Time = value; }
-
         public int FrameUpdateRate { get => _FrameUpdateRate; set => _FrameUpdateRate = value; }
         public Runner(int width, int height, GraphicsMode mode, string title) : base(width, height, mode, title)
         {
@@ -56,30 +52,8 @@ namespace Engineer.Runner
             _Engine.CurrentTranslator = Translator;
             _Engine.SetDefaults();
         }
-        public void Init(Game CurrentGame, Scene CurrentScene, BackgroundWorker bw)
-        {
-            this.Time.Enabled = false;
-            if (!_EngineInit) EngineInit();
-            this._Time.Stop();
-            this._GameInit = true;
-            this._CurrentGame = CurrentGame;
-            this._CurrentScene = CurrentScene;
-            this.Closing += new EventHandler<System.ComponentModel.CancelEventArgs>(Event_Closing);
-            this.KeyDown += new EventHandler<KeyboardKeyEventArgs>(Event_KeyPress);
-            this.KeyDown += new EventHandler<KeyboardKeyEventArgs>(Event_KeyDown);
-            this.KeyUp += new EventHandler<KeyboardKeyEventArgs>(Event_KeyUp);
-            this.MouseDown += new EventHandler<MouseButtonEventArgs>(Event_MouseClick);
-            this.MouseDown += new EventHandler<MouseButtonEventArgs>(Event_MouseDown);
-            this.MouseUp += new EventHandler<MouseButtonEventArgs>(Event_MouseUp);
-            this.MouseMove += new EventHandler<MouseMoveEventArgs>(Event_MouseMove);
-            this.MouseWheel += new EventHandler<MouseWheelEventArgs>(Event_MouseWheel);
-            PrepareEvents();
-            this._Time.Start();
-            Event_Load();
-        }
         public void Init(Game CurrentGame, Scene CurrentScene)
         {
-            this.Time.Enabled = false;
             if (!_EngineInit) EngineInit();
             this._Time.Stop();
             this._GameInit = true;
@@ -222,17 +196,17 @@ namespace Engineer.Runner
         }
         private void Event_MouseClick(object sender, MouseButtonEventArgs e)
         {
-            try
+            EventArguments Arguments = new EventArguments();
+            Arguments.Location = new Vertex(e.X, e.Y, 0);
+            Arguments.ButtonDown = (MouseClickType)e.Button;
+            Arguments.Handled = false;
+            if (_CurrentScene.Type == SceneType.Scene2D)
             {
-                EventArguments Arguments = new EventArguments();
-                Arguments.Location = new Vertex(e.X, e.Y, 0);
-                Arguments.ButtonDown = (MouseClickType)e.Button;
-                Arguments.Handled = false;
-                if (_CurrentScene.Type == SceneType.Scene2D)
+                Scene2D Current2DScene = (Scene2D)_CurrentScene;
+                Vertex STrans = Current2DScene.Transformation.Translation;
+                for (int i = _CurrentScene.Objects.Count - 1; i >= 0; i--)
                 {
-                    Scene2D Current2DScene = (Scene2D)_CurrentScene;
-                    Vertex STrans = Current2DScene.Transformation.Translation;
-                    for (int i = _CurrentScene.Objects.Count - 1; i >= 0; i--)
+                    if (_CurrentScene.Objects[i].Type == SceneObjectType.DrawnSceneObject)
                     {
                         DrawnSceneObject Current = (DrawnSceneObject)_CurrentScene.Objects[i];
                         Vertex Trans = Current.Visual.Translation;
@@ -240,21 +214,15 @@ namespace Engineer.Runner
                         if (STrans.X + Trans.X < e.X && e.X < STrans.X + Trans.X + Scale.X &&
                             STrans.Y + Trans.Y < e.Y && e.Y < STrans.Y + Trans.Y + Scale.Y)
                         {
-                            DrawnSceneObject DSO = (DrawnSceneObject)_CurrentScene.Objects[i];
-                            if (STrans.X + DSO.Visual.Translation.X < e.X && e.X < STrans.X + DSO.Visual.Translation.X + DSO.Visual.Scale.X &&
-                                STrans.Y + DSO.Visual.Translation.Y < e.Y && e.Y < STrans.Y + DSO.Visual.Translation.Y + DSO.Visual.Scale.Y)
-                            {
-                                Arguments.Target = DSO;
-                                CallObjectEvents(i, "MouseClick", Arguments);
-                                Arguments.Handled = true;
-                            }
+                            Arguments.Target = Current;
+                            CallObjectEvents(i, "MouseClick", Arguments);
+                            Arguments.Handled = true;
                         }
                     }
                 }
-                Arguments.Target = null;
-                CallEvents("MouseClick", Arguments);
             }
-            catch { }
+            Arguments.Target = null;
+            CallEvents("MouseClick", Arguments);
         }
         private void Event_MouseMove(object sender, MouseMoveEventArgs e)
         {

@@ -144,7 +144,7 @@ namespace Engineer.Draw
             {
                 FunctionCalls.Add(GenerateFragmentFinalizer(false, ""));
             }
-            String LibPath = "Data\\";
+            String LibPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Engineer/";
             if (_TexturesNumber > 0) FragmentHeader = File.ReadAllText(LibPath + this._MaterialTranslatorType + "\\Generator\\FragmentTexturedHeader.shader") + "\n";
             else FragmentHeader = File.ReadAllText(LibPath + this._MaterialTranslatorType + "\\Generator\\FragmentHeader.shader") + "\n";
             if (FragmentHeader == "") return "";
@@ -253,7 +253,7 @@ namespace Engineer.Draw
         private void LoadEntries()
         {
             List<string> PossibleEntries = new List<string>();
-            String LibPath = "Data\\";
+            String LibPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Engineer/";
             string[] Files = Directory.GetFiles(LibPath + _MaterialTranslatorType);
             for (int i = 0; i < Files.Length; i++)
             {

@@ -11,6 +11,7 @@ namespace HHD_StartItJam
 {
     class Movement
     {
+        private bool _BlockEvents = false;
         public bool _ADown;
         public bool _DDown;
         public bool _WDown;
@@ -18,17 +19,17 @@ namespace HHD_StartItJam
         private bool CollisionX=false;
         private bool CollisionY=false;
         private bool GravityOn = true;
-
+        private int GravityAmount = 0;
+        private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
-
-        //private List<DrawnSceneObject> _Colliders = new List<DrawnSceneObject>();        
+     
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
             this._Player = Player;
+            this.Trans = Player.Visual.Translation;
             this.CScene = CScene;
-            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
-            //this._Colliders = Colliders;           
+            this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);         
         }
 
         public void KeyPressEvent(Game G, EventArguments E)
@@ -40,7 +41,10 @@ namespace HHD_StartItJam
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
                 _ADown = true;
             }
-            if (E.KeyDown == KeyType.S) _SDown = true;
+            if (E.KeyDown == KeyType.S)
+            {
+                _SDown = true;
+            }
             if (E.KeyDown == KeyType.D)
             {
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
@@ -49,16 +53,13 @@ namespace HHD_StartItJam
 
             if (E.KeyDown == KeyType.K)
             {
-                ((Sprite)_Player.Visual).BackUpSpriteSet = 0;
+                ((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
             }
         }
         public void KeyUpEvent(Game G, EventArguments E)
         {
-            /*if (GameLogic.GameOver)
-            {
-                return;
-            }*/
+            if (_BlockEvents) return;
             if (E.KeyDown == KeyType.W)
             {
                 _WDown = false;
@@ -81,11 +82,11 @@ namespace HHD_StartItJam
         }
         public void KeyDownEvent(Game G, EventArguments E)
         {
+            if (_BlockEvents) return;
             if (E.KeyDown == KeyType.Escape)
             {
                 
             }
-            //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.Space)
             {
                 if ((bool)(_Player.Data["flying"]) == false)
@@ -100,34 +101,76 @@ namespace HHD_StartItJam
 
         public void GameUpdate(Game G, EventArguments E)
         {
+            if (_BlockEvents) return;
+            this._BlockEvents = true;
+            Trans = new Vertex();
             if ((int)_Player.Data["skokBrojac"] > 0)
             {
                 this._Player.Visual.Translation = new Vertex(this._Player.Visual.Translation.X, this._Player.Visual.Translation.Y - (int)_Player.Data["skokBrojac"], 0);
                 _Player.Data["skokBrojac"] = (int)_Player.Data["skokBrojac"] - 1;
+                if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+                {
+                    // Ako pipne merdevine
+                    _Player.Data["skokBrojac"] = 0;
+                }
+
             }
-            Gravity();
             WalkLeftRight();
+
+            if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+            {
+                if (_WDown)
+                {
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y - 10, 0);
+
+                }
+                if (_SDown)
+                {
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 10, 0);
+
+                }
+
+            }
+            else
+            {
+                Gravity();
+            }
+
             CheckCollision();
+            for(int i = 0; i < CScene.Objects.Count; i++)
+            {
+                if (CScene.Objects[i].ID == _Player.ID) continue;
+                if (CScene.Objects[i].Name == "Back") continue;
+                if (CScene.Objects[i].Name == "Surface") CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y, 0);
+                CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
+            }
+            //_Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + Trans.X, _Player.Visual.Translation.Y + Trans.Y, 0);
+            //CScene.Transformation.Translation = new Vertex(CScene.Transformation.Translation.X - Trans.X*1.0f/2, CScene.Transformation.Translation.Y - Trans.Y * 1.0f / 2, 0);
+            //Tile Back = (Tile)((DrawnSceneObject)CScene.Data["Back"]).Visual;
+            //Back.Translation = new Vertex(Back.Translation.X + Trans.X, Back.Translation.Y + Trans.Y, 0);
+            //Tile Surface = (Tile)((DrawnSceneObject)CScene.Data["Surface"]).Visual;
+            //Surface.Translation = new Vertex(Surface.Translation.X + Trans.X, Surface.Translation.Y, 0);
+            this._BlockEvents = false;
         }
 
         public void WalkLeftRight()
         {
             if (_ADown)
             {
-                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X - (10 * GameLogic._GlobalScale), _Player.Visual.Translation.Y, 0);
+                Trans = new Vertex(Trans.X - 10, Trans.Y, 0);
             }
             if (_DDown)
             {
-                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + (10 * GameLogic._GlobalScale), _Player.Visual.Translation.Y, 0);
+                Trans = new Vertex(Trans.X + 10, Trans.Y, 0);
             }
-
         }
 
         public void Gravity()
         {
             if (GravityOn)
             {
-                _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 10, 0);
+                Trans = new Vertex(Trans.X, Trans.Y + (float)Math.Sqrt(GravityAmount), 0);
+                GravityAmount++;
             }
         }
 
@@ -140,8 +183,17 @@ namespace HHD_StartItJam
                 CollisionY = true;
                 GravityOn = false;
                 _Player.Data["flying"] = false;
+                //Trans = new Vertex(Trans.X, DSO.Visual.Translation.Y - _Player.Visual.Scale.Y, 0);
             }
-            else GravityOn = true;
+            else
+            {
+                if(!GravityOn) GravityAmount = 0;
+                GravityOn = true;
+            }
         }
     }
 }
+
+            if (_BlockEvents) return;
+            if (E.KeyDown == KeyType.W) _WDown = true;
+                Trans = new Vertex(Trans.X, Trans.Y - (int)_Player.Data["skokBrojac"], 0);

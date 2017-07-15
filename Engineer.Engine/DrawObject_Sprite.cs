@@ -16,6 +16,7 @@ namespace Engineer.Engine
         private int _CurrentIndex;
         private int _CurrentSpriteSet;
         private int _BackUpSpriteSet;
+        private Color _Paint;
         private List<SpriteSet> _SpriteSets;
         private List<Sprite> _SubSprites;
         public bool Modified
@@ -30,6 +31,7 @@ namespace Engineer.Engine
                 _Modified = value;
             }
         }
+        public Color Paint { get => _Paint; set => _Paint = value; }
         [XmlIgnore]
         public List<SpriteSet> SpriteSets
         {
@@ -59,6 +61,7 @@ namespace Engineer.Engine
         public Sprite() : base()
         {
             this._CurrentIndex = 0;
+            this._BackUpSpriteSet = -1;
             this.Type = DrawObjectType.Sprite;
             this._SpriteSets = new List<SpriteSet>();
             this.Scale = new Mathematics.Vertex(100,100,1);
@@ -67,6 +70,7 @@ namespace Engineer.Engine
         public Sprite(Sprite S) : base(S)
         {
             this._CurrentIndex = 0;
+            this._BackUpSpriteSet = -1;
             this._SpriteSets = new List<SpriteSet>();
             for (int i = 0; i < S._SpriteSets.Count; i++) this._SpriteSets.Add(new SpriteSet(S._SpriteSets[i]));
             this._SubSprites = new List<Sprite>();
@@ -90,7 +94,10 @@ namespace Engineer.Engine
             if (_SpriteSets.Count <= 0) _CurrentIndex = -1;
             else if (_CurrentIndex >= _SpriteSets[_CurrentSpriteSet].Sprite.Count)
             {
-                if (_BackUpSpriteSet != -1) this.SetSpriteSet(this._BackUpSpriteSet);
+                if(this._BackUpSpriteSet != -1)
+                {
+                    this.SetSpriteSet(this._BackUpSpriteSet);
+                }
                 else _CurrentIndex = 0;
             }
         }
@@ -118,6 +125,17 @@ namespace Engineer.Engine
                 if (this._SpriteSets[i].Name == Name) this.UpdateSpriteSet(i);
             }
         }
+        public void SetBackUpSpriteSet(int Index)
+        {
+            _BackUpSpriteSet = Index;
+        }
+        public void SetBackUpSpriteSet(string Name)
+        {
+            for (int i = 0; i < this._SpriteSets.Count; i++)
+            {
+                if (this._SpriteSets[i].Name == Name) this.SetBackUpSpriteSet(i);
+            }
+        }
         public bool InCollision(DrawObject Collider, Collision2DType Type)
         {
             return Collision2D.Check(this.Translation, this.Scale, Collider.Translation, Collider.Scale, Type);
@@ -134,7 +152,6 @@ namespace Engineer.Engine
         }
         public int IO_CurrentSpriteSet
         { get => _CurrentSpriteSet; set => _CurrentSpriteSet = value; }
-        public int BackUpSpriteSet { get => _BackUpSpriteSet; set => _BackUpSpriteSet = value; }
     }
     public class SpriteSet
     {

@@ -172,4 +172,10 @@
   <data name="Stairs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stairs_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Door0L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Door_2_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Door0R" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Door_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

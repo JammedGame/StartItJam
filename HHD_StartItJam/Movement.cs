@@ -107,8 +107,14 @@ namespace HHD_StartItJam
                 if (CScene.Objects[i].ID == _Player.ID) continue;
                 if (CScene.Objects[i].Name == "Back") continue;
                 //CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
-                _Player.Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y + Trans.Y, 0);
+                
             }
+            _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + Trans.X, _Player.Visual.Translation.Y + Trans.Y, 0);
+            CScene.Transformation.Translation = new Vertex(CScene.Transformation.Translation.X - Trans.X/2, CScene.Transformation.Translation.Y - Trans.Y/2, 0);
+            //Tile Back = (Tile)((DrawnSceneObject)CScene.Data["Back"]).Visual;
+            //Back.Translation = new Vertex(Back.Translation.X + Trans.X, Back.Translation.Y + Trans.Y, 0);
+            Tile Surface = (Tile)((DrawnSceneObject)CScene.Data["Surface"]).Visual;
+            Surface.Translation = new Vertex(Surface.Translation.X + Trans.X, Surface.Translation.Y, 0);
         }
 
         public void WalkLeftRight()

@@ -29,13 +29,19 @@ namespace HHD_StartItJam
             //DrawnSceneObject Back = CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(1920, 900, 0));
             //CScene.AddSceneObject(Back);
             DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 1000, 0), true);
+            CScene.Data["Surface"] = Surface;
             CScene.AddSceneObject(Surface);
-            CreateRoom(CScene, 1, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false});
-            CreateRoom(CScene, 6, 3, 0, new int[] { 0, 1 }, new bool[] {true, false, false});
+
+            DrawnSceneObject Surface2 = CreateStaticSprite("Surface2", ResourceManager.Images["Surface"], new Vertex(1920, 900, 0), new Vertex(1920, 1000, 0), true);
+            CScene.Data["Surface2"] = Surface2;
+            CScene.AddSceneObject(Surface2);
+
+            CreateRoom(CScene, 1, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false });
+            CreateRoom(CScene, 6, 3, 0, new int[] { 0, 1 }, new bool[] { true, false, false });
             CreateRoom(CScene, 1, 3, 1, new int[] { 0, 2 }, null);
             CreateRoom(CScene, 4, 5, 1, new int[] { 2, 0 }, null);
 
-            CreateRoom(CScene, 12, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true});
+            CreateRoom(CScene, 12, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true });
             CreateRoom(CScene, 15, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
             CreateRoom(CScene, 18, 2, 0, new int[] { 0, 1 }, new bool[] { true, false });
             CreateRoom(CScene, 12, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
@@ -43,7 +49,7 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 11, 5, 2, new int[] { 2, 2 }, null);
             CreateRoom(CScene, 16, 3, 2, new int[] { 2, 2 }, null);
 
-            CreateRoom(CScene, 22, 1, 2, new int[] { 2, 0 }, new bool[] { true});
+            CreateRoom(CScene, 22, 1, 2, new int[] { 2, 0 }, new bool[] { true });
             CreateRoom(CScene, 22, 1, 3, new int[] { 0, 0 }, new bool[] { true });
             CreateRoom(CScene, 16, 4, 4, new int[] { 0, 2 }, null);
             CreateRoom(CScene, 22, 1, 4, new int[] { 2, 0 }, null);

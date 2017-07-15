@@ -203,7 +203,31 @@ namespace HHD_StartItJam
                 if (CScene.Objects[i].Name == "Back") continue;
                 if (CScene.Objects[i].Data.ContainsKey("Static")) continue;
 
-                if (CScene.Objects[i].Name == "Surface") CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y, 0);
+                if (CScene.Objects[i].Name == "Surface")
+                {
+                    // Looping two surfaces to symulate infinite surface
+                    DrawnSceneObject Surface2 = (DrawnSceneObject)CScene.Data["Surface2"];
+
+                    DrawnSceneObject Surface = (DrawnSceneObject)CScene.Objects[i];
+                    if (Surface.Visual.RightEdge >= 0 && Surface.Visual.RightEdge < 1920)
+                    {
+                        Surface2.Visual.LeftEdge = Surface.Visual.RightEdge;
+                    }
+                    if (Surface.Visual.LeftEdge >= 0 && Surface.Visual.LeftEdge < 1920)
+                    {
+                        Surface2.Visual.RightEdge = Surface.Visual.LeftEdge;
+                    }
+                    if (Surface.Visual.RightEdge < 0)
+                    {
+                        Surface.Visual.LeftEdge = Surface2.Visual.RightEdge;
+                    }
+                    if (Surface.Visual.LeftEdge > 1920)
+                    {
+                        Surface.Visual.RightEdge = Surface2.Visual.LeftEdge;
+                    }
+                }
+              
+
                 CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
             }
 

@@ -53,6 +53,31 @@ namespace Engineer.Engine
                 _Name = value;
             }
         }
+        public float RightEdge
+        {
+            get
+            {
+                return Translation.X + Scale.X;
+            }
+
+            set
+            {
+                Translation = new Vertex(value - Scale.X, Translation.Y, 0);
+            }
+        }
+        public float LeftEdge
+        {
+            get
+            {
+                return Translation.X;
+            }
+
+            set
+            {
+                Translation = new Vertex(value, Translation.Y, 0);
+            }
+        }
+
         public string ID
         {
             get

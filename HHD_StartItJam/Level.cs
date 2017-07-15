@@ -13,6 +13,16 @@ namespace HHD_StartItJam
 {
     class Level
     {
+        //Function to get random number
+        private static readonly Random random = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            { // synchronize
+                return random.Next(min, max);
+            }
+        }
         public static bool[,] FloorTaken = new bool[5, 100];
         public static void Create(Scene2D CScene)
         {
@@ -51,6 +61,7 @@ namespace HHD_StartItJam
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {
+            
             for(int i = 0; i < Length; i++)
             {
                 FloorTaken[Level, XLocation + i] = true;
@@ -70,7 +81,7 @@ namespace HHD_StartItJam
                     DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location - 250, 850, 0), new Vertex(250, 50, 0), true, Collision2DType.Focus);
                     CScene.AddSceneObject(Floor);
                 }
-                DrawnSceneObject LeftDoor = CreateStaticSprite("LeftDoor", ResourceManager.Images["Door0L"], new Vertex(Location - 250, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
+                DrawnSceneObject LeftDoor = CreateStaticSprite("LeftDoor", ResourceManager.Images["Door"+RandomNumber(0,3)+"L"], new Vertex(Location - 250, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
                 CScene.AddSceneObject(LeftDoor);
             }
             DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[0] == 0, Collision2DType.Rectangular);
@@ -83,7 +94,7 @@ namespace HHD_StartItJam
                     DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location + Length * 300, 850, 0), new Vertex(250, 50, 0), true, Collision2DType.Focus);
                     CScene.AddSceneObject(Floor);
                 }
-                DrawnSceneObject RightDoor = CreateStaticSprite("RightDoor", ResourceManager.Images["Door0R"], new Vertex(Location + Length * 300, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
+                DrawnSceneObject RightDoor = CreateStaticSprite("RightDoor", ResourceManager.Images["Door" + RandomNumber(0, 3) + "R"], new Vertex(Location + Length * 300, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
                 CScene.AddSceneObject(RightDoor);
             }
             DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[1] == 0, Collision2DType.Rectangular);

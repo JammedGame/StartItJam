@@ -90,13 +90,21 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.Space)
             {
-                if ((bool)(_Player.Data["flying"]) == false)
+                if (_SDown)
                 {
-                    _Player.Data["flying"] = true;
-                    _Player.Data["skokBrojac"] = 40;
-                    ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
-                    //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 55, 0);
                 }
+                else
+                {
+                    if ((bool)(_Player.Data["flying"]) == false)
+                    {
+                        _Player.Data["flying"] = true;
+                        _Player.Data["skokBrojac"] = 40;
+                        ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
+                        //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
+                    }
+                }
+
             }
         }
 

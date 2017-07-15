@@ -181,12 +181,19 @@ namespace HHD_StartItJam
                     }
                 }
             }
-
-                       
-              
-                Gravity();
+            Gravity();
             CheckCollision();
-            for(int i = 0; i < CScene.Objects.Count; i++)
+            for (int i = 0; i < CScene.Objects.Count; i++)
+            {
+                if (CScene.Objects[i].Name == "Floor")
+                {
+                    if (((Sprite)_Player.Visual).InCollision(CScene.Objects[i].Visual, Collision2DType.Rectangular))
+                    {
+                        Trans = new Vertex(Trans.X, Trans.Y - ((_Player.Visual.Translation.Y + _Player.Visual.Scale.Y) - CScene.Objects[i].Visual.Translation.Y), 0);
+                    }
+                }
+            }
+            for (int i = 0; i < CScene.Objects.Count; i++)
             {
                 if (CScene.Objects[i].Name == "Cowboy")
                 {
@@ -214,6 +221,8 @@ namespace HHD_StartItJam
                     }
                 }
             }
+
+            
         }
 
         /*List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);

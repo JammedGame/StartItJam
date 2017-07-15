@@ -68,7 +68,8 @@ namespace HHD_StartItJam
             ((Sprite)_Enemy.Visual).SetSpriteSet("Walk");
 
             _Enemy.Visual.Scale = new Vertex(250, 250, 0);
-            _Enemy.Visual.Translation = new Vertex(960 - 125, 900, 0);            
+            _Enemy.Visual.Translation = new Vertex(960 - 125, 600, 0);
+            _Enemy.ID = "djape";
             Scene.AddSceneObject(_Enemy);
 
             return _Enemy;

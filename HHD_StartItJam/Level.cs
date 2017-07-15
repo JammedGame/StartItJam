@@ -16,36 +16,28 @@ namespace HHD_StartItJam
 
         public static void Create(Scene2D CScene)
         {
-
-
             DrawnSceneObject Back = CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(1920, 900, 0));
             CScene.AddSceneObject(Back);
             DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 300, 0), true);
             CScene.AddSceneObject(Surface);
-            DrawnSceneObject Ceiling = CreateStaticSprite("Ceiling", ResourceManager.Images["Floor1"], new Vertex(300, 250, 0), new Vertex(1200, 50, 0), true);
-            CScene.AddSceneObject(Ceiling);
-            DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(300, 850, 0), new Vertex(300, 50, 0), true);
-            CScene.AddSceneObject(Floor);
-            DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(300, 300, 0), new Vertex(300, 550, 0));
-            CScene.AddSceneObject(BackWall);
-            DrawnSceneObject Floor2 = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(600, 850, 0), new Vertex(300, 50, 0), true);
-            CScene.AddSceneObject(Floor2);
-            DrawnSceneObject BackWall2 = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(600, 300, 0), new Vertex(300, 550, 0));
-            CScene.AddSceneObject(BackWall2);
-            DrawnSceneObject Floor3 = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(900, 850, 0), new Vertex(300, 50, 0), true);
-            CScene.AddSceneObject(Floor3);
-            DrawnSceneObject BackWall3 = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(900, 300, 0), new Vertex(300, 550, 0));
-            CScene.AddSceneObject(BackWall3);
-            DrawnSceneObject Floor4 = CreateStaticSprite("Floor", ResourceManager.Images["Floor"], new Vertex(1200, 850, 0), new Vertex(300, 50, 0), true);
-            CScene.AddSceneObject(Floor4);
-            DrawnSceneObject BackWall4 = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(1200, 300, 0), new Vertex(300, 550, 0));
-            CScene.AddSceneObject(BackWall4);
+            CreateWallPart(CScene, new Vertex(300, 250, 0), 0);
+            CreateWallPart(CScene, new Vertex(600, 250, 0), 0);
+            CreateWallPart(CScene, new Vertex(900, 250, 0), 0);
+            CreateWallPart(CScene, new Vertex(1200, 250, 0), 0);
             DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(300, 300, 0), new Vertex(50, 550, 0));
             CScene.AddSceneObject(LeftWall);
             DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(1450, 300, 0), new Vertex(50, 550, 0));
             CScene.AddSceneObject(RightWall);
         }
-
+        public static void CreateWallPart(Scene CScene, Vertex Location, int Level)
+        {
+            DrawnSceneObject Ceiling = CreateStaticSprite("Ceiling", ResourceManager.Images["Ceiling"], Location, new Vertex(300, 50, 0), true);
+            CScene.AddSceneObject(Ceiling);
+            DrawnSceneObject Floor = CreateStaticSprite("Floor", (Level == 0)?ResourceManager.Images["Floor"]: ResourceManager.Images["Ceiling"], new Vertex(Location.X, Location.Y + 600, 0), new Vertex(300, 50, 0), true);
+            CScene.AddSceneObject(Floor);
+            DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));
+            CScene.AddSceneObject(BackWall);
+        }
         public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size, bool Colidable = false)
         {
             Positon = new Vertex(Positon.X , Positon.Y  , 0);

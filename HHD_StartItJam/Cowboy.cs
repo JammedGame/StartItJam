@@ -24,7 +24,7 @@ namespace HHD_StartItJam
         public override void Behavior()
         {
            
-            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<50)
+            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<75 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 75)
             {
                 ((Sprite)_Enemy.Visual).UpdateSpriteSet("Attack");
             }

@@ -27,7 +27,7 @@ namespace HHD_StartItJam
 
             CreateRoom(CScene, 12, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true});
             CreateRoom(CScene, 15, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
-            CreateRoom(CScene, 18, 2, 0, new int[] { 0, 1 }, null);
+            CreateRoom(CScene, 18, 2, 0, new int[] { 0, 1 }, new bool[] { true, false });
             CreateRoom(CScene, 12, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
             CreateRoom(CScene, 15, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
             CreateRoom(CScene, 11, 5, 2, new int[] { 0, 2 }, null);

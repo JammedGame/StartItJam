@@ -22,10 +22,6 @@ namespace HHD_StartItJam
         private Scene _Menu;
         private Scene2D _Current;
         private SceneLogic _Logic;
-        private DrawnSceneObject _Player;
-        private Movement _Movement;
-        //private List<DrawnSceneObject> _Colliders = new List<DrawnSceneObject>();
-             
         public GameLogic()
         {
             ResourceManager _ResMan = new ResourceManager();
@@ -40,33 +36,11 @@ namespace HHD_StartItJam
             this._Current.Transformation.Scale = new Vertex(_GlobalScale, _GlobalScale, 0);
             this._Game.Scenes.Add(this._Current);
             this._Logic = new SceneLogic(this._Current);
-            _Player = Character.Create(this._Current);
-            CreateCharacter();
-            this._Movement = new Movement(_Runner, _Player, _Current);
-            _Current.Events.Extern.TimerTick += new GameEventHandler(GameUpdateEvent);
-            _Current.Events.Extern.KeyDown += new GameEventHandler(_Movement.KeyDownEvent);
-            _Current.Events.Extern.KeyUp += new GameEventHandler(_Movement.KeyUpEvent);
-            _Current.Events.Extern.KeyPress += new GameEventHandler(_Movement.KeyPressEvent);
         }
         public void Run()
         {
             this._Runner.Init(this._Game, this._Current);
             this._Runner.Run();
-        }
-        public void GameUpdateEvent(Game G, EventArguments E)
-        {
-            _Movement.Gravity();
-            _Movement.WalkLeftRight();
-            _Movement.CheckCollision();
-        }
-        private void CreateCharacter()
-        {
-            _Player.Data["Direction"] = 0;
-            _Player.Data["Collision"] = true;
-            _Player.Data["skokBrojac"] = 0;
-            _Player.Data["padBrojac"] = 0;
-            _Player.Data["colliding"] = true;
-            _Player.Data["flying"] = false;
         }
     }
 }

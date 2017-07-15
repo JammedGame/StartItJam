@@ -19,14 +19,12 @@ namespace HHD_StartItJam
         private bool CollisionY=false;
         private bool GravityOn = true;
 
-        private Runner _Runner;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
 
         //private List<DrawnSceneObject> _Colliders = new List<DrawnSceneObject>();        
-        public Movement(Runner NewRunner, DrawnSceneObject Player, Scene2D CScene)
+        public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
-            this._Runner = NewRunner;
             this._Player = Player;
             this.CScene = CScene;
 
@@ -85,7 +83,7 @@ namespace HHD_StartItJam
         {
             if (E.KeyDown == KeyType.Escape)
             {
-                _Runner.Close();
+                
             }
             //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.Space)

@@ -18,20 +18,26 @@ namespace HHD_StartItJam
         }
         private static DrawnSceneObject CreateCharacter(Scene2D CScene)
         {
-            /*EFXInterface EFX = new EFXInterface();
+            EFXInterface EFX = new EFXInterface();
             DrawnSceneObject Char = (DrawnSceneObject)EFX.Load("Data/knight.efx");
             ((Sprite)Char.Visual).SetSpriteSet("Idle");
             ((Sprite)Char.Visual).Paint = Color.White;
             Char.Visual.Scale = new Vertex(250 , 250 , 0);
             Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);           
 
-            CScene.AddSceneObject(Char);*/
+            CScene.AddSceneObject(Char);
+            
+             return Char;
 
-            SpriteSet S1 = new SpriteSet("Idle", ResourceManager.Images["smrt1"]);
+            /*SpriteSet S1 = new SpriteSet("Idle", ResourceManager.Images["smrt1"]);
             SpriteSet S2 = new SpriteSet("Walk", ResourceManager.Images["smrt1"]);
             SpriteSet S3 = new SpriteSet("Attack", ResourceManager.Images["smrt1"]);
+            S3.Sprite.Add(ResourceManager.Images["smrt1"]);
+            S3.Sprite.Add(ResourceManager.Images["smrt2"]);
             S3.Sprite.Add(ResourceManager.Images["smrt2"]);
             S3.Sprite.Add(ResourceManager.Images["smrt3"]);
+            S3.Sprite.Add(ResourceManager.Images["smrt3"]);
+            S3.Sprite.Add(ResourceManager.Images["smrt4"]);
             S3.Sprite.Add(ResourceManager.Images["smrt4"]);
             SpriteSet S4 = new SpriteSet("Attack", ResourceManager.Images["smrt_penjac1"]);
             S4.Sprite.Add(ResourceManager.Images["smrt_penjac2"]);
@@ -54,7 +60,7 @@ namespace HHD_StartItJam
 
             CScene.AddSceneObject(DSO);
 
-            return DSO;
+            return DSO;*/
         }       
     }
 }

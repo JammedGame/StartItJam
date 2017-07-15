@@ -277,6 +277,10 @@ namespace Engineer.Runner
                 for (int i = 0; i < C2DS.Sprites.Count; i++)
                 {
                     C2DS.Sprites[i].RaiseIndex();
+                    for(int j = 0; j < C2DS.Sprites[j].SubSprites.Count; j++)
+                    {
+                        C2DS.Sprites[j].SubSprites[j].RaiseIndex();
+                    }
                 }
             }
             EventArguments Arguments = new EventArguments();

@@ -108,33 +108,31 @@ namespace HHD_StartItJam
         {
             if ((int)_Player.Data["skokBrojac"] > 0)
             {
+
                 this._Player.Visual.Translation = new Vertex(this._Player.Visual.Translation.X, this._Player.Visual.Translation.Y - (int)_Player.Data["skokBrojac"], 0);
                 _Player.Data["skokBrojac"] = (int)_Player.Data["skokBrojac"] - 1;
+                if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+                {
+                    // Ako pipne merdevine
+                    _Player.Data["skokBrojac"] = 0;
+                }
+
             }
             WalkLeftRight();
 
-            if (_WDown)
+            if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
             {
-                if (((Sprite)_Player.Visual).InCollision(_Player.Visual, (Collision2DType)CScene.Data["Stairs"]))
+                if (_WDown)
                 {
-
                     _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y - 10, 0);
 
                 }
-                /*
-                    for (int i = 0; i < CScene.Objects.Count; i++)
-                    {
-                        if (CScene.Objects[i].ID == _Player.ID) continue;
-                        if (CScene.Objects[i].Data.ContainsKey("Collision"))
-                        {
+                if (_SDown)
+                {
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 10, 0);
 
-                            if (((Sprite)_Player.Visual).InCollision(CScene.Objects[i].Visual, (Collision2DType)CScene.Objects[i].Data["Collision"])))
-                            {
+                }
 
-                            }
-                        }
-                    }
-                    */
             }
             else
             {

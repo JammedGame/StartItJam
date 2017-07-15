@@ -26,8 +26,13 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 300, 4, 0);
             CreateRoom(CScene, 300, 3, 1);
 
-            DrawnSceneObject Stairs = CreateStaticSprite("Stairs", ResourceManager.Images["Ceiling"], new Vertex(450, 60, 0), new Vertex(120, 600, 0));
+            DrawnSceneObject Stairs = CreateStaticSprite("Stairs", ResourceManager.Images["Stairs"], new Vertex(450, 250, 0), new Vertex(120, 600, 0));
+            Stairs.Data["Stairs"] = Stairs;
             CScene.AddSceneObject(Stairs);
+
+            DrawnSceneObject Stairs2 = CreateStaticSprite("Stairs", ResourceManager.Images["Stairs"], new Vertex(850, 250, 0), new Vertex(120, 600, 0));
+            Stairs2.Data["Stairs"] = Stairs2;
+            CScene.AddSceneObject(Stairs2);
         }
         public static void CreateRoom(Scene2D CScene, int Location, int Length, int Level)
         {

@@ -133,9 +133,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap idle0 {
+        internal static System.Drawing.Bitmap smrt_penjac1 {
             get {
-                object obj = ResourceManager.GetObject("idle0", resourceCulture);
+                object obj = ResourceManager.GetObject("smrt_penjac1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap idle1 {
+        internal static System.Drawing.Bitmap smrt_penjac2 {
             get {
-                object obj = ResourceManager.GetObject("idle1", resourceCulture);
+                object obj = ResourceManager.GetObject("smrt_penjac2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap idle2 {
+        internal static System.Drawing.Bitmap smrt1 {
             get {
-                object obj = ResourceManager.GetObject("idle2", resourceCulture);
+                object obj = ResourceManager.GetObject("smrt1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap idle3 {
+        internal static System.Drawing.Bitmap smrt2 {
             get {
-                object obj = ResourceManager.GetObject("idle3", resourceCulture);
+                object obj = ResourceManager.GetObject("smrt2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap knight_frame6 {
+        internal static System.Drawing.Bitmap smrt3 {
             get {
-                object obj = ResourceManager.GetObject("knight_frame6", resourceCulture);
+                object obj = ResourceManager.GetObject("smrt3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,49 +183,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap knight_frame7 {
+        internal static System.Drawing.Bitmap smrt4 {
             get {
-                object obj = ResourceManager.GetObject("knight_frame7", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap knight_frame8 {
-            get {
-                object obj = ResourceManager.GetObject("knight_frame8", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap knight_frame9 {
-            get {
-                object obj = ResourceManager.GetObject("knight_frame9", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap slash0 {
-            get {
-                object obj = ResourceManager.GetObject("slash0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap slash2 {
-            get {
-                object obj = ResourceManager.GetObject("slash2", resourceCulture);
+                object obj = ResourceManager.GetObject("smrt4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

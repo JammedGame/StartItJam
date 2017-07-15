@@ -178,5 +178,23 @@
   <ItemGroup>
     <None Include="Resources\Door_2_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smrt penjac1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smrt penjac2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smrt1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smrt2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smrt3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smrt4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -67,7 +67,6 @@ namespace HHD_StartItJam
         }
         public void KeyUpEvent(Game G, EventArguments E)
         {
-            if (_BlockEvents) return;
             if (E.KeyDown == KeyType.W)
             {
                 _WDown = false;
@@ -139,7 +138,8 @@ namespace HHD_StartItJam
                 //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
             }
 
-            if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+            List<DrawnSceneObject> Collisions = _Player.GetCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical);
+            if (Collisions.Count > 0)
             {
                 if (_WDown)
                 {
@@ -147,13 +147,14 @@ namespace HHD_StartItJam
                     Grab = true;
                     _Player.Data["flying"] = false;
                 }
-                if (_SDown)
+                if (Math.Abs(Collisions[0].Visual.Translation.Y - _Player.Visual.Translation.Y) < 350)
                 {
-                    Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
-                    Grab = true;
-                    _Player.Data["flying"] = false;
-
-
+                    if (_SDown)
+                    {
+                        Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
+                        Grab = true;
+                        _Player.Data["flying"] = false;
+                    }
                 }
             }
 

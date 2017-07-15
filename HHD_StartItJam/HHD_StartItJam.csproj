@@ -48,10 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="GameLogic.cs" />
     <Compile Include="GameMechanic.cs" />
+    <Compile Include="Movement.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +129,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Surface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knight-frame10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,7 +54,7 @@ namespace HHD_StartItJam
             SomethingOnScene.Translation = Positon;
             SomethingOnScene.Scale = Size;
             DrawnSceneObject Static = new DrawnSceneObject(Name, SomethingOnScene);
-            Static.Data["Colision"] = Colidable;
+            Static.Data["Collision"] = Colidable;
             return Static;
         }
     }

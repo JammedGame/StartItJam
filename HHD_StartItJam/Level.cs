@@ -20,31 +20,37 @@ namespace HHD_StartItJam
             //CScene.AddSceneObject(Back);
             DrawnSceneObject Surface = CreateStaticSprite("Surface", ResourceManager.Images["Surface"], new Vertex(0, 900, 0), new Vertex(1920, 1000, 0), true);
             CScene.AddSceneObject(Surface);
-            CreateRoom(CScene, 300, 4, 0);
-            CreateRoom(CScene, 300, 3, 1);
-
-            DrawnSceneObject Stairs = CreateStaticSprite("Stairs", ResourceManager.Images["Stairs"], new Vertex(450, 250, 0), new Vertex(120, 600, 0));
-            Stairs.Data["Stairs"] = Stairs;
-            CScene.AddSceneObject(Stairs);
-
-            DrawnSceneObject Stairs2 = CreateStaticSprite("Stairs", ResourceManager.Images["Stairs"], new Vertex(850, 250, 0), new Vertex(120, 600, 0));
-            Stairs2.Data["Stairs"] = Stairs2;
-            CScene.AddSceneObject(Stairs2);
+            CreateRoom(CScene, 300, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false});
+            CreateRoom(CScene, 1800, 3, 0, new int[] { 0, 1 }, new bool[] {true, false, false});
+            CreateRoom(CScene, 300, 3, 1, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 1200, 5, 1, new int[] { 2, 0 }, null);
         }
-        public static void CreateRoom(Scene2D CScene, int Location, int Length, int Level)
+        public static void CreateRoom(Scene2D CScene, int Location, int Length, int Level, int[] Enterances, bool[] Stairs)
         {
+            if (Enterances == null) Enterances = new int[]{0, 0};
+            if (Stairs == null) Stairs = new bool[Length];
             for (int i = 0; i < Length; i++)
             {
-                CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level);
+                CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level, Stairs[i]);
             }
-            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Rectangular);
+            if(Enterances[0] == 1)
+            {
+                DrawnSceneObject LeftDoor = CreateStaticSprite("LeftDoor", ResourceManager.Images["Door0L"], new Vertex(Location - 250, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
+                CScene.AddSceneObject(LeftDoor);
+            }
+            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[0] == 0, Collision2DType.Rectangular);
             LeftWall.Data["XCollision"] = true;
             CScene.AddSceneObject(LeftWall);
-            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Rectangular);
+            if (Enterances[1] == 1)
+            {
+                DrawnSceneObject RightDoor = CreateStaticSprite("RightDoor", ResourceManager.Images["Door0R"], new Vertex(Location + Length * 300, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
+                CScene.AddSceneObject(RightDoor);
+            }
+            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[1] == 0, Collision2DType.Rectangular);
             RightWall.Data["XCollision"] = true;
             CScene.AddSceneObject(RightWall);
         }
-        public static void CreateWallPart(Scene CScene, Vertex Location, int Level)
+        public static void CreateWallPart(Scene CScene, Vertex Location, int Level, bool Stairs)
         {
             DrawnSceneObject Ceiling = CreateStaticSprite("Ceiling", ResourceManager.Images["Ceiling"], Location, new Vertex(300, 50, 0), true);
             CScene.AddSceneObject(Ceiling);
@@ -55,6 +61,13 @@ namespace HHD_StartItJam
             }
             DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));
             CScene.AddSceneObject(BackWall);
+
+            if(Stairs)
+            {
+                DrawnSceneObject DStairs = CreateStaticSprite("Stairs", ResourceManager.Images["Stairs"], new Vertex(Location.X + 150 - 60, Location.Y, 0), new Vertex(120, 600, 0));
+                DStairs.Data["Stairs"] = DStairs;
+                CScene.AddSceneObject(DStairs);
+            }
         }
         public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size, bool Collision = false, Collision2DType ColType = Collision2DType.Focus)
         {

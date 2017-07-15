@@ -441,5 +441,272 @@
   <ItemGroup>
     <None Include="Resources\walkL1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jumpL13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jump12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwalkL5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dwalk4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

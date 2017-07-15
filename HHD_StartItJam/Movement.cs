@@ -19,6 +19,7 @@ namespace HHD_StartItJam
         public bool _WDown;
         public bool _SDown;
         public bool _SpaceDown;
+        private bool left=true;
         private bool CollisionY = false;
         private bool CollisionXLeft = false;
         private bool CollisionXRight = false;
@@ -62,8 +63,9 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.W) _WDown = true;
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).SetSpriteSet("Walk");
+                ((Sprite)_Player.Visual).SetSpriteSet("WalkL");
                 _ADown = true;
+                left = true;
             }
             if (E.KeyDown == KeyType.S)
             {
@@ -71,14 +73,15 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.D)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
+                ((Sprite)_Player.Visual).UpdateSpriteSet("WalkR");
                 _DDown = true;
+                left = false;
             }
 
             if (E.KeyDown == KeyType.K)
             {
-                ((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
+                //((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
+                //((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
                 for (int i = 0; i < Cowboys.Count; i++)
                 {
                     if (Cowboys[i].PlayerHit() != -1)
@@ -97,7 +100,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 _ADown = false;
             }
             if (E.KeyDown == KeyType.S)
@@ -106,7 +109,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.D)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 _DDown = false;
             }
             if (E.KeyDown == KeyType.Space)
@@ -124,7 +127,8 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.Space)
             {
                 _SpaceDown = true;
-
+                if(left)((Sprite)_Player.Visual).UpdateSpriteSet("JumpL");
+                if(!left)((Sprite)_Player.Visual).UpdateSpriteSet("JumpR");
 
             }
         }

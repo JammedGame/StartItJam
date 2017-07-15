@@ -12,7 +12,7 @@ namespace HHD_StartItJam
 {
     public class Character
     {
-        public static DrawnSceneObject Create(Scene2D CScene)
+        /*public static DrawnSceneObject Create(Scene2D CScene)
         {
             return Character.CreateCharacter(CScene);
         }
@@ -22,45 +22,52 @@ namespace HHD_StartItJam
             DrawnSceneObject Char = (DrawnSceneObject)EFX.Load("Data/knight.efx");
             ((Sprite)Char.Visual).SetSpriteSet("Idle");
             ((Sprite)Char.Visual).Paint = Color.White;
-            Char.Visual.Scale = new Vertex(250 , 250 , 0);
-            Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);           
+            Char.Visual.Scale = new Vertex(250, 250, 0);
+            Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);
 
             CScene.AddSceneObject(Char);
-            
-             return Char;
 
-            /*SpriteSet S1 = new SpriteSet("Idle", ResourceManager.Images["smrt1"]);
-            SpriteSet S2 = new SpriteSet("Walk", ResourceManager.Images["smrt1"]);
-            SpriteSet S3 = new SpriteSet("Attack", ResourceManager.Images["smrt1"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt1"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt2"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt2"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt3"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt3"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt4"]);
-            S3.Sprite.Add(ResourceManager.Images["smrt4"]);
-            SpriteSet S4 = new SpriteSet("Attack", ResourceManager.Images["smrt_penjac1"]);
-            S4.Sprite.Add(ResourceManager.Images["smrt_penjac2"]);
-            Sprite S = new Sprite();
-            S.Scale = new Vertex(2f, 2f, 1);
-            S.Translation = new Vertex(-0.666f, -0.666f, 0);
-            S.Name = "Char";
-            S.SpriteSets.Add(S1);
-            S.SpriteSets.Add(S2);
-            S.SpriteSets.Add(S3);
-            S.SpriteSets.Add(S4);
-            S.SetSpriteSet(0);
-            S.Paint = Color.White;
-            Sprite SS = new Sprite();
-            SS.SubSprites.Add(S);
-            SS.Paint = Color.FromArgb(0, 0, 0, 0);
-            SS.Scale = new Vertex(250, 250, 0);
-            SS.Translation = new Vertex(960 - 125, 540 - 125, 0);
-            DrawnSceneObject DSO = new DrawnSceneObject("Player", SS);
+            return Char;
+        }*/
 
-            CScene.AddSceneObject(DSO);
+        public static DrawnSceneObject Create(Scene2D CScene)
+        {
+            return Character.CreateCharacter(CScene);
+        }
+        private static DrawnSceneObject CreateCharacter(Scene2D Scene)
+        {
 
-            return DSO;*/
-        }       
+
+            SpriteSet WalkR = new SpriteSet("WalkR");
+            for (int i = 0; i < 27; i++) WalkR.Sprite.Add(ResourceManager.Images["Dwalk" + i]);
+            SpriteSet WalkL = new SpriteSet("WalkL");
+            for (int i = 0; i < 27; i++) WalkL.Sprite.Add(ResourceManager.Images["DwalkL" + i]);
+
+            SpriteSet JumpL = new SpriteSet("JumpR");
+            for (int i = 0; i < 13; i++) JumpL.Sprite.Add(ResourceManager.Images["jump" + i]);
+            SpriteSet JumpR = new SpriteSet("JumpL");
+            for (int i = 1; i < 14; i++) JumpR.Sprite.Add(ResourceManager.Images["jumpL" + i]);
+
+            //SpriteSet AttR = new SpriteSet("AttR");
+            //for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
+            //SpriteSet AttL = new SpriteSet("AttL");
+            //for (int i = 0; i < 2; i++) AttL.Sprite.Add(ResourceManager.Images["attL" + i]);
+
+            Sprite CharSprite = new Sprite();
+            CharSprite.SpriteSets.Add(WalkR);
+            CharSprite.SpriteSets.Add(WalkL);
+            CharSprite.SpriteSets.Add(JumpL);
+            CharSprite.SpriteSets.Add(JumpR);
+
+            CharSprite.Scale = new Vertex(250, 250, 0);
+            CharSprite.Translation = new Vertex(960 - 125, 540 - 125, 0);
+                       
+            DrawnSceneObject Char = new DrawnSceneObject("Death", CharSprite);
+
+            Scene.AddSceneObject(Char);
+
+            return Char;
+        }
     }
 }
+

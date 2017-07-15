@@ -16,11 +16,13 @@ namespace HHD_StartItJam
         public bool _DDown;
         public bool _WDown;
         public bool _SDown;
+        public bool _SpaceDown;
         private bool CollisionY = false;
         private bool CollisionXLeft=false;
         private bool CollisionXRight=false;
         private bool GravityOn = true;
         private int GravityAmount = 0;
+        public bool Grab;
         private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
@@ -80,7 +82,10 @@ namespace HHD_StartItJam
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 _DDown = false;
             }
-
+            if (E.KeyDown == KeyType.Space)
+            {
+                _SpaceDown = false;
+            }
         }
         public void KeyDownEvent(Game G, EventArguments E)
         {
@@ -91,20 +96,8 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.Space)
             {
-                if (_SDown)
-                {
-                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y + 55, 0);
-                }
-                else
-                {
-                    if ((bool)(_Player.Data["flying"]) == false)
-                    {
-                        _Player.Data["flying"] = true;
-                        _Player.Data["skokBrojac"] = 30;
-                        ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
-                        //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
-                    }
-                }
+                _SpaceDown = true;
+               
 
             }
         }
@@ -129,16 +122,34 @@ namespace HHD_StartItJam
 
             }
             WalkLeftRight();
+
+            if (_SpaceDown && (bool)(_Player.Data["flying"]) == false)
+            {
+                Grab = false;
+                GravityOn = true;
+
+                
+                _Player.Data["flying"] = true;
+                _Player.Data["skokBrojac"] = 30;
+                ((Sprite)(_Player.Visual)).UpdateSpriteSet(1);
+                //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
+            }
+
             if (_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
             {
                 if (_WDown)
                 {
                     Trans = new Vertex(Trans.X, Trans.Y - 10, 0);
-
+                    Grab = true;
+                    _Player.Data["flying"] = false;
                 }
                 if (_SDown)
                 {
                     Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
+                    Grab = true;
+                    _Player.Data["flying"] = false;
+
+
                 }
             }
             else
@@ -216,9 +227,9 @@ namespace HHD_StartItJam
                     _Player.Data["flying"] = false;
                 }
             }
-            else if(_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
+            else if(_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical) && Grab)
             {
-
+                GravityOn = false;
             }
             else
             {

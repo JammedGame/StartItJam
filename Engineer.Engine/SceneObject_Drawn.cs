@@ -88,6 +88,10 @@ namespace Engineer.Engine
         {
             for (int i = 0; i < OtherItems.Count; i++)
             {
+                if (OtherItems[i].Visual == this.Visual)
+                {
+                    continue;
+                }
                 if (((Sprite)Visual).InCollision(OtherItems[i].Visual, Type)){
                     return true;
                 }

@@ -15,9 +15,9 @@ namespace HHD_StartItJam
         private int MoveSpeed;
         private DrawnSceneObject _Enemy;
 
-        public Cowboy(Scene2D CScene, DrawnSceneObject _Player, int MS=1) : base(CScene, _Player)
+        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y,int MS=1) : base(CScene, _Player)
         {
-            _Enemy=CreateEnemy(CScene);
+            _Enemy=CreateEnemy(CScene,x,y);
             this.MoveSpeed = MS;
         }
 
@@ -65,9 +65,17 @@ namespace HHD_StartItJam
         {
             ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttackRight");
         }
+        public bool Hit()
+        {
+            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 60 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 60)
+            {
+                return true;
+            }
+            else return false;
+        }
 
 
-        public DrawnSceneObject CreateEnemy(Scene2D Scene)
+        public DrawnSceneObject CreateEnemy(Scene2D Scene,int x,int y)
         {
             EFXInterface EFX = new EFXInterface();
             DrawnSceneObject _Enemy = (DrawnSceneObject)EFX.Load("Data/knight.efx");
@@ -76,16 +84,12 @@ namespace HHD_StartItJam
             ((Sprite)_Enemy.Visual).Paint = Color.Red;
 
             _Enemy.Visual.Scale = new Vertex(250, 250, 0);
-            _Enemy.Visual.Translation = new Vertex(900, 600, 0);
+            _Enemy.Visual.Translation = new Vertex(x, y, 0);
             _Enemy.ID = "djape";
             Scene.AddSceneObject(_Enemy);
 
             return _Enemy;
-        }
-        public  DrawnSceneObject Create(Scene2D CScene)
-        {
-            return CreateEnemy(CScene);
-        }
+        }       
     }
 }
 

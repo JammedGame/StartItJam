@@ -28,7 +28,7 @@ namespace HHD_StartItJam
         private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
-        private Cowboy _Cowboy;        
+        private List<Cowboy> Cowboys=new List<Cowboy>();        
      
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
@@ -36,7 +36,23 @@ namespace HHD_StartItJam
             this.Trans = Player.Visual.Translation;
             this.CScene = CScene;
             this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
-            this._Cowboy=new Cowboy(this.CScene,this._Player);
+            
+            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player,600,600);
+            this.Cowboys.Add(Cowboy0);
+
+            Cowboy Cowboy1 = new Cowboy(this.CScene, this._Player, 2000, 600);
+            this.Cowboys.Add(Cowboy1);
+
+            Cowboy Cowboy2 = new Cowboy(this.CScene, this._Player, 600, 0);
+            this.Cowboys.Add(Cowboy2);
+
+            Cowboy Cowboy3 = new Cowboy(this.CScene, this._Player, 2000, 0);
+            this.Cowboys.Add(Cowboy3);
+
+            Cowboy Cowboy4 = new Cowboy(this.CScene, this._Player, 3000, 600);
+            this.Cowboys.Add(Cowboy4);
+
+
         }
 
         public void KeyPressEvent(Game G, EventArguments E)
@@ -158,21 +174,9 @@ namespace HHD_StartItJam
                 }
             }
 
-            List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);
-            
-            
-            foreach(DrawnSceneObject coin in coins){
-                if (!coin.Active) continue;
-                coin.Active = false;
-                HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
-                HB.subHealth(20);
-                if (HB.empty())
-                {
-                    // End of game
-                }
-            }
-
-             Gravity();
+                       
+              
+                Gravity();
             CheckCollision();
             for(int i = 0; i < CScene.Objects.Count; i++)
             {
@@ -189,9 +193,34 @@ namespace HHD_StartItJam
             }
             Runner.BlockDraw = false;
             this._BlockEvents = false;
-
-            _Cowboy.Behavior();
+            for (int i = 0; i < Cowboys.Count; i++)
+            {
+                Cowboys[i].Behavior();
+                if (Cowboys[i].Hit())
+                {
+                    HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
+                    HB.subHealth(1);
+                    if (HB.empty())
+                    {
+                        // End of game
+                    }
+                }
+            }
         }
+
+        /*List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);
+
+
+                foreach(DrawnSceneObject coin in coins){
+                    if (!coin.Active) continue;
+                    coin.Active = false;
+                    HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
+                    HB.subHealth(20);
+                    if (HB.empty())
+                    {
+                        // End of game
+                    }
+                }*/
 
         public void WalkLeftRight()
         {

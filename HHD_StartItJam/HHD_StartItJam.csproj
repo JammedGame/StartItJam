@@ -207,5 +207,239 @@
   <ItemGroup>
     <None Include="Resources\game_jam_wooden_room_part_3_1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\att1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\att0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attR0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attR1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idleR0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idleR1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkR21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idleL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idleL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walkL1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

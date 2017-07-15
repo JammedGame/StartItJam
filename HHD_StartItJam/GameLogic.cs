@@ -42,7 +42,7 @@ namespace HHD_StartItJam
             this._Runner = new ExternRunner(1024, 600, new GraphicsMode(32, 24, 0, 8), "Muerte la Muerte!");
             GameLogic._GlobalScale = _Runner.Height / 1080.0f;
             this._Runner.WindowState = OpenTK.WindowState.Normal;
-            Engineer.Engine.Settings.GraphicsQuality = Quality.High;
+            Engineer.Engine.Settings.GraphicsQuality = Quality.Medium;
             this._Current = new Scene2D("Test");
             this._Current.Transformation.Scale = new Vertex(_GlobalScale, _GlobalScale, 0);
             this._Game.Scenes.Add(this._Current);

@@ -38,19 +38,21 @@ namespace HHD_StartItJam
            
             if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<75 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 75)
             {
-                ((Sprite)_Enemy.Visual).UpdateSpriteSet("Attack");
+                ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
             }
             else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 700)
             {
-                ((Sprite)_Enemy.Visual).UpdateSpriteSet("Walk");
+                
                 if (Movement.AImoveLeft < 600)
                 {
+                    ((Sprite)_Enemy.Visual).UpdateSpriteSet("WalkL");
                     MoveLeft();
                     Movement.AImoveLeft++;
                     if(Movement.AImoveLeft==600) Movement.AImovRight = 0;
                 }
                 else if (Movement.AImovRight <800)
                 {
+                    ((Sprite)_Enemy.Visual).UpdateSpriteSet("WalkR");
                     MoveRight();
                     Movement.AImovRight++;
                      if (Movement.AImovRight == 800) Movement.AImoveLeft = 0;
@@ -58,7 +60,7 @@ namespace HHD_StartItJam
             }
             else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > 700)
             {
-                ((Sprite)_Enemy.Visual).UpdateSpriteSet("Idle");
+                ((Sprite)_Enemy.Visual).UpdateSpriteSet("IdleR");
             }
         }
         public void MoveLeft()
@@ -71,11 +73,11 @@ namespace HHD_StartItJam
         }
         public void AttackLeft()
         {
-            ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttackLeft");
+            ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttL");
         }
         public void AttackRight()
         {
-            ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttackRight");
+            ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
         }
         public bool EnemyHit()
         {
@@ -98,18 +100,38 @@ namespace HHD_StartItJam
 
         public DrawnSceneObject CreateEnemy(Scene2D Scene,int x,int y)
         {
-            EFXInterface EFX = new EFXInterface();
-            DrawnSceneObject _Enemy = (DrawnSceneObject)EFX.Load("Data/knight.efx");
-            _Enemy.Name = "Cowboy";
-            ((Sprite)_Enemy.Visual).SetSpriteSet("Walk");
-            ((Sprite)_Enemy.Visual).Paint = Color.Red;
 
-            _Enemy.Visual.Scale = new Vertex(250, 250, 0);
-            _Enemy.Visual.Translation = new Vertex(x, y, 0);
-            _Enemy.ID = "djape"+ Sid++;
-            Scene.AddSceneObject(_Enemy);
+            SpriteSet IdleR = new SpriteSet("IdleR");
+            for(int i=0;i<2;i++) IdleR.Sprite.Add(ResourceManager.Images["idleR"+i]);
+            SpriteSet WalkR = new SpriteSet("WalkR");
+            for (int i = 0; i <21; i++) WalkR.Sprite.Add(ResourceManager.Images["walkR" + i]);
+            SpriteSet AttR = new SpriteSet("AttR");
+            for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
+            SpriteSet IdleL = new SpriteSet("IdleL");
+            for (int i = 0; i < 2; i++) IdleL.Sprite.Add(ResourceManager.Images["idleL" + i]);
+            SpriteSet WalkL = new SpriteSet("WalkL");
+            for (int i = 0; i < 21; i++) WalkL.Sprite.Add(ResourceManager.Images["walkL" + i]);
+            SpriteSet AttL = new SpriteSet("AttL");
+            for (int i = 0; i < 2; i++) AttL.Sprite.Add(ResourceManager.Images["attL" + i]);
 
-            return _Enemy;
+
+            Sprite CharSprite = new Sprite();
+            CharSprite.SpriteSets.Add(IdleR);
+            CharSprite.SpriteSets.Add(WalkR);
+            CharSprite.SpriteSets.Add(AttR);
+            CharSprite.SpriteSets.Add(IdleL);
+            CharSprite.SpriteSets.Add(WalkL);
+            CharSprite.SpriteSets.Add(AttL);
+
+            CharSprite.Scale = new Vertex(250, 250, 0);
+            CharSprite.Translation = new Vertex(x , y , 0);
+            
+            DrawnSceneObject Char = new DrawnSceneObject("Cowboy", CharSprite);            
+            Char.ID = "djape" + Sid++;
+
+            Scene.AddSceneObject(Char);    
+         
+            return Char;
         }       
     }
 }

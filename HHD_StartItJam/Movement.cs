@@ -34,13 +34,19 @@ namespace HHD_StartItJam
         public void KeyPressEvent(Game G, EventArguments E)
         {
             //if (GameLogic.GameOver) return;
-            if (E.KeyDown == KeyType.W) _WDown = true;
+            if (E.KeyDown == KeyType.W)
+            {
+                _WDown = true;
+            }
             if (E.KeyDown == KeyType.A)
             {
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
                 _ADown = true;
             }
-            if (E.KeyDown == KeyType.S) _SDown = true;
+            if (E.KeyDown == KeyType.S)
+            {
+                _SDown = true;
+            }
             if (E.KeyDown == KeyType.D)
             {
                 ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
@@ -105,8 +111,36 @@ namespace HHD_StartItJam
                 this._Player.Visual.Translation = new Vertex(this._Player.Visual.Translation.X, this._Player.Visual.Translation.Y - (int)_Player.Data["skokBrojac"], 0);
                 _Player.Data["skokBrojac"] = (int)_Player.Data["skokBrojac"] - 1;
             }
-            Gravity();
             WalkLeftRight();
+
+            if (_WDown)
+            {
+                if (((Sprite)_Player.Visual).InCollision(_Player.Visual, (Collision2DType)CScene.Data["Stairs"]))
+                {
+
+                    _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X, _Player.Visual.Translation.Y - 10, 0);
+
+                }
+                /*
+                    for (int i = 0; i < CScene.Objects.Count; i++)
+                    {
+                        if (CScene.Objects[i].ID == _Player.ID) continue;
+                        if (CScene.Objects[i].Data.ContainsKey("Collision"))
+                        {
+
+                            if (((Sprite)_Player.Visual).InCollision(CScene.Objects[i].Visual, (Collision2DType)CScene.Objects[i].Data["Collision"])))
+                            {
+
+                            }
+                        }
+                    }
+                    */
+            }
+            else
+            {
+                Gravity();
+            }
+
             CheckCollision();
         }
 

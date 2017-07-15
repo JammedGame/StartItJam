@@ -29,9 +29,9 @@ namespace HHD_StartItJam
             {
                 CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level);
             }
-            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
+            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Vertical);
             CScene.AddSceneObject(LeftWall);
-            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
+            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Vertical);
             CScene.AddSceneObject(RightWall);
         }
         public static void CreateWallPart(Scene CScene, Vertex Location, int Level)
@@ -46,7 +46,7 @@ namespace HHD_StartItJam
             DrawnSceneObject BackWall = CreateStaticSprite("BackWall", ResourceManager.Images["BackWall"], new Vertex(Location.X, Location.Y + 50, 0), new Vertex(300, 550, 0));
             CScene.AddSceneObject(BackWall);
         }
-        public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size, bool Colidable = false)
+        public static DrawnSceneObject CreateStaticSprite(string Name, Bitmap Image, Vertex Positon, Vertex Size, bool Collision = false, Collision2DType ColType = Collision2DType.Focus)
         {
             Positon = new Vertex(Positon.X , Positon.Y  , 0);
             Size = new Vertex(Size.X , Size.Y , 0);
@@ -60,7 +60,7 @@ namespace HHD_StartItJam
             SomethingOnScene.Translation = Positon;
             SomethingOnScene.Scale = Size;
             DrawnSceneObject Static = new DrawnSceneObject(Name, SomethingOnScene);
-            Static.Data["Collision"] = Colidable;
+            if (Collision) Static.Data["Collision"] = ColType;
             return Static;
         }
     }

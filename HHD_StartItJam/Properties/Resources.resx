@@ -130,7 +130,7 @@
   <data name="Surface" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Surface.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Wall0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Floor" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -178,13 +178,13 @@
   <data name="Door2L" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\door3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LightWall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Wall1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wall_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LightWall2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="LightWall1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wall_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wall2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="LightWall0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wall_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tequila" type="System.Resources.ResXFileRef, System.Windows.Forms">

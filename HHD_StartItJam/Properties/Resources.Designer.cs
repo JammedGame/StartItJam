@@ -173,9 +173,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LightWall {
+        internal static System.Drawing.Bitmap LightWall0 {
             get {
-                object obj = ResourceManager.GetObject("LightWall", resourceCulture);
+                object obj = ResourceManager.GetObject("LightWall0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LightWall2 {
+        internal static System.Drawing.Bitmap LightWall1 {
             get {
-                object obj = ResourceManager.GetObject("LightWall2", resourceCulture);
+                object obj = ResourceManager.GetObject("LightWall1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Wall {
+        internal static System.Drawing.Bitmap Wall0 {
             get {
-                object obj = ResourceManager.GetObject("Wall", resourceCulture);
+                object obj = ResourceManager.GetObject("Wall0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace HHD_StartItJam.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Wall2 {
+        internal static System.Drawing.Bitmap Wall1 {
             get {
-                object obj = ResourceManager.GetObject("Wall2", resourceCulture);
+                object obj = ResourceManager.GetObject("Wall1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

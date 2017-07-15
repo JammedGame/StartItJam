@@ -61,7 +61,6 @@ namespace HHD_StartItJam
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {
-            
             for(int i = 0; i < Length; i++)
             {
                 FloorTaken[Level, XLocation + i] = true;
@@ -83,10 +82,20 @@ namespace HHD_StartItJam
                 }
                 DrawnSceneObject LeftDoor = CreateStaticSprite("LeftDoor", ResourceManager.Images["Door"+RandomNumber(0,3)+"L"], new Vertex(Location - 250, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
                 CScene.AddSceneObject(LeftDoor);
+                DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall" + RandomNumber(0, 2)], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
+                CScene.AddSceneObject(LeftWall);
             }
-            DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[0] == 0, Collision2DType.Rectangular);
-            LeftWall.Data["XCollision"] = true;
-            CScene.AddSceneObject(LeftWall);
+            else if (Enterances[0] == 2)
+            {
+                DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["LightWall" + RandomNumber(0, 2)], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
+                CScene.AddSceneObject(LeftWall);
+            }
+            else
+            {
+                DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall" + RandomNumber(0, 2)], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[0] == 0, Collision2DType.Rectangular);
+                LeftWall.Data["XCollision"] = true;
+                CScene.AddSceneObject(LeftWall);
+            }
             if (Enterances[1] == 1)
             {
                 if (Level == 0)
@@ -94,12 +103,22 @@ namespace HHD_StartItJam
                     DrawnSceneObject Floor = CreateStaticSprite("Floor", ResourceManager.Images["Ceiling"], new Vertex(Location + Length * 300, 850, 0), new Vertex(250, 50, 0), true, Collision2DType.Focus);
                     CScene.AddSceneObject(Floor);
                 }
+                DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall" + RandomNumber(0, 2)], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
+                CScene.AddSceneObject(RightWall);
                 DrawnSceneObject RightDoor = CreateStaticSprite("RightDoor", ResourceManager.Images["Door" + RandomNumber(0, 3) + "R"], new Vertex(Location + Length * 300, Level * (-600) + 300 + 100, 0), new Vertex(250, 450, 0));
                 CScene.AddSceneObject(RightDoor);
             }
-            DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[1] == 0, Collision2DType.Rectangular);
-            RightWall.Data["XCollision"] = true;
-            CScene.AddSceneObject(RightWall);
+            else if (Enterances[1] == 2)
+            {
+                DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["LightWall" + RandomNumber(0, 2)], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0));
+                CScene.AddSceneObject(RightWall);
+            }
+            else
+            {
+                DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall" + RandomNumber(0, 2)], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[1] == 0, Collision2DType.Rectangular);
+                RightWall.Data["XCollision"] = true;
+                CScene.AddSceneObject(RightWall);
+            }
         }
         public static void CreateWallPart(Scene CScene, Vertex Location, int Level, bool Stairs)
         {

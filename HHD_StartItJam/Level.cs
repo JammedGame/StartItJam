@@ -44,6 +44,10 @@ namespace HHD_StartItJam
             DrawnSceneObject Coin3 = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(570, 720, 0), new Vertex(50, 50, 0));
             Coin3.Data["Coin"] = true;
             CScene.AddSceneObject(Coin3);
+
+            HealthBar HB = HealthBar.Create();
+            CScene.Data["HealthBar"] = HB;
+            CScene.AddSceneObject(HB);
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
         {

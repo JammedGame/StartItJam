@@ -161,7 +161,14 @@ namespace HHD_StartItJam
             
             
             foreach(DrawnSceneObject coin in coins){
+                if (!coin.Active) continue;
                 coin.Active = false;
+                HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
+                HB.subHealth(20);
+                if (HB.empty())
+                {
+                    // End of game
+                }
             }
 
              Gravity();
@@ -174,6 +181,8 @@ namespace HHD_StartItJam
                 }
                 if (CScene.Objects[i].ID == _Player.ID) continue;
                 if (CScene.Objects[i].Name == "Back") continue;
+                if (CScene.Objects[i].Data.ContainsKey("Static")) continue;
+
                 if (CScene.Objects[i].Name == "Surface") CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X + Trans.X, CScene.Objects[i].Visual.Translation.Y, 0);
                 CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
             }

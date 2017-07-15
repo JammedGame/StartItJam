@@ -41,8 +41,10 @@ namespace HHD_StartItJam
                 CreateWallPart(CScene, new Vertex(Location + i * 300, Level * (-600) + 250, 0), Level);
             }
             DrawnSceneObject LeftWall = CreateStaticSprite("LeftWall", ResourceManager.Images["Wall"], new Vertex(Location, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Vertical);
+            LeftWall.Data["XCollision"] = true;
             CScene.AddSceneObject(LeftWall);
             DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall"], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), true, Collision2DType.Vertical);
+            RightWall.Data["XCollision"] = true;
             CScene.AddSceneObject(RightWall);
         }
         public static void CreateWallPart(Scene CScene, Vertex Location, int Level)

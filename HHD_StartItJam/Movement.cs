@@ -16,8 +16,9 @@ namespace HHD_StartItJam
         public bool _DDown;
         public bool _WDown;
         public bool _SDown;
-        private bool CollisionX=false;
-        private bool CollisionY=false;
+        private bool CollisionY = false;
+        private bool CollisionXLeft=false;
+        private bool CollisionXRight=false;
         private bool GravityOn = true;
         private int GravityAmount = 0;
         private Vertex Trans;
@@ -160,10 +161,12 @@ namespace HHD_StartItJam
         {
             if (_ADown)
             {
+                if (CollisionXLeft) return;
                 Trans = new Vertex(Trans.X - 10, Trans.Y, 0);
             }
             if (_DDown)
             {
+                if (CollisionXRight) return;
                 Trans = new Vertex(Trans.X + 10, Trans.Y, 0);
             }
         }
@@ -182,10 +185,28 @@ namespace HHD_StartItJam
             DrawnSceneObject DSO = (DrawnSceneObject)CollisionChecker.CheckSceneCollision(CScene, (DrawnSceneObject)_Player);
             if (DSO != null)
             {
-                CollisionX = true;
-                CollisionY = true;
-                GravityOn = false;
-                _Player.Data["flying"] = false;
+                if(DSO.Data.ContainsKey("XCollision"))
+                {
+                    if(DSO.Visual.Translation.X < _Player.Visual.Translation.X)
+                    {
+                        CollisionXLeft = true;
+                        CollisionXRight = false;
+                    }
+                    else
+                    {
+                        CollisionXLeft = false;
+                        CollisionXRight = true;
+                    }
+                    CollisionY = false;
+                }
+                else
+                {
+                    CollisionXLeft = false;
+                    CollisionXRight = false;
+                    CollisionY = true;
+                    GravityOn = false;
+                    _Player.Data["flying"] = false;
+                }
             }
             else if(_Player.InCollisionWithAny(CScene.getHavingData("Stairs"), Collision2DType.Vertical))
             {
@@ -195,6 +216,9 @@ namespace HHD_StartItJam
             {
                 if(!GravityOn) GravityAmount = 0;
                 GravityOn = true;
+                CollisionXLeft = false;
+                CollisionXRight = false;
+                CollisionY = false;
             }
         }
     }

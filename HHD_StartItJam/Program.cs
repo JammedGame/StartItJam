@@ -14,7 +14,9 @@ namespace HHD_StartItJam
         [STAThread]
         static void Main()
         {
-             GameLogic.Create().RunMenu();
+            // GameLogic.Create().RunMenu();
+            GameLogic.Create().RunGame();
+
         }
     }
 }

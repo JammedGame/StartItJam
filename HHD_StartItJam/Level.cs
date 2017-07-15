@@ -33,15 +33,15 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 11, 5, 2, new int[] { 0, 2 }, null);
             CreateRoom(CScene, 16, 3, 2, new int[] { 2, 0 }, null);
 
-            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(450, 720, 0), new Vertex(50, 50, 0));
+            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(450, 720, 0), new Vertex(58, 100, 0));
             Coin.Data["Coin"] = true;
             CScene.AddSceneObject(Coin);
 
-            DrawnSceneObject Coin2 = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(510, 720, 0), new Vertex(50, 50, 0));
+            DrawnSceneObject Coin2 = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(510, 720, 0), new Vertex(58, 100, 0));
             Coin2.Data["Coin"] = true;
             CScene.AddSceneObject(Coin2);
 
-            DrawnSceneObject Coin3 = CreateStaticSprite("Coin", ResourceManager.Images["Surface"], new Vertex(570, 720, 0), new Vertex(50, 50, 0));
+            DrawnSceneObject Coin3 = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(570, 720, 0), new Vertex(58, 100, 0));
             Coin3.Data["Coin"] = true;
             CScene.AddSceneObject(Coin3);
 

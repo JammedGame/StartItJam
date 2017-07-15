@@ -18,6 +18,7 @@ namespace HHD_StartItJam
         private bool CollisionX=false;
         private bool CollisionY=false;
         private bool GravityOn = true;
+        private int GravityAmount = 0;
         private Vertex Trans;
         private DrawnSceneObject _Player;
         private Scene2D CScene;
@@ -110,7 +111,7 @@ namespace HHD_StartItJam
                 
             }
             _Player.Visual.Translation = new Vertex(_Player.Visual.Translation.X + Trans.X, _Player.Visual.Translation.Y + Trans.Y, 0);
-            CScene.Transformation.Translation = new Vertex(CScene.Transformation.Translation.X - Trans.X/2, CScene.Transformation.Translation.Y - Trans.Y/2, 0);
+            CScene.Transformation.Translation = new Vertex(CScene.Transformation.Translation.X - Trans.X*1.0f/2, CScene.Transformation.Translation.Y - Trans.Y * 1.0f / 2, 0);
             //Tile Back = (Tile)((DrawnSceneObject)CScene.Data["Back"]).Visual;
             //Back.Translation = new Vertex(Back.Translation.X + Trans.X, Back.Translation.Y + Trans.Y, 0);
             Tile Surface = (Tile)((DrawnSceneObject)CScene.Data["Surface"]).Visual;
@@ -133,7 +134,8 @@ namespace HHD_StartItJam
         {
             if (GravityOn)
             {
-                Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
+                Trans = new Vertex(Trans.X, Trans.Y + (float)Math.Sqrt(GravityAmount), 0);
+                GravityAmount++;
             }
         }
 
@@ -146,8 +148,13 @@ namespace HHD_StartItJam
                 CollisionY = true;
                 GravityOn = false;
                 _Player.Data["flying"] = false;
+                //Trans = new Vertex(Trans.X, DSO.Visual.Translation.Y - _Player.Visual.Scale.Y, 0);
             }
-            else GravityOn = true;
+            else
+            {
+                if(!GravityOn) GravityAmount = 0;
+                GravityOn = true;
+            }
         }
     }
 }

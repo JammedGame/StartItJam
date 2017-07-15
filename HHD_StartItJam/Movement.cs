@@ -46,7 +46,7 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.W) _WDown = true;
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Walk");
+                ((Sprite)_Player.Visual).SetSpriteSet("Walk");
                 _ADown = true;
             }
             if (E.KeyDown == KeyType.S)

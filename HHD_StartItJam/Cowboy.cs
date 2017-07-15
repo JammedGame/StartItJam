@@ -23,25 +23,31 @@ namespace HHD_StartItJam
 
         public override void Behavior()
         {
-            /*if (_Player.Visual.Translation.X + 1080 < _Enemy.Visual.Translation.X)
+           
+            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<50)
             {
-                ((Sprite)_Enemy.Visual).SetSpriteSet("Idle");
+                ((Sprite)_Enemy.Visual).UpdateSpriteSet("Attack");
             }
-            if (_Player.Visual.Translation.X + 1080 > _Enemy.Visual.Translation.X)
-            {*/
-                if (Movement.AImoveLeft < 300)
+            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 700)
+            {
+                ((Sprite)_Enemy.Visual).UpdateSpriteSet("Walk");
+                if (Movement.AImoveLeft < 700)
                 {
                     MoveLeft();
                     Movement.AImoveLeft++;
-                    if(Movement.AImoveLeft==300) Movement.AImovRight = 0;
+                    if(Movement.AImoveLeft==700) Movement.AImovRight = 0;
                 }
-                else if (Movement.AImovRight <300)
+                else if (Movement.AImovRight <1000)
                 {
                     MoveRight();
                     Movement.AImovRight++;
-                     if (Movement.AImovRight == 300) Movement.AImoveLeft = 0;
+                     if (Movement.AImovRight == 1000) Movement.AImoveLeft = 0;
                  }
-            //}
+            }
+            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > 700)
+            {
+                ((Sprite)_Enemy.Visual).UpdateSpriteSet("Idle");
+            }
         }
         public void MoveLeft()
         {   //dodati sprajt za levo kretanje
@@ -53,11 +59,11 @@ namespace HHD_StartItJam
         }
         public void AttackLeft()
         {
-            ((Sprite)_Enemy.Visual).SetSpriteSet("AttackLeft");
+            ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttackLeft");
         }
         public void AttackRight()
         {
-            ((Sprite)_Enemy.Visual).SetSpriteSet("AttackRight");
+            ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttackRight");
         }
 
 
@@ -70,7 +76,7 @@ namespace HHD_StartItJam
             ((Sprite)_Enemy.Visual).Paint = Color.Red;
 
             _Enemy.Visual.Scale = new Vertex(250, 250, 0);
-            _Enemy.Visual.Translation = new Vertex(960 - 125, 600, 0);
+            _Enemy.Visual.Translation = new Vertex(900, 600, 0);
             _Enemy.ID = "djape";
             Scene.AddSceneObject(_Enemy);
 

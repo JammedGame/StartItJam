@@ -58,7 +58,7 @@ namespace HHD_StartItJam
         }
         public static void CreateTequila(Scene2D CScene, int XLocation, int Level)
         {
-            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(XLocation * 300 + 100, (Level-1) * (-600) + 80, 0), new Vertex(100, 200, 0));
+            DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(XLocation * 300 + 70, (Level-1) * (-600) + 80, 0), new Vertex(160, 200, 0));
             Coin.Data["Coin"] = true;
             CScene.AddSceneObject(Coin);
         }

@@ -47,8 +47,9 @@ namespace HHD_StartItJam
         }
         public override void Behavior()
         {
+            if (_Enemy.Data.ContainsKey("Dead")) return;
             if (_AtkTimer != 0) _AtkTimer--;
-            if(_AtkTimer == 1)
+            if (_AtkTimer == 1)
             {
                 _AtkTimer = 0;
                 ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = false;

@@ -100,7 +100,7 @@ namespace Engineer.Draw
         {
 
         }
-        public virtual void RenderImage(string ID, List<Bitmap> Textures, int CurrentIndex, bool Update)
+        public virtual void RenderImage(string ID, List<Bitmap> Textures, int CurrentIndex, bool Update, bool Active)
         {
 
         }

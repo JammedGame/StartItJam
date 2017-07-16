@@ -237,7 +237,7 @@ namespace Engineer.Draw
             _Manager.SetDrawMode(GraphicDrawMode.Lines);
             _Manager.Draw();
         }
-        public override void RenderImage(string ID, List<Bitmap> Textures, int CurrentIndex, bool Update)
+        public override void RenderImage(string ID, List<Bitmap> Textures, int CurrentIndex, bool Update, bool Active)
         {
             if (!this.IsMaterialReady(ID) || Update)
             {
@@ -262,6 +262,8 @@ namespace Engineer.Draw
             else this.SetMaterial(new object[3] { new string[6] { ID, null, null, null, null, null }, null, null }, false);
 
             UpdateMaterial();
+
+            if (!Active) return;
 
             if (_SpriteVertices == null)
             {

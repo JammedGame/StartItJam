@@ -100,6 +100,8 @@ namespace HHD_StartItJam
                     {
                         //CScene.Objects.Remove(Cowboys[i].Enemy);
                         Cowboys[i].Enemy.Visual.Active = false;
+                        Cowboys[i].Enemy.Data["Dead"] = true;
+                        ((DrawnSceneObject)Cowboys[i].Enemy.Data["Whip"]).Active = false;
                     }
                 }
             }

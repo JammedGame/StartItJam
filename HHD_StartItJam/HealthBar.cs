@@ -10,46 +10,41 @@ using System.Threading.Tasks;
 
 namespace HHD_StartItJam
 {    
-    class HealthBar : DrawnSceneObject
+    class HealthBar
     {
+        public static int health;
+        private static List<DrawnSceneObject> _Sombreros;
 
-        public int health;
-
-        public HealthBar(string Name, DrawObject Visual) : base(Name, Visual) 
+        public static void Create(Scene CScene)
         {
             health = 100;
+            _Sombreros = new List<DrawnSceneObject>();
+            
+            for(int i = 0; i < 5; i++)
+            {
+                TileCollection BItmaps = new TileCollection(ResourceManager.Images["sombrero"]);
+                Tile SomethingOnScene = new Tile();
+                SomethingOnScene.Collection = BItmaps;
+                SomethingOnScene.Translation = new Vertex(10 + i * 110, 10, 0);
+                SomethingOnScene.Scale = new Vertex(100, 100, 0);
+                DrawnSceneObject DSO = new DrawnSceneObject("HealthBar", SomethingOnScene);
+                DSO.Data["Static"] = true;
+                _Sombreros.Add(DSO);
+                CScene.AddSceneObject(DSO);
+            }
         }
 
-
-        public static HealthBar Create()
+        public static void subHealth(int healths)
         {
-            Vertex Positon = new Vertex(10, 10, 0);
-            Vertex Size = new Vertex(400, 50, 0);
-
-            TileCollection BItmaps = new TileCollection(ResourceManager.Images["sombrero"]);
-
-            Tile SomethingOnScene = new Tile();
-
-            SomethingOnScene.Collection = BItmaps;
-
-            SomethingOnScene.Translation = Positon;
-            SomethingOnScene.Scale = Size;
-            HealthBar HB = new HealthBar("HealthBar", SomethingOnScene);
-            HB.Data["Static"] = true;
-            return HB;
-        }
-
-        public void subHealth(int healths)
-        {
-            this.health -= healths;
-            float width = (health / 100.0f) * 400; 
-            Visual.Scale = new Vertex(width, Visual.Scale.Y, 0);
+            health -= healths;
+            float width = (health / 100.0f) * 400;
+            for (int i = 0; i < 5; i++) _Sombreros[i].Active = health > i * 20;
 
         }
        
-        public bool empty()
+        public static bool empty()
         {
-            return this.health <= 0;
+            return health <= 0;
         }
 
     }

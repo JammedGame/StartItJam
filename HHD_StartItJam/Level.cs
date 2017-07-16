@@ -58,9 +58,7 @@ namespace HHD_StartItJam
             CreateTequila(CScene, 17, 0);
             CreateTequila(CScene, 16, 4);
 
-            HealthBar HB = HealthBar.Create();
-            CScene.Data["HealthBar"] = HB;
-            CScene.AddSceneObject(HB);
+            HealthBar.Create(CScene);
 
             PowerUps PU = new PowerUps(CScene);
             CScene.Data["PowerUps"] = PU;

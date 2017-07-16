@@ -250,9 +250,8 @@ namespace HHD_StartItJam
                 Cowboys[i].Behavior();
                 if (Cowboys[i].EnemyHit())
                 {
-                    HealthBar HB = (HealthBar)CScene.Data["HealthBar"];
-                    HB.subHealth(1);
-                    if (HB.empty())
+                    HealthBar.subHealth(1);
+                    if (HealthBar.empty())
                     {
                         GameLogic.Create().RunMenu();
                     }

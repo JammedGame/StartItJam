@@ -27,6 +27,7 @@ namespace HHD_StartItJam
                 S.Add("walk", "Data/walk.wav", true);
                 S.Add("swing", "Data/swing.wav");
                 S.Add("kill", "Data/kill.wav");
+                S.Add("bgd", "Data/bgd.wav", true);
 
 
                 Inst = S;

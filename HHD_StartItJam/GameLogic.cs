@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Engineer.Engine.IO;
 using Engineer.Mathematics;
-
+using System.Windows.Forms;
 
 namespace HHD_StartItJam
 {
@@ -39,7 +39,7 @@ namespace HHD_StartItJam
             _ResMan.Init();
             this._EFX = new EFXInterface();
             this._Game = new Game();
-            this._Runner = new ExternRunner(1024, 600, new GraphicsMode(32, 24, 0, 8), "Muerte la Muerte!");
+            this._Runner = new ExternRunner(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, new GraphicsMode(32, 24, 0, 8), "Tekillah!");
             GameLogic._GlobalScale = _Runner.Height / 1080.0f;
             this._Runner.WindowState = OpenTK.WindowState.Normal;
             Engineer.Engine.Settings.GraphicsQuality = Quality.Medium;

@@ -40,6 +40,7 @@ namespace HHD_StartItJam
             CreateRoom(CScene, 11, 3, 0, new int[] { 0, 1 }, new bool[] { true, false, false }, 1);
             CreateRoom(CScene, 6, 3, 1, new int[] { 0, 2 }, null, 1);
             CreateRoom(CScene, 9, 5, 1, new int[] { 2, 0 }, null , 3);
+            CreateRoom(CScene, 6, 2, 2, new int[] { 0, 0 }, new bool[]{ true,false });
 
             CreateRoom(CScene, 17, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true }, 1);
             CreateRoom(CScene, 20, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
@@ -97,6 +98,10 @@ namespace HHD_StartItJam
             DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(XLocation * 300 + 70, (Level-1) * (-600) + 80, 0), new Vertex(160, 200, 0));
             Coin.Data["Coin"] = true;
             CScene.AddSceneObject(Coin);
+        }
+        public static void CreateRoof(Scene2D CScene, int XLocation, int Length, int Level, int[] Edges, bool[] Stairs, int Assets = 0)
+        {
+
         }
         public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs, int Assets = 0)
         {

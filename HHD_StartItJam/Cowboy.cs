@@ -19,6 +19,7 @@ namespace HHD_StartItJam
     class Cowboy : Enemy
     {
         private static int Sid = 0;
+        private int _AtkTimer = 0;
         private int id;
         private int MoveSpeed;
         private int _Sight;
@@ -33,7 +34,7 @@ namespace HHD_StartItJam
             get { return _Enemy; }
             set { _Enemy = value; }
         }
-        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100, int AttackRadius = 100) : base(CScene, _Player)
+        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100, int AttackRadius = 200) : base(CScene, _Player)
         {
             _Enemy=CreateEnemy(CScene,x,y);
             this.MoveSpeed = MoveSpeed;
@@ -42,15 +43,46 @@ namespace HHD_StartItJam
             this._LeftAreaWalk = LeftAreaWalk;
             this._RightAreaWalk = RightAreaWalk;
             this._OriginalLocation = _Enemy.Visual.Translation;
+            this._AttackRadius = AttackRadius;
         }
         public override void Behavior()
         {
-            if (_Move == EnemyMove.None) _Move = EnemyMove.Left;
-            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<_AttackRadius && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _AttackRadius)
+            if (_Enemy.Data.ContainsKey("Dead")) return;
+            if (_AtkTimer != 0) _AtkTimer--;
+            if (_AtkTimer == 1)
             {
-                ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
+                _AtkTimer = 0;
+                ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = false;
+                HealthBar.subHealth(1);
+                if (HealthBar.empty())
+                {
+                    GameLogic.Create().RunMenu();
+                }
             }
-            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
+            if (_Move == EnemyMove.None) _Move = EnemyMove.Left;
+            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X) <_AttackRadius && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _AttackRadius)
+            {
+                if (_AtkTimer == 0)
+                {
+                    if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X)
+                    {
+                        ((Sprite)_Enemy.Visual).SetSpriteSet("AttL");
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = true;
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Visual.Translation = new Vertex(_Enemy.Visual.Translation.X - 200, _Enemy.Visual.Translation.Y, 0);
+                        ((Sprite)((DrawnSceneObject)_Enemy.Data["Whip"]).Visual).SetSpriteSet(1);
+                        _AtkTimer = 20;
+                    }
+                    else if (_Player.Visual.Translation.X > _Enemy.Visual.Translation.X)
+                    {
+                        ((Sprite)_Enemy.Visual).SetSpriteSet("AttR");
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = true;
+                        ((Sprite)((DrawnSceneObject)_Enemy.Data["Whip"]).Visual).SetSpriteSet(0);
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Visual.Translation = new Vertex(_Enemy.Visual.Translation.X - 200, _Enemy.Visual.Translation.Y, 0);
+                        _AtkTimer = 20;
+                    }
+                }
+            }
+            else if (Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _Sight && Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
             {
                 if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X) _Move = EnemyMove.Left;
                 else _Move = EnemyMove.Right;
@@ -68,7 +100,7 @@ namespace HHD_StartItJam
                     MoveRight();
                 }
             }
-            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > _Sight)
+            else
             {
                 if (_Move == EnemyMove.Left)
                 {
@@ -113,27 +145,42 @@ namespace HHD_StartItJam
         }
         public int  PlayerHit()
         {
-            /*if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
+            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
             {
                 return id;
             }
-            else */return -1;
+            else return -1;
+        }
+        public DrawnSceneObject CreateWhip(int x, int y)
+        {
+            SpriteSet WhipSet = new SpriteSet();
+            for (int i = 0; i < 6; i++) WhipSet.Sprite.Add(ResourceManager.Images["Whip" + (i + 1)]);
+            SpriteSet WhipSetFliped = new SpriteSet();
+            for (int i = 0; i < 6; i++) WhipSetFliped.Sprite.Add(ResourceManager.Images["Whip" + (i + 1) + "Fliped"]);
+            Sprite WhipSprite = new Sprite();
+            WhipSprite.SpriteSets.Add(WhipSet);
+            WhipSprite.SpriteSets.Add(WhipSetFliped);
+            WhipSprite.Translation = new Vertex(x, y, 0);
+            WhipSprite.Scale = new Vertex(800, 300, 0);
+            DrawnSceneObject Whip = new DrawnSceneObject("Whip", WhipSprite);
+            Whip.ID = "djapewhip" + Sid;
+            Whip.Active = false;
+            return Whip;
         }
         public DrawnSceneObject CreateEnemy(Scene2D Scene,int x,int y)
         {
             SpriteSet IdleR = new SpriteSet("IdleR");
-            for(int i=0;i<2;i++) IdleR.Sprite.Add(ResourceManager.Images["idleR"+i]);
+            for(int i=0;i<1;i++) IdleR.Sprite.Add(ResourceManager.Images["Kaub1Walk"+(i+1)]);
             SpriteSet WalkR = new SpriteSet("WalkR");
-            for (int i = 0; i <21; i++) WalkR.Sprite.Add(ResourceManager.Images["walkR" + i]);
+            for (int i = 0; i < 9; i++) WalkR.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1)]);
             SpriteSet AttR = new SpriteSet("AttR");
-            for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
+            for (int i = 0; i < 6; i++) AttR.Sprite.Add(ResourceManager.Images["Kaub1Att" + (i + 1)]);
             SpriteSet IdleL = new SpriteSet("IdleL");
-            for (int i = 0; i < 2; i++) IdleL.Sprite.Add(ResourceManager.Images["idleL" + i]);
+            for (int i = 0; i < 1; i++) IdleL.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1) + "Fliped"]);
             SpriteSet WalkL = new SpriteSet("WalkL");
-            for (int i = 0; i < 21; i++) WalkL.Sprite.Add(ResourceManager.Images["walkL" + i]);
+            for (int i = 0; i < 9; i++) WalkL.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1) + "Fliped"]);
             SpriteSet AttL = new SpriteSet("AttL");
-            for (int i = 0; i < 2; i++) AttL.Sprite.Add(ResourceManager.Images["attL" + i]);
-
+            for (int i = 0; i < 6; i++) AttL.Sprite.Add(ResourceManager.Images["Kaub1Att" + (i + 1) + "Fliped"]);
 
             Sprite CharSprite = new Sprite();
             CharSprite.SpriteSets.Add(IdleR);
@@ -142,15 +189,18 @@ namespace HHD_StartItJam
             CharSprite.SpriteSets.Add(IdleL);
             CharSprite.SpriteSets.Add(WalkL);
             CharSprite.SpriteSets.Add(AttL);
-
-            CharSprite.Scale = new Vertex(250, 250, 0);
+            CharSprite.Scale = new Vertex(400, 300, 0);
             CharSprite.Translation = new Vertex(x , y , 0);
-            
-            DrawnSceneObject Char = new DrawnSceneObject("Cowboy", CharSprite);            
-            Char.ID = "djape" + Sid++;
 
-            Scene.AddSceneObject(Char);    
-         
+            DrawnSceneObject Whip = this.CreateWhip(x, y);
+
+            DrawnSceneObject Char = new DrawnSceneObject("Cowboy", CharSprite);
+            Char.ID = "djape" + Sid++;
+            Char.Data["Whip"] = Whip;
+
+            Scene.AddSceneObject(Char);
+            Scene.AddSceneObject(Whip);
+
             return Char;
         }       
     }

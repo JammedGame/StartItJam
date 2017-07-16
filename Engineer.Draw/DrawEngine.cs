@@ -108,7 +108,7 @@ namespace Engineer.Draw
         }
         public virtual void DrawSprite(Sprite CurrentSprite)
         {
-            if (CurrentSprite.Active)
+            if (true || CurrentSprite.Active)
             {
                 this._Matrix.Translate(CurrentSprite.Translation.X, CurrentSprite.Translation.Y, CurrentSprite.Translation.Z);
                 this._Matrix.Scale(CurrentSprite.Scale.X, CurrentSprite.Scale.Y, CurrentSprite.Scale.Z);
@@ -118,7 +118,7 @@ namespace Engineer.Draw
                 float [] PaintColor = { (CurrentSprite.Paint.R * 1.0f + 1) / 256, (CurrentSprite.Paint.G * 1.0f + 1) / 256, (CurrentSprite.Paint.B * 1.0f + 1) / 256, (CurrentSprite.Paint.A * 1.0f + 1) / 256 };
                 this._CurrentRenderer.SetSurface(PaintColor);
                 this._CurrentRenderer.SetModelViewMatrix(_Matrix.ModelViewMatrix);
-                this._CurrentRenderer.RenderImage(CurrentSprite.ID, CurrentSprite.CollectiveLists(), (CurrentSprite.CollectiveLists().Count > 0) ? CurrentSprite.Index() : -1, CurrentSprite.Modified);
+                this._CurrentRenderer.RenderImage(CurrentSprite.ID, CurrentSprite.CollectiveLists(), (CurrentSprite.CollectiveLists().Count > 0) ? CurrentSprite.Index() : -1, CurrentSprite.Modified, CurrentSprite.Active);
                 CurrentSprite.Modified = false;
                 for(int i = 0; i < CurrentSprite.SubSprites.Count; i++)
                 {
@@ -130,7 +130,7 @@ namespace Engineer.Draw
         }
         public virtual void DrawTile(Tile CurrentTile)
         {
-            if (CurrentTile.Active)
+            if (true || CurrentTile.Active)
             {
                 this._Matrix.Translate(CurrentTile.Translation.X, CurrentTile.Translation.Y, CurrentTile.Translation.Z);
                 this._Matrix.Scale(CurrentTile.Scale.X, CurrentTile.Scale.Y, CurrentTile.Scale.Z);
@@ -140,7 +140,7 @@ namespace Engineer.Draw
                 float[] PaintColor = { (CurrentTile.Paint.R * 1.0f + 1) / 256, (CurrentTile.Paint.G * 1.0f + 1) / 256, (CurrentTile.Paint.B * 1.0f + 1) / 256, (CurrentTile.Paint.A * 1.0f + 1) / 256 };
                 this._CurrentRenderer.SetSurface(PaintColor);
                 this._CurrentRenderer.SetModelViewMatrix(_Matrix.ModelViewMatrix);
-                this._CurrentRenderer.RenderImage(CurrentTile.ID, CurrentTile.Collection.TileImages, (CurrentTile.Collection.TileImages.Count > 0) ? CurrentTile.Index() : -1, CurrentTile.Modified);
+                this._CurrentRenderer.RenderImage(CurrentTile.ID, CurrentTile.Collection.TileImages, (CurrentTile.Collection.TileImages.Count > 0) ? CurrentTile.Index() : -1, CurrentTile.Modified, CurrentTile.Active);
                 CurrentTile.Modified = false;
                 this._Matrix.PopMatrix();
                 this._CurrentRenderer.SetSurface(new float[4] { 1f, 1f, 1f, 1f });
@@ -191,7 +191,7 @@ namespace Engineer.Draw
 
             for (int i = 0; i < CurrentScene.Actors.Count; i++)
             {
-                if(CurrentScene.Actors[i].Active)
+                if(true || CurrentScene.Actors[i].Active)
                 {
                     this._Matrix.Scale(CurrentScene.Actors[i].Scale.X, CurrentScene.Actors[i].Scale.Y, CurrentScene.Actors[i].Scale.Z);
                     this._Matrix.Translate(CurrentScene.Actors[i].Translation.X,
@@ -218,7 +218,8 @@ namespace Engineer.Draw
                         else _CurrentRenderer.SetMaterial(new object[3] { new string[6] { CurrentScene.Actors[i].Materials[CurrentScene.Actors[i].GeometryMaterialIndices[j]].ID, null, null, null, null, null }, null, null }, false);
 
                         this._CurrentRenderer.UpdateMaterial();
-                        this._CurrentRenderer.RenderGeometry(CurrentScene.Actors[i].Geometries[j].Vertices,
+
+                        if(CurrentScene.Actors[i].Active) this._CurrentRenderer.RenderGeometry(CurrentScene.Actors[i].Geometries[j].Vertices,
                                                              CurrentScene.Actors[i].Geometries[j].Normals,
                                                              CurrentScene.Actors[i].Geometries[j].TexCoords,
                                                              CurrentScene.Actors[i].Geometries[j].Faces,

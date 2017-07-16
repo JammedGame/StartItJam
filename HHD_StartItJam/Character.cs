@@ -33,17 +33,22 @@ namespace HHD_StartItJam
             SpriteSet Up = new SpriteSet("Up");
             for (int i = 0; i < 3; i++) Up.Sprite.Add(ResourceManager.Images["up" + i]);
 
+            SpriteSet DattL = new SpriteSet("DattL");
+            for (int i = 0; i < 5; i++) DattL.Sprite.Add(ResourceManager.Images["Dwalk" + i]);
+
+            SpriteSet DattR = new SpriteSet("DattR");
+            for (int i = 0; i < 5; i++) DattR.Sprite.Add(ResourceManager.Images["Dwalk" + i]);
+
             SpriteSet ScytheR = new SpriteSet("ScytheR");
             for (int i = 0; i < 27; i++) ScytheR.Sprite.Add(ResourceManager.Images["scythe" + i]);
 
             SpriteSet ScytheL = new SpriteSet("ScytheL");
             for (int i = 0; i < 27; i++) ScytheL.Sprite.Add(ResourceManager.Images["scytheL" + i]);
-
-
-            //SpriteSet AttR = new SpriteSet("AttR");
-            //for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
-            //SpriteSet AttL = new SpriteSet("AttL");
-            //for (int i = 0; i < 2; i++) AttL.Sprite.Add(ResourceManager.Images["attL" + i]);
+            
+            SpriteSet AttR = new SpriteSet("AttR");
+            for (int i = 0; i < 5; i++) AttR.Sprite.Add(ResourceManager.Images["ScAttR" + i]);
+            SpriteSet AttL = new SpriteSet("AttL");
+            for (int i = 0; i < 5; i++) AttL.Sprite.Add(ResourceManager.Images["ScAtt" + i]);
 
             Sprite CharSprite = new Sprite();
             CharSprite.SpriteSets.Add(WalkR);
@@ -55,9 +60,9 @@ namespace HHD_StartItJam
             Sprite ScytheSprite = new Sprite();
             ScytheSprite.SpriteSets.Add(ScytheL);
             ScytheSprite.SpriteSets.Add(ScytheR);
-
-
-
+            ScytheSprite.SpriteSets.Add(AttR);
+            ScytheSprite.SpriteSets.Add(AttL);
+            
             DrawnSceneObject Char = new DrawnSceneObject("Death", CharSprite);
 
             Char.Data["ScytheSprite"] = ScytheSprite;            

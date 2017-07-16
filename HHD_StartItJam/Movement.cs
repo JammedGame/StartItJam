@@ -113,7 +113,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.A)
             {
-                //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 if ((int)_Player.Data["Orient"] == 1)
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
@@ -131,7 +131,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.D)
             {
-                //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 if ((int)_Player.Data["Orient"] == 1)
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
@@ -249,10 +249,6 @@ namespace HHD_StartItJam
             }
             for (int i = 0; i < CScene.Objects.Count; i++)
             {
-                if (CScene.Objects[i].Name == "Cowboy")
-                {
-                    int d = 2;
-                }
                 if (CScene.Objects[i].ID == _Player.ID) continue;
                 if (CScene.Objects[i].Name == "Back") continue;
                 if (CScene.Objects[i].Data.ContainsKey("Static")) continue;
@@ -339,14 +335,6 @@ namespace HHD_StartItJam
             if (DSOS.Count > 0)
             {
                 ((Sprite)(_Player.Visual)).UpdateSpriteSet((int)_Player.Data["Orient"]);
-
-                if ((int)_Player.Data["Orient"] == 1)
-                {
-                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
-                }
-                else {
-                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
-                }
 
                 CollisionXLeft = false;
                 CollisionXRight = false;

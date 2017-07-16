@@ -66,7 +66,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).SetSpriteSet(1);
+                ((Sprite)_Player.Visual).UpdateSpriteSet(1);
                 _ADown = true;
                 _Player.Data["Orient"] = 1;
             }

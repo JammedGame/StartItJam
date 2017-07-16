@@ -60,7 +60,10 @@ namespace HHD_StartItJam
         {
             if (_BlockEvents) return;
             //if (GameLogic.GameOver) return;
-            if (E.KeyDown == KeyType.W) _WDown = true;
+            if (E.KeyDown == KeyType.W)
+            {
+                _WDown = true;                
+            }
             if (E.KeyDown == KeyType.A)
             {
                 ((Sprite)_Player.Visual).SetSpriteSet(1);
@@ -97,6 +100,7 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.W)
             {
                 _WDown = false;
+                
             }
             if (E.KeyDown == KeyType.A)
             {
@@ -173,6 +177,7 @@ namespace HHD_StartItJam
                     Trans = new Vertex(Trans.X, Trans.Y - 10, 0);
                     Grab = true;
                     _Player.Data["flying"] = false;
+                    ((Sprite)_Player.Visual).UpdateSpriteSet("Up");
                 }
                 if (Math.Abs(Collisions[0].Visual.Translation.Y - _Player.Visual.Translation.Y) < 350)
                 {
@@ -181,6 +186,7 @@ namespace HHD_StartItJam
                         Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
                         Grab = true;
                         _Player.Data["flying"] = false;
+                        ((Sprite)_Player.Visual).UpdateSpriteSet("Up");
                     }
                 }
             }

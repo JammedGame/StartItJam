@@ -48,6 +48,10 @@ namespace HHD_StartItJam
             SpriteSet JumpR = new SpriteSet("JumpL");
             for (int i = 1; i < 14; i++) JumpR.Sprite.Add(ResourceManager.Images["jumpL" + i]);
 
+            SpriteSet Up = new SpriteSet("Up");
+            for (int i = 0; i < 3; i++) Up.Sprite.Add(ResourceManager.Images["up" + i]);
+          
+
             //SpriteSet AttR = new SpriteSet("AttR");
             //for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
             //SpriteSet AttL = new SpriteSet("AttL");
@@ -58,6 +62,7 @@ namespace HHD_StartItJam
             CharSprite.SpriteSets.Add(WalkL);
             CharSprite.SpriteSets.Add(JumpL);
             CharSprite.SpriteSets.Add(JumpR);
+            CharSprite.SpriteSets.Add(Up);
 
             CharSprite.Scale = new Vertex(250, 250, 0);
             CharSprite.Translation = new Vertex(960 - 125, 540 - 125, 0);

@@ -86,12 +86,12 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.K)
             {
                 if ((int)_Player.Data["Orient"]==0) {
-                    ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(2);
+                    ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(0);
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("AttR");
                 }
                 else
                 {
-                    ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(3);
+                    ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(1);
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("AttL");
                 }
                 for (int i = 0; i < Cowboys.Count; i++)
@@ -114,6 +114,14 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.A)
             {
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                if ((int)_Player.Data["Orient"] == 1)
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
+                }
+                else
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
+                }
 
                 _ADown = false;
             }
@@ -124,6 +132,14 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.D)
             {
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                if ((int)_Player.Data["Orient"] == 1)
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
+                }
+                else
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
+                }
 
                 _DDown = false;
             }
@@ -140,8 +156,7 @@ namespace HHD_StartItJam
 
             }
             if (E.KeyDown == KeyType.Space)
-            {
-                _SpaceDown = true;
+            {                
                 ((Sprite)_Player.Visual).UpdateSpriteSet(2 + (int)_Player.Data["Orient"]);
                 if ((int)_Player.Data["Orient"] == 1)
                 {
@@ -150,7 +165,8 @@ namespace HHD_StartItJam
                 else
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
-                } 
+                }
+                _SpaceDown = true;
             }
         }
 

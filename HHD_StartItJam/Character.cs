@@ -11,25 +11,7 @@ using System.Threading.Tasks;
 namespace HHD_StartItJam
 {
     public class Character
-    {
-        /*public static DrawnSceneObject Create(Scene2D CScene)
-        {
-            return Character.CreateCharacter(CScene);
-        }
-        private static DrawnSceneObject CreateCharacter(Scene2D CScene)
-        {
-            EFXInterface EFX = new EFXInterface();
-            DrawnSceneObject Char = (DrawnSceneObject)EFX.Load("Data/knight.efx");
-            ((Sprite)Char.Visual).SetSpriteSet("Idle");
-            ((Sprite)Char.Visual).Paint = Color.White;
-            Char.Visual.Scale = new Vertex(250, 250, 0);
-            Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);
-
-            CScene.AddSceneObject(Char);
-
-            return Char;
-        }*/
-
+    {        
         public static DrawnSceneObject Create(Scene2D CScene)
         {
             return Character.CreateCharacter(CScene);
@@ -50,7 +32,13 @@ namespace HHD_StartItJam
 
             SpriteSet Up = new SpriteSet("Up");
             for (int i = 0; i < 3; i++) Up.Sprite.Add(ResourceManager.Images["up" + i]);
-          
+
+            SpriteSet ScytheR = new SpriteSet("ScytheR");
+            for (int i = 0; i < 27; i++) ScytheR.Sprite.Add(ResourceManager.Images["scythe" + i]);
+
+            SpriteSet ScytheL = new SpriteSet("ScytheL");
+            for (int i = 0; i < 27; i++) ScytheL.Sprite.Add(ResourceManager.Images["scytheL" + i]);
+
 
             //SpriteSet AttR = new SpriteSet("AttR");
             //for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
@@ -64,15 +52,37 @@ namespace HHD_StartItJam
             CharSprite.SpriteSets.Add(JumpR);
             CharSprite.SpriteSets.Add(Up);
 
-            CharSprite.Scale = new Vertex(250, 250, 0);
-            CharSprite.Translation = new Vertex(960 - 125, 540 - 125, 0);
-                       
+            Sprite ScytheSprite = new Sprite();
+            ScytheSprite.SpriteSets.Add(ScytheL);
+            ScytheSprite.SpriteSets.Add(ScytheR);
+
+
+
             DrawnSceneObject Char = new DrawnSceneObject("Death", CharSprite);
 
+            Char.Data["ScytheSprite"] = ScytheSprite;            
+
+            DrawnSceneObject Sc = new DrawnSceneObject("Scythe", ScytheSprite);      
+           
+            Char.Visual.Scale = new Vertex(250, 250, 0);
+            Char.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);
+
+            Sc.Visual.Scale = new Vertex(250, 250, 0);
+            Sc.Visual.Translation = new Vertex(960 - 125, 540 - 125, 0);
+               
+
+            Char.Data["Scythe"] = Sc;           
+                        
             Scene.AddSceneObject(Char);
+            Scene.AddSceneObject(Sc);            
 
             return Char;
         }
+        public static void UpdateScythe(DrawnSceneObject Char)
+        {
+            ((DrawnSceneObject)Char.Data["Scythe"]).Visual.Translation = new Vertex(Char.Visual.Translation.X, Char.Visual.Translation.Y, 0);            
+        }
+            
     }
 }
 

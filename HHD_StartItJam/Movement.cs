@@ -53,11 +53,17 @@ namespace HHD_StartItJam
             //if (GameLogic.GameOver) return;
             if (E.KeyDown == KeyType.W)
             {
-                _WDown = true;                
+                _WDown = true;
             }
             if (E.KeyDown == KeyType.A)
-            {
-                if(!_OnStairs)((Sprite)_Player.Visual).UpdateSpriteSet(1);
+            {               
+                ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
+
+                if (!_OnStairs)
+                {
+                    ((Sprite)_Player.Visual).UpdateSpriteSet(1);
+                   
+                }
                 _ADown = true;
                 _Player.Data["Orient"] = 1;
             }
@@ -66,8 +72,13 @@ namespace HHD_StartItJam
                 _SDown = true;
             }
             if (E.KeyDown == KeyType.D)
-            {
-                if(!_OnStairs)((Sprite)_Player.Visual).UpdateSpriteSet(0);
+            {               
+                ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
+                if (!_OnStairs)
+                {
+                    ((Sprite)_Player.Visual).UpdateSpriteSet(0);
+                    
+                }
                 _DDown = true;
                 _Player.Data["Orient"] = 0;
             }
@@ -91,11 +102,12 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.W)
             {
                 _WDown = false;
-                
+
             }
             if (E.KeyDown == KeyType.A)
             {
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+
                 _ADown = false;
             }
             if (E.KeyDown == KeyType.S)
@@ -105,6 +117,7 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.D)
             {
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+
                 _DDown = false;
             }
             if (E.KeyDown == KeyType.Space)
@@ -122,8 +135,15 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.Space)
             {
                 _SpaceDown = true;
-                ((Sprite)_Player.Visual).UpdateSpriteSet(2+(int)_Player.Data["Orient"]);
-
+                ((Sprite)_Player.Visual).UpdateSpriteSet(2 + (int)_Player.Data["Orient"]);
+                if ((int)_Player.Data["Orient"] == 1)
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
+                }
+                else
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
+                } 
             }
         }
 
@@ -144,7 +164,6 @@ namespace HHD_StartItJam
                     GravityAmount = 0;
                     GravityOn = false;
                 }
-
             }
             WalkLeftRight();
 
@@ -153,10 +172,18 @@ namespace HHD_StartItJam
                 Grab = false;
                 GravityOn = true;
 
-
                 _Player.Data["flying"] = true;
                 _Player.Data["skokBrojac"] = 30;
                 ((Sprite)(_Player.Visual)).UpdateSpriteSet(2 + (int)_Player.Data["Orient"]);
+                if ((int)_Player.Data["Orient"] == 1)
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
+                }
+                else
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
+                }
+
                 //AudioPlayer.PlaySound(AudioPlayer.Kre, false, 100);
             }
 
@@ -230,7 +257,7 @@ namespace HHD_StartItJam
                         Surface.Visual.RightEdge = Surface2.Visual.LeftEdge;
                     }
                 }
-              
+
 
                 CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
                 
@@ -262,6 +289,8 @@ namespace HHD_StartItJam
                 PU.increasePotionCount();
 
             }
+
+            Character.UpdateScythe(_Player);
 
             Runner.BlockDraw = false;
             this._BlockEvents = false;
@@ -299,6 +328,14 @@ namespace HHD_StartItJam
             if (DSOS.Count > 0)
             {
                 ((Sprite)(_Player.Visual)).UpdateSpriteSet((int)_Player.Data["Orient"]);
+
+                if ((int)_Player.Data["Orient"] == 1)
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
+                }
+                else {
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
+                }
 
                 CollisionXLeft = false;
                 CollisionXRight = false;

@@ -1174,5 +1174,17 @@
   <ItemGroup>
     <None Include="Resources\better-table %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roof.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roofL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roofR.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

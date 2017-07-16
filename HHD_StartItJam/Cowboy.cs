@@ -53,7 +53,7 @@ namespace HHD_StartItJam
             {
                 _AtkTimer = 0;
                 ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = false;
-                HealthBar.subHealth(1);
+                HealthBar.subHealth(20);
                 if (HealthBar.empty())
                 {
                     GameLogic.Create().RunMenu();

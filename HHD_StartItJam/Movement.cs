@@ -113,7 +113,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 if ((int)_Player.Data["Orient"] == 1)
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");
@@ -131,7 +131,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.D)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
                 if ((int)_Player.Data["Orient"] == 1)
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheL");

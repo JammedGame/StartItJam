@@ -1128,5 +1128,35 @@
   <ItemGroup>
     <None Include="Resources\Whip2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datt4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datt0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datt1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datt2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datt3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DattL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DattL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DattL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DattL3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DattL4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

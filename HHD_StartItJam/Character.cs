@@ -33,6 +33,12 @@ namespace HHD_StartItJam
             SpriteSet Up = new SpriteSet("Up");
             for (int i = 0; i < 3; i++) Up.Sprite.Add(ResourceManager.Images["up" + i]);
 
+            SpriteSet DattL = new SpriteSet("DattL");
+            for (int i = 0; i < 5; i++) DattL.Sprite.Add(ResourceManager.Images["Dwalk" + i]);
+
+            SpriteSet DattR = new SpriteSet("DattR");
+            for (int i = 0; i < 5; i++) DattR.Sprite.Add(ResourceManager.Images["Dwalk" + i]);
+
             SpriteSet ScytheR = new SpriteSet("ScytheR");
             for (int i = 0; i < 27; i++) ScytheR.Sprite.Add(ResourceManager.Images["scythe" + i]);
 

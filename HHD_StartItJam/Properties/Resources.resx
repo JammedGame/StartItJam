@@ -865,4 +865,34 @@
   <data name="Whip6Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Whip6Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Datt0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datt0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Datt1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Datt2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datt2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Datt3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datt3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Datt4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Datt4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DattL0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DattL0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DattL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DattL1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DattL2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DattL2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DattL3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DattL3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DattL4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DattL4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -36,33 +36,49 @@ namespace HHD_StartItJam
             CScene.Data["Surface2"] = Surface2;
             CScene.AddSceneObject(Surface2);
 
-            CreateRoom(CScene, 6, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false });
-            CreateRoom(CScene, 11, 3, 0, new int[] { 0, 1 }, new bool[] { true, false, false });
-            CreateRoom(CScene, 6, 3, 1, new int[] { 0, 2 }, null);
-            CreateRoom(CScene, 9, 5, 1, new int[] { 2, 0 }, null);
+            CreateRoom(CScene, 6, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false }, 2);
+            CreateRoom(CScene, 11, 3, 0, new int[] { 0, 1 }, new bool[] { true, false, false }, 1);
+            CreateRoom(CScene, 6, 3, 1, new int[] { 0, 2 }, null, 1);
+            CreateRoom(CScene, 9, 5, 1, new int[] { 2, 0 }, null , 3);
 
-            CreateRoom(CScene, 17, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true });
+            CreateRoom(CScene, 17, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true }, 1);
             CreateRoom(CScene, 20, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
             CreateRoom(CScene, 23, 2, 0, new int[] { 0, 1 }, new bool[] { true, false });
-            CreateRoom(CScene, 17, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
-            CreateRoom(CScene, 20, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
-            CreateRoom(CScene, 16, 5, 2, new int[] { 2, 2 }, null);
-            CreateRoom(CScene, 21, 3, 2, new int[] { 2, 2 }, null);
+            CreateRoom(CScene, 17, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false }, 1);
+            CreateRoom(CScene, 20, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false }, 1);
+            CreateRoom(CScene, 16, 5, 2, new int[] { 2, 2 }, null, 3);
+            CreateRoom(CScene, 21, 3, 2, new int[] { 2, 2 }, null, 2);
 
             CreateRoom(CScene, 27, 1, 2, new int[] { 2, 0 }, new bool[] { true });
             CreateRoom(CScene, 27, 1, 3, new int[] { 0, 0 }, new bool[] { true });
-            CreateRoom(CScene, 21, 4, 4, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 21, 4, 4, new int[] { 0, 2 }, null, 2);
             CreateRoom(CScene, 27, 1, 4, new int[] { 2, 0 }, null);
 
             CreateTequila(CScene, 6, 2);
             CreateTequila(CScene, 22, 0);
             CreateTequila(CScene, 21, 4);
 
+            /*CreateAsset(CScene, 0, 6, 1);
+            CreateAsset(CScene, 1, 7, 1);
+            CreateAsset(CScene, 2, 8, 1);
+            CreateAsset(CScene, 3, 9, 1);
+            CreateAsset(CScene, 4, 10, 1);*/
+
             HealthBar.Create(CScene);
 
             PowerUps PU = new PowerUps(CScene);
             CScene.Data["PowerUps"] = PU;
 
+        }
+        public static void CreateAsset(Scene2D CScene, int Index, int XLocation, int Level)
+        {
+            DrawnSceneObject Asset = null;
+            if (Index == 0) Asset = CreateStaticSprite("Asset", ResourceManager.Images["asset"+Index], new Vertex(XLocation * 300 + 100, 600 - Level * 600 + 200 - 40, 0), new Vertex(100, 100, 0), false, Collision2DType.Focus);
+            else if (Index == 1) Asset = CreateStaticSprite("Asset", ResourceManager.Images["asset" + Index], new Vertex(XLocation * 300 + 50, 600 - Level * 600 - 30 + 50, 0), new Vertex(200, 250, 0), true, Collision2DType.Focus);
+            else if (Index == 2) Asset = CreateStaticSprite("Asset", ResourceManager.Images["asset" + Index], new Vertex(XLocation * 300, 600 - Level * 600 - 40 + 100, 0), new Vertex(200, 200, 0), true, Collision2DType.Focus);
+            else if (Index == 3) Asset = CreateStaticSprite("Asset", ResourceManager.Images["asset" + Index], new Vertex(XLocation * 300 + 25, 600 - Level * 600 - 280, 0), new Vertex(250, 500, 0), false, Collision2DType.Focus);
+            else if (Index == 4) Asset = CreateStaticSprite("Asset", ResourceManager.Images["asset" + Index], new Vertex(XLocation * 300, 600 - Level * 600 - 30 + 100, 0), new Vertex(300, 200, 0), true, Collision2DType.Focus);
+            CScene.AddSceneObject(Asset);
         }
         public static void CreateEnemies(Scene2D CScene, DrawnSceneObject Player)
         {
@@ -81,7 +97,7 @@ namespace HHD_StartItJam
             Coin.Data["Coin"] = true;
             CScene.AddSceneObject(Coin);
         }
-        public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs)
+        public static void CreateRoom(Scene2D CScene, int XLocation, int Length, int Level, int[] Enterances, bool[] Stairs, int Assets = 0)
         {
             for(int i = 0; i < Length; i++)
             {
@@ -140,6 +156,17 @@ namespace HHD_StartItJam
                 DrawnSceneObject RightWall = CreateStaticSprite("RightWall", ResourceManager.Images["Wall" + RandomNumber(0, 2)], new Vertex(Location + Length * 300 - 30, Level * (-600) + 300, 0), new Vertex(30, 550, 0), Enterances[1] == 0, Collision2DType.Rectangular);
                 RightWall.Data["XCollision"] = true;
                 CScene.AddSceneObject(RightWall);
+            }
+            List<int> FreeIndexes = new List<int>();
+            for (int i = 0; i < Stairs.Length; i++)
+            {
+                if (!Stairs[i]) FreeIndexes.Add(i);
+            }
+            for (int i = 0; i < Assets && FreeIndexes.Count > 0; i++)
+            {
+                int Num = RandomNumber(0, FreeIndexes.Count);
+                CreateAsset(CScene, RandomNumber(0, 5), XLocation + FreeIndexes[Num], Level);
+                FreeIndexes.RemoveAt(Num);
             }
         }
         public static void CreateWallPart(Scene CScene, Vertex Location, int Level, bool Stairs)

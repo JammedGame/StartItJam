@@ -1158,5 +1158,20 @@
   <ItemGroup>
     <None Include="Resources\DattL4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\better-table %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

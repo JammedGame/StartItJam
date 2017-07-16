@@ -10,57 +10,79 @@ using System.Threading.Tasks;
 
 namespace HHD_StartItJam
 {
+    enum EnemyMove
+    {
+        None = 0,
+        Left = 1,
+        Right = 2
+    }
     class Cowboy : Enemy
     {
         private static int Sid = 0;
         private int id;
         private int MoveSpeed;
+        private int _Sight;
+        private int _LeftAreaWalk;
+        private int _RightAreaWalk;
+        private EnemyMove _Move;
+        private Vertex _OriginalLocation;
         private DrawnSceneObject _Enemy;
-
-        
-
         public DrawnSceneObject Enemy
         {
             get { return _Enemy; }
             set { _Enemy = value; }
         }
-
-
-        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y,int MS=1) : base(CScene, _Player)
+        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100) : base(CScene, _Player)
         {
             _Enemy=CreateEnemy(CScene,x,y);
-            this.MoveSpeed = MS;
+            this.MoveSpeed = MoveSpeed;
             this.id = Sid;
+            this._Sight = Sight;
+            this._LeftAreaWalk = LeftAreaWalk;
+            this._RightAreaWalk = RightAreaWalk;
+            this._OriginalLocation = _Enemy.Visual.Translation;
         }
-
         public override void Behavior()
         {
-           
+            if (_Move == EnemyMove.None) _Move = EnemyMove.Left;
             if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<75 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 75)
             {
                 ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
             }
-            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 700)
+            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
             {
-                
-                if (Movement.AImoveLeft < 600)
+                if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X) _Move = EnemyMove.Left;
+                else _Move = EnemyMove.Right;
+                Vertex Moved = Movement.Move.GlobalTrans;
+                if (_Move == EnemyMove.Left) if ((_OriginalLocation.X - (_Player.Visual.Translation.X + Moved.X)) > this._LeftAreaWalk) _Move = EnemyMove.Right;
+                else if (_Move == EnemyMove.Right) if (((_Player.Visual.Translation.X + Moved.X) - _OriginalLocation.X) > this._RightAreaWalk) _Move = EnemyMove.Left;
+                if (_Move == EnemyMove.Left)
                 {
                     ((Sprite)_Enemy.Visual).UpdateSpriteSet("WalkL");
                     MoveLeft();
-                    Movement.AImoveLeft++;
-                    if(Movement.AImoveLeft==600) Movement.AImovRight = 0;
                 }
-                else if (Movement.AImovRight <800)
+                else
                 {
                     ((Sprite)_Enemy.Visual).UpdateSpriteSet("WalkR");
                     MoveRight();
-                    Movement.AImovRight++;
-                     if (Movement.AImovRight == 800) Movement.AImoveLeft = 0;
-                 }
+                }
             }
-            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > 700)
+            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > _Sight)
             {
-                ((Sprite)_Enemy.Visual).UpdateSpriteSet("IdleR");
+                if (_Move == EnemyMove.Left)
+                {
+                    ((Sprite)_Enemy.Visual).UpdateSpriteSet("WalkL");
+                    MoveLeft();
+                    Vertex Moved = Movement.Move.GlobalTrans;
+                    if ((_OriginalLocation.X - (_Enemy.Visual.Translation.X + Moved.X)) > this._LeftAreaWalk) _Move = EnemyMove.Right;
+                }
+                else if (_Move == EnemyMove.Right)
+                {
+                    ((Sprite)_Enemy.Visual).UpdateSpriteSet("WalkR");
+                    MoveRight();
+                    Vertex Moved = Movement.Move.GlobalTrans;
+                    if (((_Enemy.Visual.Translation.X + Moved.X) - _OriginalLocation.X) > this._RightAreaWalk) _Move = EnemyMove.Left;
+                }
             }
         }
         public void MoveLeft()
@@ -90,17 +112,14 @@ namespace HHD_StartItJam
         }
         public int  PlayerHit()
         {
-            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
+            /*if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
             {
                 return id;
             }
-            else return -1;
+            else */return -1;
         }
-
-
         public DrawnSceneObject CreateEnemy(Scene2D Scene,int x,int y)
         {
-
             SpriteSet IdleR = new SpriteSet("IdleR");
             for(int i=0;i<2;i++) IdleR.Sprite.Add(ResourceManager.Images["idleR"+i]);
             SpriteSet WalkR = new SpriteSet("WalkR");

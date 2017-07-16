@@ -11,6 +11,8 @@ namespace HHD_StartItJam
 {
     class Movement
     {
+        public static Movement Move;
+
         public static int AImoveLeft = 0;
         public static int AImovRight = -1;
         private bool _BlockEvents = false;
@@ -26,35 +28,23 @@ namespace HHD_StartItJam
         private bool GravityOn = true;
         private int GravityAmount = 0;
         public bool Grab;
-        private Vertex Trans;
+        public Vertex Trans;
+        public Vertex GlobalTrans = new Vertex();
         private DrawnSceneObject _Player;
         private Scene2D CScene;
         private List<Cowboy> Cowboys = new List<Cowboy>();
 
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
+            Movement.Move = this;
             this._Player = Player;
             _Player.Data["Orient"] = 1;
-            this.Trans = Player.Visual.Translation;
+            Trans = Player.Visual.Translation;
             this.CScene = CScene;
             this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
 
-            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player, 600, 600);
+            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player, 2100, 0, 2, 300, 200, 1000);
             this.Cowboys.Add(Cowboy0);
-
-            Cowboy Cowboy1 = new Cowboy(this.CScene, this._Player, 2000, 600);
-            this.Cowboys.Add(Cowboy1);
-
-            Cowboy Cowboy2 = new Cowboy(this.CScene, this._Player, 600, 0);
-            this.Cowboys.Add(Cowboy2);
-
-            Cowboy Cowboy3 = new Cowboy(this.CScene, this._Player, 2000, 0);
-            this.Cowboys.Add(Cowboy3);
-
-            Cowboy Cowboy4 = new Cowboy(this.CScene, this._Player, 3800, 600);
-            this.Cowboys.Add(Cowboy4);
-
-
         }
 
         public void KeyPressEvent(Game G, EventArguments E)
@@ -243,7 +233,9 @@ namespace HHD_StartItJam
               
 
                 CScene.Objects[i].Visual.Translation = new Vertex(CScene.Objects[i].Visual.Translation.X - Trans.X, CScene.Objects[i].Visual.Translation.Y - Trans.Y, 0);
+                
             }
+            GlobalTrans = new Vertex(GlobalTrans.X + Trans.X, GlobalTrans.Y + Trans.Y, 0);
 
             for (int i = 0; i < Cowboys.Count; i++)
             {

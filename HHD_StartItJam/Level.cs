@@ -36,27 +36,27 @@ namespace HHD_StartItJam
             CScene.Data["Surface2"] = Surface2;
             CScene.AddSceneObject(Surface2);
 
-            CreateRoom(CScene, 1, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false });
-            CreateRoom(CScene, 6, 3, 0, new int[] { 0, 1 }, new bool[] { true, false, false });
-            CreateRoom(CScene, 1, 3, 1, new int[] { 0, 2 }, null);
-            CreateRoom(CScene, 4, 5, 1, new int[] { 2, 0 }, null);
+            CreateRoom(CScene, 6, 4, 0, new int[] { 1, 0 }, new bool[] { false, true, false, false });
+            CreateRoom(CScene, 11, 3, 0, new int[] { 0, 1 }, new bool[] { true, false, false });
+            CreateRoom(CScene, 6, 3, 1, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 9, 5, 1, new int[] { 2, 0 }, null);
 
-            CreateRoom(CScene, 12, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true });
-            CreateRoom(CScene, 15, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
-            CreateRoom(CScene, 18, 2, 0, new int[] { 0, 1 }, new bool[] { true, false });
-            CreateRoom(CScene, 12, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
-            CreateRoom(CScene, 15, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
-            CreateRoom(CScene, 11, 5, 2, new int[] { 2, 2 }, null);
-            CreateRoom(CScene, 16, 3, 2, new int[] { 2, 2 }, null);
+            CreateRoom(CScene, 17, 3, 0, new int[] { 1, 0 }, new bool[] { false, false, true });
+            CreateRoom(CScene, 20, 3, 0, new int[] { 0, 0 }, new bool[] { true, false, false });
+            CreateRoom(CScene, 23, 2, 0, new int[] { 0, 1 }, new bool[] { true, false });
+            CreateRoom(CScene, 17, 3, 1, new int[] { 0, 0 }, new bool[] { false, true, false });
+            CreateRoom(CScene, 20, 3, 1, new int[] { 0, 1 }, new bool[] { false, true, false });
+            CreateRoom(CScene, 16, 5, 2, new int[] { 2, 2 }, null);
+            CreateRoom(CScene, 21, 3, 2, new int[] { 2, 2 }, null);
 
-            CreateRoom(CScene, 22, 1, 2, new int[] { 2, 0 }, new bool[] { true });
-            CreateRoom(CScene, 22, 1, 3, new int[] { 0, 0 }, new bool[] { true });
-            CreateRoom(CScene, 16, 4, 4, new int[] { 0, 2 }, null);
-            CreateRoom(CScene, 22, 1, 4, new int[] { 2, 0 }, null);
+            CreateRoom(CScene, 27, 1, 2, new int[] { 2, 0 }, new bool[] { true });
+            CreateRoom(CScene, 27, 1, 3, new int[] { 0, 0 }, new bool[] { true });
+            CreateRoom(CScene, 21, 4, 4, new int[] { 0, 2 }, null);
+            CreateRoom(CScene, 27, 1, 4, new int[] { 2, 0 }, null);
 
-            CreateTequila(CScene, 1, 2);
-            CreateTequila(CScene, 17, 0);
-            CreateTequila(CScene, 16, 4);
+            CreateTequila(CScene, 6, 2);
+            CreateTequila(CScene, 22, 0);
+            CreateTequila(CScene, 21, 4);
 
             HealthBar.Create(CScene);
 

@@ -318,7 +318,13 @@ namespace HHD_StartItJam
 
             Runner.BlockDraw = false;
             this._BlockEvents = false;
-
+            if(Math.Abs(_Player.Visual.Translation.X - ((DrawnSceneObject)CScene.Data["Banner"]).Visual.Translation.X) < 300)
+            {
+                if(PowerUps.Tequillas == 3)
+                {
+                    GameLogic.Create().RunMenu();
+                }
+            }
         }
 
 

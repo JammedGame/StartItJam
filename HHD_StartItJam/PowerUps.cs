@@ -12,7 +12,7 @@ namespace HHD_StartItJam
 {
     class PowerUps
     {
-
+        public static int Tequillas = 0;
         public int potionCount;
         private List<DrawnSceneObject> Tequilas;
 
@@ -50,6 +50,7 @@ namespace HHD_StartItJam
         public void increasePotionCount()
         {
             potionCount += 1;
+            Tequillas++;
             for (int i = 0; i < potionCount; i++)
             {
                 Tequilas[i].Active = true;

@@ -19,6 +19,7 @@ namespace HHD_StartItJam
         public bool _WDown;
         public bool _SDown;
         public bool _SpaceDown;
+        private bool _OnStairs = false;
         private bool CollisionY = false;
         private bool CollisionXLeft = false;
         private bool CollisionXRight = false;
@@ -66,7 +67,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.A)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet(1);
+                if(!_OnStairs)((Sprite)_Player.Visual).UpdateSpriteSet(1);
                 _ADown = true;
                 _Player.Data["Orient"] = 1;
             }
@@ -76,7 +77,7 @@ namespace HHD_StartItJam
             }
             if (E.KeyDown == KeyType.D)
             {
-                ((Sprite)_Player.Visual).UpdateSpriteSet(0);
+                if(!_OnStairs)((Sprite)_Player.Visual).UpdateSpriteSet(0);
                 _DDown = true;
                 _Player.Data["Orient"] = 0;
             }
@@ -174,6 +175,7 @@ namespace HHD_StartItJam
             {
                 if (_WDown)
                 {
+                    _OnStairs = true;
                     Trans = new Vertex(Trans.X, Trans.Y - 10, 0);
                     Grab = true;
                     _Player.Data["flying"] = false;
@@ -183,13 +185,16 @@ namespace HHD_StartItJam
                 {
                     if (_SDown)
                     {
+                        _OnStairs = true;
                         Trans = new Vertex(Trans.X, Trans.Y + 10, 0);
                         Grab = true;
                         _Player.Data["flying"] = false;
                         ((Sprite)_Player.Visual).UpdateSpriteSet("Up");
                     }
                 }
+                else _OnStairs = false;
             }
+            else _OnStairs = false;
             Gravity();
             CheckCollision();
             for (int i = 0; i < CScene.Objects.Count; i++)

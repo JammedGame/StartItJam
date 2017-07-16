@@ -32,7 +32,7 @@ namespace HHD_StartItJam
         public Vertex GlobalTrans = new Vertex();
         private DrawnSceneObject _Player;
         private Scene2D CScene;
-        private List<Cowboy> Cowboys = new List<Cowboy>();
+        public static List<Cowboy> Cowboys = new List<Cowboy>();
 
         public Movement(DrawnSceneObject Player, Scene2D CScene)
         {
@@ -42,9 +42,6 @@ namespace HHD_StartItJam
             Trans = Player.Visual.Translation;
             this.CScene = CScene;
             this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
-
-            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player, 2100, -30, 2, 600, 200, 1000, 300);
-            this.Cowboys.Add(Cowboy0);
         }
 
         public void KeyPressEvent(Game G, EventArguments E)

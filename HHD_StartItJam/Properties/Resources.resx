@@ -193,161 +193,17 @@
   <data name="tequila" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tequila.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="attR0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\attR0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="attR1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\attR1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="idleR0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\idleR0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="idleR1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\idleR1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="walkR0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR17" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR19" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkR9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkR9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="attL0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\attL0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="attL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\attL1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="idleL0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\idleL0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="idleL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\idleL1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL17" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL18" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL19" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL19.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="walkL9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkL9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="jump0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jump0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -765,5 +621,95 @@
   </data>
   <data name="sombrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sombrero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att1Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att1Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att2Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att2Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att3Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att3Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att4Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att4Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att5Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att5Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Att6Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Att6Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk1Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk1Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk2Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk2Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk3Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk3Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk4Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk4Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk5Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk5Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk6Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk6Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk7Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk7Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk8Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk8Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kaub1Walk9Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kaub1Walk9Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

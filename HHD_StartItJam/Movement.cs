@@ -43,7 +43,7 @@ namespace HHD_StartItJam
             this.CScene = CScene;
             this.CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdate);
 
-            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player, 2100, 0, 2, 300, 200, 1000);
+            Cowboy Cowboy0 = new Cowboy(this.CScene, this._Player, 2100, 0, 2, 400, 200, 1000, 200);
             this.Cowboys.Add(Cowboy0);
         }
 
@@ -263,19 +263,6 @@ namespace HHD_StartItJam
                 
             }
             GlobalTrans = new Vertex(GlobalTrans.X + Trans.X, GlobalTrans.Y + Trans.Y, 0);
-
-            for (int i = 0; i < Cowboys.Count; i++)
-            {
-                Cowboys[i].Behavior();
-                if (Cowboys[i].EnemyHit())
-                {
-                    HealthBar.subHealth(1);
-                    if (HealthBar.empty())
-                    {
-                        GameLogic.Create().RunMenu();
-                    }
-                }
-            }
 
 
             List<DrawnSceneObject> coins = _Player.GetCollisionWithAny(CScene.getHavingData("Coin"), Collision2DType.Radius);

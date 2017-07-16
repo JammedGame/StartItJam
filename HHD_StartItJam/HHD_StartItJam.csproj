@@ -885,5 +885,95 @@
   <ItemGroup>
     <None Include="Resources\sombrero.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att1Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att2Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att3Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att4Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att5Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Att6Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk1Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk2Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk3Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk4Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk5Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk6Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk7Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk8Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaub1Walk9Fliped.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

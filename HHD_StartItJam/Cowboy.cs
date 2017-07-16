@@ -50,7 +50,7 @@ namespace HHD_StartItJam
             {
                 ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
             }
-            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
+            else if (Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 500 && Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
             {
                 if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X) _Move = EnemyMove.Left;
                 else _Move = EnemyMove.Right;
@@ -68,7 +68,7 @@ namespace HHD_StartItJam
                     MoveRight();
                 }
             }
-            else if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) > _Sight)
+            else
             {
                 if (_Move == EnemyMove.Left)
                 {
@@ -113,26 +113,26 @@ namespace HHD_StartItJam
         }
         public int  PlayerHit()
         {
-            /*if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
+            if (Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < 100 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 100)
             {
                 return id;
             }
-            else */return -1;
+            else return -1;
         }
         public DrawnSceneObject CreateEnemy(Scene2D Scene,int x,int y)
         {
             SpriteSet IdleR = new SpriteSet("IdleR");
-            for(int i=0;i<2;i++) IdleR.Sprite.Add(ResourceManager.Images["idleR"+i]);
+            for(int i=0;i<1;i++) IdleR.Sprite.Add(ResourceManager.Images["Kaub1Walk"+(i+1)]);
             SpriteSet WalkR = new SpriteSet("WalkR");
-            for (int i = 0; i <21; i++) WalkR.Sprite.Add(ResourceManager.Images["walkR" + i]);
+            for (int i = 0; i < 9; i++) WalkR.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1)]);
             SpriteSet AttR = new SpriteSet("AttR");
-            for (int i = 0; i < 2; i++) AttR.Sprite.Add(ResourceManager.Images["attR" + i]);
+            for (int i = 0; i < 6; i++) AttR.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1)]);
             SpriteSet IdleL = new SpriteSet("IdleL");
-            for (int i = 0; i < 2; i++) IdleL.Sprite.Add(ResourceManager.Images["idleL" + i]);
+            for (int i = 0; i < 1; i++) IdleL.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1) + "Fliped"]);
             SpriteSet WalkL = new SpriteSet("WalkL");
-            for (int i = 0; i < 21; i++) WalkL.Sprite.Add(ResourceManager.Images["walkL" + i]);
+            for (int i = 0; i < 9; i++) WalkL.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1) + "Fliped"]);
             SpriteSet AttL = new SpriteSet("AttL");
-            for (int i = 0; i < 2; i++) AttL.Sprite.Add(ResourceManager.Images["attL" + i]);
+            for (int i = 0; i < 6; i++) AttL.Sprite.Add(ResourceManager.Images["Kaub1Att" + (i + 1) + "Fliped"]);
 
 
             Sprite CharSprite = new Sprite();
@@ -143,7 +143,7 @@ namespace HHD_StartItJam
             CharSprite.SpriteSets.Add(WalkL);
             CharSprite.SpriteSets.Add(AttL);
 
-            CharSprite.Scale = new Vertex(250, 250, 0);
+            CharSprite.Scale = new Vertex(300, 300, 0);
             CharSprite.Translation = new Vertex(x , y , 0);
             
             DrawnSceneObject Char = new DrawnSceneObject("Cowboy", CharSprite);            

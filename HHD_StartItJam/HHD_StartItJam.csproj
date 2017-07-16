@@ -1192,5 +1192,14 @@
   <ItemGroup>
     <None Include="Resources\end.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\naslovna velika.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

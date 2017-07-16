@@ -40,26 +40,32 @@ namespace HHD_StartItJam
             this._EFX = new EFXInterface();
             this._Game = new Game();
             this._Runner = new ExternRunner(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, new GraphicsMode(32, 24, 0, 8), "Tekillah!");
+            //this._Runner = new ExternRunner(1024, 600, new GraphicsMode(32, 24, 0, 8), "Tekillah!");
             GameLogic._GlobalScale = _Runner.Height / 1080.0f;
-            this._Runner.WindowState = OpenTK.WindowState.Normal;
+            this._Runner.WindowState = OpenTK.WindowState.Fullscreen;
             Engineer.Engine.Settings.GraphicsQuality = Quality.Medium;
             this._Current = new Scene2D("Test");
             this._Current.Transformation.Scale = new Vertex(_GlobalScale, _GlobalScale, 0);
             this._Game.Scenes.Add(this._Current);
             this._Logic = new SceneLogic(this._Current);
         }
+        public bool Init = false;
         public void RunMenu()
         {
             Menu M = new Menu();
             //this._Runner.Init(this._Game, this._Current);
             this._Runner.Init(this._Game, M.CreateMenuScene(this._Runner));
-           // this._Runner.Run();
+            if (!Init)
+            {
+                this.Init = true;
+                this._Runner.Run();
+            }
         }
         public void RunGame()
         {
             Menu M = new Menu();
             this._Runner.Init(this._Game, _Current);
-            this._Runner.Run();
+            //this._Runner.Run();
         }
 
         public void Stop()

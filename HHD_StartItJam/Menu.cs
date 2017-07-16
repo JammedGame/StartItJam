@@ -22,12 +22,12 @@ namespace HHD_StartItJam
             DrawnSceneObject Back = Level.CreateStaticSprite("Back", ResourceManager.Images["Back"], new Vertex(0, 0, 0), new Vertex(Run.Width, Run.Height, 0), false);
             MenuScene.AddSceneObject(Back);
 
-            
+            //MenuScene.Transformation.Scale = new Vertex(Run.Height / 1080.0f, Run.Height / 1080.0f, 1);
 
-            SceneObject Play = Level.CreateStaticSprite("Play", ResourceManager.Images["Surface"], new Engineer.Mathematics.Vertex(200, 790, 0), new Engineer.Mathematics.Vertex(300, 120, 0), true);
+            SceneObject Play = Level.CreateStaticSprite("Play", ResourceManager.Images["play"], new Engineer.Mathematics.Vertex(50, 300, 0), new Engineer.Mathematics.Vertex(300, 120, 0), true);
             Play.Events.Extern.MouseClick += new GameEventHandler(this.PlayClickEvent);
             MenuScene.AddSceneObject(Play);
-            SceneObject Exit = Level.CreateStaticSprite("Exit", ResourceManager.Images["Surface"], new Engineer.Mathematics.Vertex(1400, 790, 0), new Engineer.Mathematics.Vertex(300, 120, 0), true);
+            SceneObject Exit = Level.CreateStaticSprite("Exit", ResourceManager.Images["exit"], new Engineer.Mathematics.Vertex(50, 450, 0), new Engineer.Mathematics.Vertex(300, 120, 0), true);
             Exit.Events.Extern.MouseClick += new GameEventHandler(this.ExitClickEvent);
             MenuScene.AddSceneObject(Exit);
 

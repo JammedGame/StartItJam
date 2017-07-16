@@ -721,168 +721,6 @@
     <None Include="Resources\Desert_floor_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\scytheL6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL13.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL14.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL15.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL17.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL19.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL20.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL22.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL23.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL25.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL26.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scytheL5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe15.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe17.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe19.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe20.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe22.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe23.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe25.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe26.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe10.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe13.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scythe14.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\sombrero.png" />
   </ItemGroup>
   <ItemGroup>
@@ -974,6 +812,285 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Kaub1Walk9Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scythe26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAtt4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAtt0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAtt1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAtt2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAtt3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAttR4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAttR0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAttR1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAttR2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScAttR3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmp12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScJmpL4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScUp0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScUp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScUp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scytheL11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

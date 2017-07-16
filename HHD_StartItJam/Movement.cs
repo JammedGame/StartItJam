@@ -85,8 +85,15 @@ namespace HHD_StartItJam
 
             if (E.KeyDown == KeyType.K)
             {
-                //((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
-                //((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
+                if ((int)_Player.Data["Orient"]==0) {
+                    ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(2);
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("AttR");
+                }
+                else
+                {
+                    ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(3);
+                    ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("AttL");
+                }
                 for (int i = 0; i < Cowboys.Count; i++)
                 {
                     if (Cowboys[i].PlayerHit() != -1)

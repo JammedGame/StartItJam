@@ -26,7 +26,7 @@ namespace HHD_StartItJam
             Vertex Positon = new Vertex(10, 10, 0);
             Vertex Size = new Vertex(400, 50, 0);
 
-            TileCollection BItmaps = new TileCollection(ResourceManager.Images["Surface"]);
+            TileCollection BItmaps = new TileCollection(ResourceManager.Images["sombrero"]);
 
             Tile SomethingOnScene = new Tile();
 

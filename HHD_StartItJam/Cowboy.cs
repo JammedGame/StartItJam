@@ -24,6 +24,7 @@ namespace HHD_StartItJam
         private int _Sight;
         private int _LeftAreaWalk;
         private int _RightAreaWalk;
+        private int _AttackRadius;
         private EnemyMove _Move;
         private Vertex _OriginalLocation;
         private DrawnSceneObject _Enemy;
@@ -32,7 +33,7 @@ namespace HHD_StartItJam
             get { return _Enemy; }
             set { _Enemy = value; }
         }
-        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100) : base(CScene, _Player)
+        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100, int AttackRadius = 100) : base(CScene, _Player)
         {
             _Enemy=CreateEnemy(CScene,x,y);
             this.MoveSpeed = MoveSpeed;
@@ -45,7 +46,7 @@ namespace HHD_StartItJam
         public override void Behavior()
         {
             if (_Move == EnemyMove.None) _Move = EnemyMove.Left;
-            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<75 && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 75)
+            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<_AttackRadius && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _AttackRadius)
             {
                 ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
             }

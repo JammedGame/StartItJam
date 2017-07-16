@@ -1092,5 +1092,41 @@
   <ItemGroup>
     <None Include="Resources\scytheL11.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip2Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip3Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip4Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip5Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip6Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip1Fliped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Whip2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

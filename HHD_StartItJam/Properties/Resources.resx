@@ -829,4 +829,40 @@
   <data name="ScUp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScUp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Whip1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip1Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip1Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip2Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip2Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip3Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip3Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip4Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip4Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip5Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip5Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Whip6Fliped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Whip6Fliped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

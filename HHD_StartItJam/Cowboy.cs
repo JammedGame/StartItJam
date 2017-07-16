@@ -51,7 +51,8 @@ namespace HHD_StartItJam
             if(_AtkTimer == 1)
             {
                 _AtkTimer = 0;
-                HealthBar.subHealth(5);
+                ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = false;
+                HealthBar.subHealth(1);
                 if (HealthBar.empty())
                 {
                     GameLogic.Create().RunMenu();
@@ -64,12 +65,18 @@ namespace HHD_StartItJam
                 {
                     if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X)
                     {
-                        ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttL");
+                        ((Sprite)_Enemy.Visual).SetSpriteSet("AttL");
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = true;
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Visual.Translation = new Vertex(_Enemy.Visual.Translation.X - 200, _Enemy.Visual.Translation.Y, 0);
+                        ((Sprite)((DrawnSceneObject)_Enemy.Data["Whip"]).Visual).SetSpriteSet(1);
                         _AtkTimer = 20;
                     }
                     else if (_Player.Visual.Translation.X > _Enemy.Visual.Translation.X)
                     {
-                        ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
+                        ((Sprite)_Enemy.Visual).SetSpriteSet("AttR");
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Active = true;
+                        ((Sprite)((DrawnSceneObject)_Enemy.Data["Whip"]).Visual).SetSpriteSet(0);
+                        ((DrawnSceneObject)_Enemy.Data["Whip"]).Visual.Translation = new Vertex(_Enemy.Visual.Translation.X - 200, _Enemy.Visual.Translation.Y, 0);
                         _AtkTimer = 20;
                     }
                 }
@@ -143,6 +150,22 @@ namespace HHD_StartItJam
             }
             else return -1;
         }
+        public DrawnSceneObject CreateWhip(int x, int y)
+        {
+            SpriteSet WhipSet = new SpriteSet();
+            for (int i = 0; i < 6; i++) WhipSet.Sprite.Add(ResourceManager.Images["Whip" + (i + 1)]);
+            SpriteSet WhipSetFliped = new SpriteSet();
+            for (int i = 0; i < 6; i++) WhipSetFliped.Sprite.Add(ResourceManager.Images["Whip" + (i + 1) + "Fliped"]);
+            Sprite WhipSprite = new Sprite();
+            WhipSprite.SpriteSets.Add(WhipSet);
+            WhipSprite.SpriteSets.Add(WhipSetFliped);
+            WhipSprite.Translation = new Vertex(x, y, 0);
+            WhipSprite.Scale = new Vertex(800, 300, 0);
+            DrawnSceneObject Whip = new DrawnSceneObject("Whip", WhipSprite);
+            Whip.ID = "djapewhip" + Sid;
+            Whip.Active = false;
+            return Whip;
+        }
         public DrawnSceneObject CreateEnemy(Scene2D Scene,int x,int y)
         {
             SpriteSet IdleR = new SpriteSet("IdleR");
@@ -158,7 +181,6 @@ namespace HHD_StartItJam
             SpriteSet AttL = new SpriteSet("AttL");
             for (int i = 0; i < 6; i++) AttL.Sprite.Add(ResourceManager.Images["Kaub1Att" + (i + 1) + "Fliped"]);
 
-
             Sprite CharSprite = new Sprite();
             CharSprite.SpriteSets.Add(IdleR);
             CharSprite.SpriteSets.Add(WalkR);
@@ -166,15 +188,18 @@ namespace HHD_StartItJam
             CharSprite.SpriteSets.Add(IdleL);
             CharSprite.SpriteSets.Add(WalkL);
             CharSprite.SpriteSets.Add(AttL);
-
-            CharSprite.Scale = new Vertex(300, 300, 0);
+            CharSprite.Scale = new Vertex(400, 300, 0);
             CharSprite.Translation = new Vertex(x , y , 0);
-            
-            DrawnSceneObject Char = new DrawnSceneObject("Cowboy", CharSprite);            
-            Char.ID = "djape" + Sid++;
 
-            Scene.AddSceneObject(Char);    
-         
+            DrawnSceneObject Whip = this.CreateWhip(x, y);
+
+            DrawnSceneObject Char = new DrawnSceneObject("Cowboy", CharSprite);
+            Char.ID = "djape" + Sid++;
+            Char.Data["Whip"] = Whip;
+
+            Scene.AddSceneObject(Char);
+            Scene.AddSceneObject(Whip);
+
             return Char;
         }       
     }

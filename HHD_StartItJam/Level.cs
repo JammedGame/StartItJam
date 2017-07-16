@@ -69,6 +69,7 @@ namespace HHD_StartItJam
             PowerUps PU = new PowerUps(CScene);
             CScene.Data["PowerUps"] = PU;
 
+            CScene.AddSceneObject(CreateStaticSprite("Asset", ResourceManager.Images["banner"], new Vertex(9000, 500, 0), new Vertex(200, 400, 0), true, Collision2DType.Focus));
         }
         public static void CreateAsset(Scene2D CScene, int Index, int XLocation, int Level)
         {

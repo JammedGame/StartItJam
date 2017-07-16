@@ -61,7 +61,9 @@ namespace HHD_StartItJam
                     ((Sprite)_Player.Visual).UpdateSpriteSet(1);
                    
                 }
-                _ADown = true;
+                _ADown = true;
+                Sound.Instance().PlayIncremental("walk");
+
                 _Player.Data["Orient"] = 1;
             }
             if (E.KeyDown == KeyType.S)
@@ -76,12 +78,16 @@ namespace HHD_StartItJam
                     ((Sprite)_Player.Visual).UpdateSpriteSet(0);
                     
                 }
-                _DDown = true;
+                _DDown = true;
+                Sound.Instance().PlayIncremental("walk");
+
                 _Player.Data["Orient"] = 0;
             }
 
             if (E.KeyDown == KeyType.K)
-            {
+            {
+                Sound.Instance().Play("swing");
+
                 if ((int)_Player.Data["Orient"]==0) {
                     ((Sprite)_Player.Data["ScytheSprite"]).SetBackUpSpriteSet(0);
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("AttR");
@@ -94,8 +100,15 @@ namespace HHD_StartItJam
                 for (int i = 0; i < Cowboys.Count; i++)
                 {
                     if (Cowboys[i].PlayerHit() != -1)
-                    {
-                        //CScene.Objects.Remove(Cowboys[i].Enemy);
+                    {
+
+                        //CScene.Objects.Remove(Cowboys[i].Enemy);
+                        if (!Cowboys[i].Enemy.Data.ContainsKey("Dead"))
+                        {
+                            Sound.Instance().Play("kill");
+
+                        }
+
                         Cowboys[i].Enemy.Visual.Active = false;
                         Cowboys[i].Enemy.Data["Dead"] = true;
                         ((DrawnSceneObject)Cowboys[i].Enemy.Data["Whip"]).Active = false;
@@ -120,7 +133,9 @@ namespace HHD_StartItJam
                 else
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
-                }
+                }
+
+                Sound.Instance().Stop("walk");
 
                 _ADown = false;
             }
@@ -138,8 +153,11 @@ namespace HHD_StartItJam
                 else
                 {
                     ((Sprite)_Player.Data["ScytheSprite"]).UpdateSpriteSet("ScytheR");
-                }
-
+                }
+
+
+                Sound.Instance().Stop("walk");
+
                 _DDown = false;
             }
             if (E.KeyDown == KeyType.Space)

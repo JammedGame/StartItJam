@@ -64,6 +64,8 @@ namespace HHD_StartItJam
                     ((Sprite)_Player.Visual).UpdateSpriteSet(1);
                    
                 }
+                Sound.Instance().PlayIncremental("walk");
+
                 _ADown = true;
                 _Player.Data["Orient"] = 1;
             }
@@ -79,6 +81,8 @@ namespace HHD_StartItJam
                     ((Sprite)_Player.Visual).UpdateSpriteSet(0);
                     
                 }
+                Sound.Instance().PlayIncremental("walk");
+
                 _DDown = true;
                 _Player.Data["Orient"] = 0;
             }
@@ -87,12 +91,15 @@ namespace HHD_StartItJam
             {
                 //((Sprite)_Player.Visual).SetBackUpSpriteSet(0);
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Attack");
+                Sound.Instance().Play("swing");
                 for (int i = 0; i < Cowboys.Count; i++)
                 {
                     if (Cowboys[i].PlayerHit() != -1)
                     {
                         //CScene.Objects.Remove(Cowboys[i].Enemy);
                         Cowboys[i].Enemy.Visual.Active = false;
+                        Sound.Instance().Play("kill");
+
                     }
                 }
             }
@@ -107,7 +114,7 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.A)
             {
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
-
+                Sound.Instance().Stop("walk");
                 _ADown = false;
             }
             if (E.KeyDown == KeyType.S)
@@ -117,6 +124,7 @@ namespace HHD_StartItJam
             if (E.KeyDown == KeyType.D)
             {
                 //((Sprite)_Player.Visual).UpdateSpriteSet("Idle");
+                Sound.Instance().Stop("walk");
 
                 _DDown = false;
             }

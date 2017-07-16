@@ -10,6 +10,7 @@ namespace Engineer.Engine
     public class SoundSceneObject : SceneObject
     {
         private bool _Looped;
+        private bool Playing;
         private string _Path;
         private MediaPlayer _Player;
         private EventHandler _LoopHandler;
@@ -41,6 +42,8 @@ namespace Engineer.Engine
             this._Player = new System.Windows.Media.MediaPlayer();
             this._Player.Open(new Uri(Path, UriKind.Relative));
             this._LoopHandler = new EventHandler(this.Ended);
+            this._Player.MediaEnded += this._LoopHandler;
+
         }
         public SoundSceneObject(SoundSceneObject SSO, Scene ParentScene) : base(SSO, ParentScene)
         {
@@ -48,28 +51,52 @@ namespace Engineer.Engine
             this._Looped = SSO._Looped;
             this._Player = SSO._Player;
             this._LoopHandler = new EventHandler(this.Ended);
+            this._Player.MediaEnded += this._LoopHandler;
+
         }
         public void Play()
         {
             this._Player.Stop();
             this._Player.Play();
             this._Looped = false;
+            this.Playing = true;
         }
         public void PlayLooped()
         {
-            this._Player.Stop();
+            // If looped just continue
+            // this._Player.Stop();
             this._Player.Play();
             this._Looped = true;
-            this._Player.MediaEnded += this._LoopHandler;
+            this.Playing = true;
+
         }
         private void Ended(object sender, EventArgs e)
         {
-            if(!this._Looped)
+            if (this._Looped)
             {
-                this._Player.MediaEnded -= this._LoopHandler;
+                this._Player.Stop();
+                this._Player.Play();
             }
-            this._Player.Stop();
-            this._Player.Play();
+            else
+            {
+                Playing = false;
+            }
+        }
+        public void Stop()
+        {
+            this.Playing = false;
+            if (_Looped)
+            {
+                _Player.Pause();
+            }
+            else
+            {
+                _Player.Stop();
+            }
+        }
+        public bool IsPlaying()
+        {
+            return Playing;
         }
     }
 }

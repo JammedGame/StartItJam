@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="CollisionChecker.cs" />
     <Compile Include="Cowboy.cs" />
     <Compile Include="PowerUps.cs" />

@@ -64,6 +64,17 @@ namespace HHD_StartItJam
             CScene.Data["PowerUps"] = PU;
 
         }
+        public static void CreateEnemies(Scene2D CScene, DrawnSceneObject Player)
+        {
+            CreateEnemy(CScene, Player, 0, 10, 1, 5, 1);
+            CreateEnemy(CScene, Player, 0, 18, 2, 3, 0);
+            CreateEnemy(CScene, Player, 0, 21, 1, 3, 0);
+            CreateEnemy(CScene, Player, 0, 20, 4, 5, 2);
+        }
+        public static void CreateEnemy(Scene2D CScene, DrawnSceneObject Player, int Type, int XLocation, int Index, int Length, int Level)
+        {
+            Movement.Cowboys.Add(new Cowboy(CScene, Player, XLocation*300 - 50, 570 - Level*600, 2, 600, 300*Index, 300*(Length-Index) - 200, 300));
+        }
         public static void CreateTequila(Scene2D CScene, int XLocation, int Level)
         {
             DrawnSceneObject Coin = CreateStaticSprite("Coin", ResourceManager.Images["tequila"], new Vertex(XLocation * 300 + 70, (Level-1) * (-600) + 80, 0), new Vertex(160, 200, 0));

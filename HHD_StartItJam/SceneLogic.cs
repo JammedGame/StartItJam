@@ -21,6 +21,7 @@ namespace HHD_StartItJam
             Level.Create(this._Scene);
             _Player = Character.Create(CScene);
             CreateCharacter();
+            Level.CreateEnemies(CScene, _Player);
             this._Movement = new Movement(_Player, CScene);
             CScene.Events.Extern.TimerTick += new GameEventHandler(GameUpdateEvent);
             CScene.Events.Extern.KeyDown += new GameEventHandler(_Movement.KeyDownEvent);

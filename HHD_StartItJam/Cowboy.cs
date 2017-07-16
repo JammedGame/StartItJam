@@ -19,6 +19,7 @@ namespace HHD_StartItJam
     class Cowboy : Enemy
     {
         private static int Sid = 0;
+        private int _AtkTimer = 0;
         private int id;
         private int MoveSpeed;
         private int _Sight;
@@ -33,7 +34,7 @@ namespace HHD_StartItJam
             get { return _Enemy; }
             set { _Enemy = value; }
         }
-        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100, int AttackRadius = 100) : base(CScene, _Player)
+        public Cowboy(Scene2D CScene, DrawnSceneObject _Player,int x, int y, int MoveSpeed=1, int Sight = 700, int LeftAreaWalk=100, int RightAreaWalk=100, int AttackRadius = 200) : base(CScene, _Player)
         {
             _Enemy=CreateEnemy(CScene,x,y);
             this.MoveSpeed = MoveSpeed;
@@ -42,15 +43,38 @@ namespace HHD_StartItJam
             this._LeftAreaWalk = LeftAreaWalk;
             this._RightAreaWalk = RightAreaWalk;
             this._OriginalLocation = _Enemy.Visual.Translation;
+            this._AttackRadius = AttackRadius;
         }
         public override void Behavior()
         {
-            if (_Move == EnemyMove.None) _Move = EnemyMove.Left;
-            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X)<_AttackRadius && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _AttackRadius)
+            if (_AtkTimer != 0) _AtkTimer--;
+            if(_AtkTimer == 1)
             {
-                ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
+                _AtkTimer = 0;
+                HealthBar.subHealth(5);
+                if (HealthBar.empty())
+                {
+                    GameLogic.Create().RunMenu();
+                }
             }
-            else if (Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < 500 && Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
+            if (_Move == EnemyMove.None) _Move = EnemyMove.Left;
+            if (Math.Abs(_Player.Visual.Translation.X -_Enemy.Visual.Translation.X) <_AttackRadius && Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _AttackRadius)
+            {
+                if (_AtkTimer == 0)
+                {
+                    if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X)
+                    {
+                        ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttL");
+                        _AtkTimer = 20;
+                    }
+                    else if (_Player.Visual.Translation.X > _Enemy.Visual.Translation.X)
+                    {
+                        ((Sprite)_Enemy.Visual).UpdateSpriteSet("AttR");
+                        _AtkTimer = 20;
+                    }
+                }
+            }
+            else if (Math.Abs(_Player.Visual.Translation.Y - _Enemy.Visual.Translation.Y) < _Sight && Math.Abs(_Player.Visual.Translation.X - _Enemy.Visual.Translation.X) < _Sight)
             {
                 if (_Player.Visual.Translation.X < _Enemy.Visual.Translation.X) _Move = EnemyMove.Left;
                 else _Move = EnemyMove.Right;
@@ -126,7 +150,7 @@ namespace HHD_StartItJam
             SpriteSet WalkR = new SpriteSet("WalkR");
             for (int i = 0; i < 9; i++) WalkR.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1)]);
             SpriteSet AttR = new SpriteSet("AttR");
-            for (int i = 0; i < 6; i++) AttR.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1)]);
+            for (int i = 0; i < 6; i++) AttR.Sprite.Add(ResourceManager.Images["Kaub1Att" + (i + 1)]);
             SpriteSet IdleL = new SpriteSet("IdleL");
             for (int i = 0; i < 1; i++) IdleL.Sprite.Add(ResourceManager.Images["Kaub1Walk" + (i + 1) + "Fliped"]);
             SpriteSet WalkL = new SpriteSet("WalkL");
